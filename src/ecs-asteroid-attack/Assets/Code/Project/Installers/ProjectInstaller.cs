@@ -1,0 +1,103 @@
+using Code.Common.Curtains;
+using Code.Common.EntityFactories;
+using Code.Common.Physics;
+using Code.Common.Randoms;
+using Code.Common.View.Factories;
+using Code.Infrastructure.AssetManagement;
+using Code.Infrastructure.Identifiers;
+using Code.Infrastructure.Instantioator;
+using Code.Infrastructure.LifetimeScope.Installers;
+using Code.Infrastructure.Progress;
+using Code.Infrastructure.SceneManagement;
+using Code.Infrastructure.States;
+using Code.Infrastructure.States.Resolvers;
+using Code.Infrastructure.StaticData;
+using Code.Infrastructure.Systems;
+using Code.Infrastructure.Time;
+using Code.Infrastructure.WindowManagement.Factories;
+using Code.Infrastructure.WindowManagement.Services;
+using Code.Project.States;
+using VContainer;
+using VContainer.Unity;
+
+namespace Code.Project.Installers
+{
+  public class ProjectInstaller : MonoBehaviourInstaller
+  {
+    public override void Install(IContainerBuilder builder)
+    {
+      RegisterContexts(builder);
+      RegisterCurtain(builder);
+
+      RegisterStaticData(builder);
+      RegisterProgressData(builder);
+
+      RegisterCommonServices(builder);
+      RegisterFactories(builder);
+
+      RegisterStateMachine(builder);
+      RegisterStates(builder);
+    }
+
+    private static void RegisterContexts(IContainerBuilder builder)
+    {
+      builder.RegisterInstance(Contexts.sharedInstance.game);
+      builder.RegisterInstance(Contexts.sharedInstance.input);
+      builder.RegisterInstance(Contexts.sharedInstance.meta);
+    }
+
+    private static void RegisterCurtain(IContainerBuilder builder)
+    {
+      builder.RegisterComponentInNewPrefab(CurtainPrefabResolver.Resolver, Lifetime.Singleton)
+        .DontDestroyOnLoad()
+        .As<ICurtainService>();
+    }
+
+    private static void RegisterProgressData(IContainerBuilder builder)
+    {
+      builder.Register<ProgressDataProvider>(Lifetime.Singleton).As<IProgressDataProvider>().AsSelf();
+    }
+
+    private static void RegisterStaticData(IContainerBuilder builder)
+    {
+      builder.Register<StaticDataService>(Lifetime.Singleton).As<IStaticDataService>();
+    }
+
+    private static void RegisterStateMachine(IContainerBuilder builder)
+    {
+      builder.Register<StateResolver>(Lifetime.Singleton).As<IStateResolver>();
+      builder.Register<StateMachine>(Lifetime.Singleton).AsImplementedInterfaces();
+    }
+
+    private static void RegisterStates(IContainerBuilder builder)
+    {
+      builder.Register<BootstrapState>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+      builder.Register<LoadHomeState>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+      builder.Register<HomeState>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+    }
+
+    private static void RegisterCommonServices(IContainerBuilder builder)
+    {
+      builder.Register<IdProvider>(Lifetime.Singleton).As<IIdProvider>();
+      builder.Register<UnityTimeService>(Lifetime.Singleton).As<ITimeService>();
+      builder.Register<SystemRandomService>(Lifetime.Singleton).As<IRandomService>();
+
+      builder.Register<UnityResourcesAssetProvider>(Lifetime.Singleton).As<IAssetProvider>();
+      builder.Register<UnitySceneLoader>(Lifetime.Singleton).As<ISceneLoader>();
+
+      builder.Register<ColliderToEntityRegistryResolver>(Lifetime.Singleton).AsImplementedInterfaces();
+      builder.Register<UnityPhysicsService>(Lifetime.Singleton).As<IPhysicsService>();
+
+      builder.Register<WindowService>(Lifetime.Singleton).As<IWindowService>();
+    }
+
+    private static void RegisterFactories(IContainerBuilder builder)
+    {
+      builder.Register<Instantiator>(Lifetime.Singleton).As<IInstantiator>();
+      builder.Register<EntityViewFactory>(Lifetime.Singleton).As<IEntityViewFactory>();
+      builder.Register<SystemFactory>(Lifetime.Singleton).As<ISystemFactory>();
+      builder.Register<EntityFactory>(Lifetime.Singleton).As<IEntityFactory>();
+      builder.Register<WindowFactory>(Lifetime.Singleton).As<IWindowFactory>();
+    }
+  }
+}
