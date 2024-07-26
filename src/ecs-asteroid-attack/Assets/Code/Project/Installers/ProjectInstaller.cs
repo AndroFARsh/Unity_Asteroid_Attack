@@ -71,9 +71,11 @@ namespace Code.Project.Installers
 
     private static void RegisterStates(IContainerBuilder builder)
     {
-      builder.Register<BootstrapState>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
-      builder.Register<LoadHomeState>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
-      builder.Register<HomeState>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+      builder.Register<BootstrapState>(Lifetime.Singleton).AsSelf();
+      builder.Register<LoadHomeState>(Lifetime.Singleton).AsSelf();
+      builder.Register<HomeState>(Lifetime.Singleton).AsSelf();
+      builder.Register<LoadLevelsState>(Lifetime.Singleton).AsSelf();
+      builder.Register<LevelsState>(Lifetime.Singleton).AsSelf();
     }
 
     private static void RegisterCommonServices(IContainerBuilder builder)
