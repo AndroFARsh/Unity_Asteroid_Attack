@@ -651,7 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4719604537119356498, guid: 27235d9176529466e913530f96690c84, type: 3}
       propertyPath: m_Name
-      value: LevelsUI
+      value: LevelMenuUI
       objectReference: {fileID: 0}
     - target: {fileID: 5081063039065557749, guid: 27235d9176529466e913530f96690c84, type: 3}
       propertyPath: m_AnchorMax.y
