@@ -1,5 +1,5 @@
-using Code.Infrastructure.WindowManagement;
-using Code.Infrastructure.WindowManagement.Configs;
+using Code.Infrastructure.Windows;
+using Code.Infrastructure.Windows.Configs;
 using Code.Levels.Configs;
 
 namespace Code.Infrastructure.StaticData

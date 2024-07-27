@@ -3,6 +3,9 @@ using Code.Common.EntityFactories;
 using Code.Common.Physics;
 using Code.Common.Randoms;
 using Code.Common.View.Factories;
+using Code.Game.HUD;
+using Code.Game.Windows.Pause;
+using Code.Home.UI.MainMenu;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Instantioator;
@@ -14,8 +17,11 @@ using Code.Infrastructure.States.Resolvers;
 using Code.Infrastructure.StaticData;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Time;
-using Code.Infrastructure.WindowManagement.Factories;
-using Code.Infrastructure.WindowManagement.Services;
+using Code.Infrastructure.Windows.Factories;
+using Code.Infrastructure.Windows.Services;
+using Code.Levels.UI.Factories;
+using Code.Levels.UI.LevelsButton;
+using Code.Levels.UI.LevelsMenu;
 using Code.Project.States;
 using VContainer;
 using VContainer.Unity;
@@ -37,6 +43,9 @@ namespace Code.Project.Installers
 
       RegisterStateMachine(builder);
       RegisterStates(builder);
+      
+      RegisterUIViewServices(builder);
+      RegisterUIFactories(builder);
     }
 
     private static void RegisterContexts(IContainerBuilder builder)
@@ -76,6 +85,8 @@ namespace Code.Project.Installers
       builder.Register<HomeState>(Lifetime.Singleton).AsSelf();
       builder.Register<LoadLevelsState>(Lifetime.Singleton).AsSelf();
       builder.Register<LevelsState>(Lifetime.Singleton).AsSelf();
+      builder.Register<LoadGameState>(Lifetime.Singleton).AsSelf();
+      builder.Register<GameState>(Lifetime.Singleton).AsSelf();
     }
 
     private static void RegisterCommonServices(IContainerBuilder builder)
@@ -100,6 +111,22 @@ namespace Code.Project.Installers
       builder.Register<SystemFactory>(Lifetime.Singleton).As<ISystemFactory>();
       builder.Register<EntityFactory>(Lifetime.Singleton).As<IEntityFactory>();
       builder.Register<WindowFactory>(Lifetime.Singleton).As<IWindowFactory>();
+    }
+    
+    private void RegisterUIFactories(IContainerBuilder builder)
+    {
+      builder.Register<LevelButtonFactory>(Lifetime.Singleton).AsImplementedInterfaces();
+    }
+
+    private static void RegisterUIViewServices(IContainerBuilder builder)
+    {
+      builder.Register<MainMenuUIService>(Lifetime.Singleton).AsImplementedInterfaces();
+      
+      builder.Register<LevelsMenuUIService>(Lifetime.Singleton).AsImplementedInterfaces();
+      builder.Register<LevelButtonUIService>(Lifetime.Singleton).AsImplementedInterfaces();
+      
+      builder.Register<GameHUDService>(Lifetime.Singleton).AsImplementedInterfaces();
+      builder.Register<PauseWindowService>(Lifetime.Singleton).AsImplementedInterfaces();
     }
   }
 }
