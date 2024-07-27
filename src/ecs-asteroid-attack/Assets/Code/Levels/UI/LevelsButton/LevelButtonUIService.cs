@@ -1,6 +1,8 @@
 using Code.Common.View.UI;
+using Code.Infrastructure.States;
 using Code.Infrastructure.StaticData;
 using Code.Levels.Configs;
+using Code.Project.States;
 using UnityEngine;
 
 namespace Code.Levels.UI.LevelsButton
@@ -8,10 +10,12 @@ namespace Code.Levels.UI.LevelsButton
   public class LevelButtonUIService : IUIViewService<LevelButtonUIView>
   {
     private readonly IStaticDataService _staticDataService;
+    private readonly IStateMachine _stateMachine;
 
-    public LevelButtonUIService(IStaticDataService staticDataService)
+    public LevelButtonUIService(IStaticDataService staticDataService, IStateMachine stateMachine)
     {
       _staticDataService = staticDataService;
+      _stateMachine = stateMachine;
     }
     
     public void OnAttach(LevelButtonUIView view)
@@ -24,9 +28,7 @@ namespace Code.Levels.UI.LevelsButton
 
     public void OnDetach(LevelButtonUIView view) => view.Button.onClick.RemoveAllListeners();
 
-    private void OnLevelButtonClick(LevelConfig config)
-    {
-      Debug.Log( $"Level: {config.Number+1} Name: {config.Name}");
-    }
+    private void OnLevelButtonClick(LevelConfig config) =>
+      _stateMachine.Enter<LoadGameState, LevelConfig>(config);
   }
 }
