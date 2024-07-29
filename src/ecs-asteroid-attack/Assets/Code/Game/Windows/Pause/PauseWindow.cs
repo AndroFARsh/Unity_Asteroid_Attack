@@ -1,4 +1,5 @@
 using Code.Common.View.UI;
+using Code.Infrastructure.UI;
 using Code.Infrastructure.Windows;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,16 +15,16 @@ namespace Code.Game.Windows.Pause
     public Button Resume => _resumeButton;
     public Button Exit => _exitButton;
     
-    private IUIViewService<PauseWindow> _viewService;
+    private IUIViewPresenter<PauseWindow> _viewPresenter;
     
     [Inject]
-    public void Construct(IUIViewService<PauseWindow> viewService)
+    public void Construct(IUIViewPresenter<PauseWindow> viewPresenter)
     {
-      _viewService = viewService;
+      _viewPresenter = viewPresenter;
     }
 
-    protected override void OnResume() => _viewService.OnAttach(this);
+    protected override void OnResume() => _viewPresenter.OnAttach(this);
 
-    protected override void OnPause() => _viewService.OnDetach(this);
+    protected override void OnPause() => _viewPresenter.OnDetach(this);
   }
 }

@@ -8,7 +8,7 @@ namespace Code.Common.View.Factories
 {
   public class EntityViewFactory : IEntityViewFactory
   {
-    private static readonly Vector3 _farAway = new(999, 999, 999);
+    private static readonly Vector3 _farAway = new(999, 999, 0);
     
     private readonly IObjectResolver _objectResolver;
     private readonly IAssetProvider _assetProvider;
@@ -36,8 +36,5 @@ namespace Code.Common.View.Factories
 
       return view;
     }
-
-
-    
   }
 }

@@ -8,5 +8,6 @@ namespace Code.Levels.Configs
     public int Number;
     public string Name;
     public string SceneName;
+    public Vector3 PlayerSpawnPoint = Vector3.zero;
   }
 }
