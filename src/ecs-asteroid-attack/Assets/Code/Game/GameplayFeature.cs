@@ -1,5 +1,6 @@
 using Code.Common.Destroy;
 using Code.Common.View;
+using Code.Game.Cameras;
 using Code.Game.Input;
 using Code.Game.Movement;
 using Code.Game.Player;
@@ -17,6 +18,7 @@ namespace Code.Game
       Add(systems.Create<ViewFeature>());
       
       Add(systems.Create<MovementFeature>());
+      Add(systems.Create<CamerasFeature>());
       
       Add(systems.Create<GameplayViewFeature>());
       Add(systems.Create<DestroyFeature>());
