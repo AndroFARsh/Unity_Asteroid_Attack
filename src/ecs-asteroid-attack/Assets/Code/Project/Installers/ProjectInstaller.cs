@@ -3,6 +3,7 @@ using Code.Common.EntityFactories;
 using Code.Common.Physics;
 using Code.Common.Randoms;
 using Code.Common.View.Factories;
+using Code.Game.Cameras.Services;
 using Code.Game.HUD;
 using Code.Game.HUD.Services;
 using Code.Game.Input.Service;
@@ -110,8 +111,6 @@ namespace Code.Project.Installers
       builder.Register<UnityPhysicsService>(Lifetime.Singleton).As<IPhysicsService>();
 
       builder.Register<WindowService>(Lifetime.Singleton).As<IWindowService>();
-      
-      builder.Register<LevelDataProvider>(Lifetime.Singleton).As<ILevelDataProvider>();
     }
 
     private static void RegisterFactories(IContainerBuilder builder)
@@ -147,6 +146,8 @@ namespace Code.Project.Installers
     private static void RegisterGameplayServices(IContainerBuilder builder)
     {
       builder.Register<SimpleInputService>(Lifetime.Singleton).As<IInputService>();
+      builder.Register<CameraProvider>(Lifetime.Singleton).As<ICameraProvider>();
+      builder.Register<LevelDataProvider>(Lifetime.Singleton).As<ILevelDataProvider>();
     }
 
     private static void RegisterGameplayFactories(IContainerBuilder builder)
