@@ -1,4 +1,5 @@
 using Code.Common.View.UI;
+using Code.Infrastructure.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ namespace Code.Game.HUD
     [SerializeField] private TextMeshProUGUI _lives;
     [SerializeField] private Button _menuButton;
     
-    private IUIViewService<GameHUDView> _viewService;
+    private IUIViewPresenter<GameHUDView> _viewPresenter;
 
     public TextMeshProUGUI Score => _score;
     public TextMeshProUGUI Waves => _waves;
@@ -21,13 +22,13 @@ namespace Code.Game.HUD
     public Button Menu => _menuButton;
 
     [Inject]
-    public void Construct(IUIViewService<GameHUDView> viewService)
+    public void Construct(IUIViewPresenter<GameHUDView> viewPresenter)
     {
-      _viewService = viewService;
+      _viewPresenter = viewPresenter;
     }
 
-    private void Awake() => _viewService.OnAttach(this);
+    private void Awake() => _viewPresenter.OnAttach(this);
     
-    private void OnDestroy() => _viewService.OnDetach(this);
+    private void OnDestroy() => _viewPresenter.OnDetach(this);
   }
 }

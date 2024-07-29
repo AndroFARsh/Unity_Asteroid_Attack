@@ -2,29 +2,34 @@ using Code.Common.Curtains;
 using Code.Game;
 using Code.Infrastructure.States.Infrastructure;
 using Code.Infrastructure.Systems;
-using Code.Levels.Configs;
 using Cysharp.Threading.Tasks;
 
 namespace Code.Project.States
 {
-  public class GameState : EndOfFramePayloadState<LevelConfig>
+  public class GameState : EndOfFrameNoPayloadState
   {
+    private readonly InputContext _input;
     private readonly GameContext _game;
     private readonly ISystemFactory _systemFactory;
     private readonly ICurtainService _curtainService;
 
-    private GameFeature _feature;
+    private GameplayFeature _feature;
 
-    public GameState(GameContext game, ISystemFactory systemFactory, ICurtainService curtainService)
+    public GameState(
+      InputContext input,
+      GameContext game,
+      ISystemFactory systemFactory, 
+      ICurtainService curtainService)
     {
+      _input = input;
       _game = game;
       _systemFactory = systemFactory;
       _curtainService = curtainService;
     }
 
-    protected override void OnEnter(LevelConfig config)
+    protected override void OnEnter()
     {
-      _feature = _systemFactory.Create<GameFeature>(config);
+      _feature = _systemFactory.Create<GameplayFeature>();
       _feature.Initialize();
       
       _curtainService.Hide().Forget();
@@ -52,6 +57,9 @@ namespace Code.Project.States
 
     private void MarkAllEntitiesReadyToDestroy()
     {
+      foreach (InputEntity entity in _input.GetEntities())
+        entity.isReadyToDestroy = true;
+      
       foreach (GameEntity entity in _game.GetEntities())
         entity.isReadyToDestroy = true;
     }

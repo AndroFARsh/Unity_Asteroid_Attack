@@ -14,8 +14,29 @@ public static class GameComponentsLookup {
     public const int View = 3;
     public const int ViewPath = 4;
     public const int ViewPrefab = 5;
+    public const int Collider2D = 6;
+    public const int CollideRadius = 7;
+    public const int LayerMask = 8;
+    public const int Rigidbody2D = 9;
+    public const int SpriteRenderer = 10;
+    public const int Transform = 11;
+    public const int WorldPosition = 12;
+    public const int MaxMoveSpeed = 13;
+    public const int Movable = 14;
+    public const int MoveAcceleration = 15;
+    public const int MoveDirection = 16;
+    public const int MoveVelocity = 17;
+    public const int Moving = 18;
+    public const int Rotatable = 19;
+    public const int RotateDirection = 20;
+    public const int Rotating = 21;
+    public const int RotationSpeed = 22;
+    public const int Player = 23;
+    public const int PlayerCurrentLive = 24;
+    public const int PlayerSpawner = 25;
+    public const int PlayerTotalLive = 26;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -23,7 +44,28 @@ public static class GameComponentsLookup {
         "SelfDestroyTimer",
         "View",
         "ViewPath",
-        "ViewPrefab"
+        "ViewPrefab",
+        "Collider2D",
+        "CollideRadius",
+        "LayerMask",
+        "Rigidbody2D",
+        "SpriteRenderer",
+        "Transform",
+        "WorldPosition",
+        "MaxMoveSpeed",
+        "Movable",
+        "MoveAcceleration",
+        "MoveDirection",
+        "MoveVelocity",
+        "Moving",
+        "Rotatable",
+        "RotateDirection",
+        "Rotating",
+        "RotationSpeed",
+        "Player",
+        "PlayerCurrentLive",
+        "PlayerSpawner",
+        "PlayerTotalLive"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -32,6 +74,27 @@ public static class GameComponentsLookup {
         typeof(Code.Common.SelfDestroyTimerComponent),
         typeof(Code.Common.ViewComponent),
         typeof(Code.Common.ViewPathComponent),
-        typeof(Code.Common.ViewPrefabComponent)
+        typeof(Code.Common.ViewPrefabComponent),
+        typeof(Code.Game.Common.Collider2DComponent),
+        typeof(Code.Game.Common.CollideRadiusComponent),
+        typeof(Code.Game.Common.LayerMaskComponent),
+        typeof(Code.Game.Common.Rigidbody2DComponent),
+        typeof(Code.Game.Common.SpriteRendererComponent),
+        typeof(Code.Game.Common.TransformComponent),
+        typeof(Code.Game.Common.WorldPositionComponent),
+        typeof(Code.Game.Movement.MaxMoveSpeedComponent),
+        typeof(Code.Game.Movement.MovableComponent),
+        typeof(Code.Game.Movement.MoveAccelerationComponent),
+        typeof(Code.Game.Movement.MoveDirectionComponent),
+        typeof(Code.Game.Movement.MoveVelocityComponent),
+        typeof(Code.Game.Movement.MovingComponent),
+        typeof(Code.Game.Movement.RotatableComponent),
+        typeof(Code.Game.Movement.RotateDirectionComponent),
+        typeof(Code.Game.Movement.RotatingComponent),
+        typeof(Code.Game.Movement.RotationSpeedComponent),
+        typeof(Code.Game.Player.PlayerComponent),
+        typeof(Code.Game.Player.PlayerCurrentLiveComponent),
+        typeof(Code.Game.Player.PlayerSpawnerComponent),
+        typeof(Code.Game.Player.PlayerTotalLiveComponent)
     };
 }

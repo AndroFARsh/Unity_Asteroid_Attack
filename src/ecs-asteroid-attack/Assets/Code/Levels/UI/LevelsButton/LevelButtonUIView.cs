@@ -1,4 +1,5 @@
 using Code.Common.View.UI;
+using Code.Infrastructure.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,25 +18,25 @@ namespace Code.Levels.UI.LevelsButton
     public Button Button => _button;
     public int Level { get; private set; }
 
-    private IUIViewService<LevelButtonUIView> _viewService;
+    private IUIViewPresenter<LevelButtonUIView> _viewPresenter;
     
     [Inject]
-    public void Construct(IUIViewService<LevelButtonUIView> viewService)
+    public void Construct(IUIViewPresenter<LevelButtonUIView> viewPresenter)
     {
-      _viewService = viewService;
+      _viewPresenter = viewPresenter;
     }
 
     public void OnAttach(int level)
     {
       Level = level;
-      _viewService.OnAttach(this);
+      _viewPresenter.OnAttach(this);
     }
 
     public void OnDetach()
     {
-      _viewService.OnDetach(this);
+      _viewPresenter.OnDetach(this);
     }
 
-    private void OnDestroy() => _viewService.OnAttach(this);
+    private void OnDestroy() => _viewPresenter.OnAttach(this);
   }
 }

@@ -1,4 +1,5 @@
 using Code.Common.View.UI;
+using Code.Infrastructure.UI;
 using TMPro;
 using UnityEngine;
 using VContainer;
@@ -13,16 +14,16 @@ namespace Code.Levels.UI.LevelsMenu
     public TextMeshProUGUI Title => _title;
     public RectTransform Content => _content;
     
-    private IUIViewService<LevelsMenuUIView> _viewService;
+    private IUIViewPresenter<LevelsMenuUIView> _viewPresenter;
     
     [Inject]
-    public void Construct(IUIViewService<LevelsMenuUIView> viewService)
+    public void Construct(IUIViewPresenter<LevelsMenuUIView> viewPresenter)
     {
-      _viewService = viewService;
+      _viewPresenter = viewPresenter;
     }
 
-    private void Awake() => _viewService.OnAttach(this);
+    private void Awake() => _viewPresenter.OnAttach(this);
 
-    private void OnDestroy() => _viewService.OnDetach(this);
+    private void OnDestroy() => _viewPresenter.OnDetach(this);
   }
 }

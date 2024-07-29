@@ -4,6 +4,9 @@ using Code.Common.Physics;
 using Code.Common.Randoms;
 using Code.Common.View.Factories;
 using Code.Game.HUD;
+using Code.Game.HUD.Services;
+using Code.Game.Input.Service;
+using Code.Game.Player.Factories;
 using Code.Game.Windows.Pause;
 using Code.Home.UI.MainMenu;
 using Code.Infrastructure.AssetManagement;
@@ -19,6 +22,7 @@ using Code.Infrastructure.Systems;
 using Code.Infrastructure.Time;
 using Code.Infrastructure.Windows.Factories;
 using Code.Infrastructure.Windows.Services;
+using Code.Levels.Services;
 using Code.Levels.UI.Factories;
 using Code.Levels.UI.LevelsButton;
 using Code.Levels.UI.LevelsMenu;
@@ -43,11 +47,15 @@ namespace Code.Project.Installers
 
       RegisterStateMachine(builder);
       RegisterStates(builder);
-      
+
+      RegisterUIViewPresenters(builder);
       RegisterUIViewServices(builder);
       RegisterUIFactories(builder);
-    }
 
+      RegisterGameplayServices(builder);
+      RegisterGameplayFactories(builder);
+    }
+    
     private static void RegisterContexts(IContainerBuilder builder)
     {
       builder.RegisterInstance(Contexts.sharedInstance.game);
@@ -102,6 +110,8 @@ namespace Code.Project.Installers
       builder.Register<UnityPhysicsService>(Lifetime.Singleton).As<IPhysicsService>();
 
       builder.Register<WindowService>(Lifetime.Singleton).As<IWindowService>();
+      
+      builder.Register<LevelDataProvider>(Lifetime.Singleton).As<ILevelDataProvider>();
     }
 
     private static void RegisterFactories(IContainerBuilder builder)
@@ -113,20 +123,36 @@ namespace Code.Project.Installers
       builder.Register<WindowFactory>(Lifetime.Singleton).As<IWindowFactory>();
     }
     
-    private void RegisterUIFactories(IContainerBuilder builder)
+    private static void RegisterUIFactories(IContainerBuilder builder)
     {
       builder.Register<LevelButtonFactory>(Lifetime.Singleton).AsImplementedInterfaces();
     }
 
+    private static void RegisterUIViewPresenters(IContainerBuilder builder)
+    {
+      builder.Register<MainMenuIuiPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
+      
+      builder.Register<LevelsMenuIuiPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
+      builder.Register<LevelButtonIuiPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
+      
+      builder.Register<GameHUDPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
+      builder.Register<PauseWindowPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
+    }
+
     private static void RegisterUIViewServices(IContainerBuilder builder)
     {
-      builder.Register<MainMenuUIService>(Lifetime.Singleton).AsImplementedInterfaces();
-      
-      builder.Register<LevelsMenuUIService>(Lifetime.Singleton).AsImplementedInterfaces();
-      builder.Register<LevelButtonUIService>(Lifetime.Singleton).AsImplementedInterfaces();
-      
       builder.Register<GameHUDService>(Lifetime.Singleton).AsImplementedInterfaces();
-      builder.Register<PauseWindowService>(Lifetime.Singleton).AsImplementedInterfaces();
     }
+
+    private static void RegisterGameplayServices(IContainerBuilder builder)
+    {
+      builder.Register<SimpleInputService>(Lifetime.Singleton).As<IInputService>();
+    }
+
+    private static void RegisterGameplayFactories(IContainerBuilder builder)
+    {
+      builder.Register<PlayerFactory>(Lifetime.Singleton).As<IPlayerFactory>();
+    }
+
   }
 }

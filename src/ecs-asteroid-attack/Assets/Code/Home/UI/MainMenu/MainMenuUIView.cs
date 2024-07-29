@@ -1,4 +1,5 @@
 using Code.Common.View.UI;
+using Code.Infrastructure.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,16 +17,16 @@ namespace Code.Home.UI.MainMenu
     public TextMeshProUGUI Version => _version;
     public Button Play => _play;
     
-    private IUIViewService<MainMenuUIView> _viewService;
+    private IUIViewPresenter<MainMenuUIView> _viewPresenter;
     
     [Inject]
-    public void Construct(IUIViewService<MainMenuUIView> viewService)
+    public void Construct(IUIViewPresenter<MainMenuUIView> viewPresenter)
     {
-      _viewService = viewService;
+      _viewPresenter = viewPresenter;
     }
 
-    private void Awake() => _viewService.OnAttach(this);
+    private void Awake() => _viewPresenter.OnAttach(this);
 
-    private void OnDestroy() => _viewService.OnDetach(this);
+    private void OnDestroy() => _viewPresenter.OnDetach(this);
   }
 }

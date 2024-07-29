@@ -14,8 +14,12 @@ public static class InputComponentsLookup {
     public const int View = 3;
     public const int ViewPath = 4;
     public const int ViewPrefab = 5;
+    public const int Acceleration = 6;
+    public const int Fire = 7;
+    public const int Input = 8;
+    public const int Rotation = 9;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -23,7 +27,11 @@ public static class InputComponentsLookup {
         "SelfDestroyTimer",
         "View",
         "ViewPath",
-        "ViewPrefab"
+        "ViewPrefab",
+        "Acceleration",
+        "Fire",
+        "Input",
+        "Rotation"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -32,6 +40,10 @@ public static class InputComponentsLookup {
         typeof(Code.Common.SelfDestroyTimerComponent),
         typeof(Code.Common.ViewComponent),
         typeof(Code.Common.ViewPathComponent),
-        typeof(Code.Common.ViewPrefabComponent)
+        typeof(Code.Common.ViewPrefabComponent),
+        typeof(Code.Game.Input.AccelerationComponent),
+        typeof(Code.Game.Input.FireComponent),
+        typeof(Code.Game.Input.InputComponent),
+        typeof(Code.Game.Input.RotationComponent)
     };
 }
