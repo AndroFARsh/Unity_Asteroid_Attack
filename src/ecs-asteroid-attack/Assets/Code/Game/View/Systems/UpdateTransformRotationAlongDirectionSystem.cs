@@ -3,14 +3,17 @@ using UnityEngine;
 
 namespace Code.Game.View.Systems
 {
-  public class UpdateTransformRotationSystem : IExecuteSystem
+  public class UpdateTransformRotationAlongDirectionSystem : IExecuteSystem
   {
     private readonly IGroup<GameEntity> _entities;
 
-    public UpdateTransformRotationSystem(GameContext game)
+    public UpdateTransformRotationAlongDirectionSystem(GameContext game)
     {
       _entities = game.GetGroup(GameMatcher
-        .AllOf(GameMatcher.Transform, 
+        .AllOf(
+          GameMatcher.RotateAlongDirection,
+          GameMatcher.Rotating,
+          GameMatcher.Transform, 
           GameMatcher.MoveDirection));
     }
 

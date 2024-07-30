@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5488190625521945473, guid: 26a85cd3f379d47d78d0ed400a868bee, type: 3}
       propertyPath: m_Name
-      value: BaseAsteroid
+      value: SmallAsteroid_Variant_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

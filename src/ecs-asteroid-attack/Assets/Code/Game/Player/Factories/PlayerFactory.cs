@@ -22,7 +22,7 @@ namespace Code.Game.Player.Factories
       PlayerConfig config = _staticDataService.GetPlayerConfig();
       return _entityFactory.Create<GameEntity>()
         .With(e => e.isPlayer = true)
-        .With(e => e.isRotatable = true)
+        .With(e => e.isRotateAlongDirection = true)
         .AddRotationSpeed(config.RotateSpeed)
         .With(e => e.isMovable = true)
         .AddMoveDirection(config.InitialMoveDirection)

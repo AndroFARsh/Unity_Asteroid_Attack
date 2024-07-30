@@ -1,6 +1,7 @@
 using Code.Common.Destroy;
 using Code.Common.View;
 using Code.Game.Cameras;
+using Code.Game.HostileSpawners;
 using Code.Game.Input;
 using Code.Game.Movement;
 using Code.Game.Player;
@@ -15,6 +16,7 @@ namespace Code.Game
     {
       Add(systems.Create<InputFeature>());
       Add(systems.Create<PlayerFeature>());
+      Add(systems.Create<HostileSpawnerFeature>());
       Add(systems.Create<ViewFeature>());
       
       Add(systems.Create<MovementFeature>());

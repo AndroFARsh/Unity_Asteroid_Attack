@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace Code.Game.Movement.Systems
 {
-  public class RotateAlongRotationInputSystem : IExecuteSystem
+  public class RotateAlongDirectionSystem : IExecuteSystem
   {
     private readonly ITimeService _timeService;
     private readonly IGroup<GameEntity> _entities;
 
-    public RotateAlongRotationInputSystem(GameContext game, ITimeService timeService)
+    public RotateAlongDirectionSystem(GameContext game, ITimeService timeService)
     {
       _timeService = timeService;
       _entities = game.GetGroup(GameMatcher
         .AllOf(
-          GameMatcher.Rotatable,
+          GameMatcher.RotateAlongDirection,
           GameMatcher.Rotating,
           GameMatcher.MoveDirection,
           GameMatcher.RotateDirection));
@@ -25,6 +25,7 @@ namespace Code.Game.Movement.Systems
       foreach (GameEntity entity in _entities)
       {
         Vector2 forward = entity.MoveDirection;
+        
         float angle = -entity.RotateDirection * entity.RotationSpeed * Mathf.Deg2Rad;
         float sin = Mathf.Sin(angle);
         float cos = Mathf.Cos(angle);

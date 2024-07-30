@@ -27,11 +27,12 @@ namespace Code.Game.Cameras.Systems
 
         if (IsExitOfTheScreen(position) && IsMoveOutOfTheScreen(direction, position))
         {
-          if (position.x < _cameraProvider.ScreenBounds.min.x) position.x += _cameraProvider.WorldScreenWidth;
-          if (position.y < _cameraProvider.ScreenBounds.min.y) position.y += _cameraProvider.WorldScreenHeight;
-          if (position.x > _cameraProvider.ScreenBounds.max.x) position.x -= _cameraProvider.WorldScreenWidth;
-          if (position.y > _cameraProvider.ScreenBounds.max.y) position.y -= _cameraProvider.WorldScreenHeight;
-
+          if (position.x < _cameraProvider.ScreenBounds.min.x) position.x = _cameraProvider.ScreenBounds.max.x;
+          else if (position.x > _cameraProvider.ScreenBounds.max.x) position.x = _cameraProvider.ScreenBounds.min.x;
+          
+          if (position.y < _cameraProvider.ScreenBounds.min.y) position.y = _cameraProvider.ScreenBounds.max.y;
+          else if (position.y > _cameraProvider.ScreenBounds.max.y) position.y = _cameraProvider.ScreenBounds.min.y;
+          
           entity.ReplaceWorldPosition(position);
         }
       }
