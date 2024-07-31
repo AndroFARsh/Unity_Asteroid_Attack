@@ -8,7 +8,7 @@ namespace Code.Game.Movement
     public MovementFeature(ISystemFactory systems)
     {
       Add(systems.Create<MoveAlongDirectionSystem>());
-      Add(systems.Create<RotateAlongRotationInputSystem>());
+      Add(systems.Create<RotateAlongDirectionSystem>());
     }
   }
 }

@@ -1,4 +1,4 @@
-namespace Code.Common.Randoms
+namespace Code.Infrastructure.Randoms
 {
 	public class UnityRandomService : IRandomService
   {

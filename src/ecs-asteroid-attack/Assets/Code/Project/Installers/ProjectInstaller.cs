@@ -1,9 +1,9 @@
 using Code.Common.Curtains;
 using Code.Common.EntityFactories;
 using Code.Common.Physics;
-using Code.Common.Randoms;
 using Code.Common.View.Factories;
 using Code.Game.Cameras.Services;
+using Code.Game.Hostiles.Factories;
 using Code.Game.HUD;
 using Code.Game.HUD.Services;
 using Code.Game.Input.Service;
@@ -15,6 +15,7 @@ using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Instantioator;
 using Code.Infrastructure.LifetimeScope.Installers;
 using Code.Infrastructure.Progress;
+using Code.Infrastructure.Randoms;
 using Code.Infrastructure.SceneManagement;
 using Code.Infrastructure.States;
 using Code.Infrastructure.States.Resolvers;
@@ -102,7 +103,7 @@ namespace Code.Project.Installers
     {
       builder.Register<IdProvider>(Lifetime.Singleton).As<IIdProvider>();
       builder.Register<UnityTimeService>(Lifetime.Singleton).As<ITimeService>();
-      builder.Register<SystemRandomService>(Lifetime.Singleton).As<IRandomService>();
+      builder.Register<UnityRandomService>(Lifetime.Singleton).As<IRandomService>();
 
       builder.Register<UnityResourcesAssetProvider>(Lifetime.Singleton).As<IAssetProvider>();
       builder.Register<UnitySceneLoader>(Lifetime.Singleton).As<ISceneLoader>();
@@ -153,7 +154,7 @@ namespace Code.Project.Installers
     private static void RegisterGameplayFactories(IContainerBuilder builder)
     {
       builder.Register<PlayerFactory>(Lifetime.Singleton).As<IPlayerFactory>();
+      builder.Register<HostileFactory>(Lifetime.Singleton).As<IHostileFactory>();
     }
-
   }
 }

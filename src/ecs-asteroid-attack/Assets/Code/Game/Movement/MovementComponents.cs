@@ -17,6 +17,8 @@ namespace Code.Game.Movement
   
   [Game] public class RotatableComponent : IComponent { }
   
+  [Game] public class RotateAlongDirectionComponent : IComponent { }
+  
   [Game] public class RotatingComponent : IComponent { }
   
   [Game] public class RotateDirectionComponent : IComponent { public float Value; }
