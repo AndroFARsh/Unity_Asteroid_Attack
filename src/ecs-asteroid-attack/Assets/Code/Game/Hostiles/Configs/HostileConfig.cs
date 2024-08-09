@@ -10,10 +10,10 @@ namespace Code.Game.Hostiles.Configs
     public HostileName Name;
     public List<EntityViewBehaviour> ViewPrefabs;
     
-    public float RotateMinSpeed = 0;
-    public float RotateMaxSpeed = 60;
+    public float MinTorqueImpuls = 10;
+    public float MaxTorqueImpuls = 30;
     
-    public float MinMoveSpeed = 0.5f;
-    public float MaxMoveSpeed = 2f;
+    public float MinMoveImpuls = 70f;
+    public float MaxMoveImpuls = 120f;
   }
 }

@@ -13,17 +13,15 @@ namespace Code.Game.Cameras.Systems
     {
       _cameraProvider = cameraProvider;
       _entities = game.GetGroup(GameMatcher
-        .AllOf(
-          GameMatcher.WorldPosition, 
-          GameMatcher.MoveDirection));
+        .AllOf(GameMatcher.Rigidbody2D));
     }
 
     public void Execute()
     {
       foreach (GameEntity entity in _entities)
       {
-        Vector2 position = entity.WorldPosition;
-        Vector2 direction = entity.MoveDirection;
+        Vector2 position = entity.Rigidbody2D.position;
+        Vector2 direction = entity.Rigidbody2D.velocity;
 
         if (IsExitOfTheScreen(position) && IsMoveOutOfTheScreen(direction, position))
         {

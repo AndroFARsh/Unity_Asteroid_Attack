@@ -1,4 +1,3 @@
-using Code.Common.Debugs;
 using Code.Common.EntityFactories;
 using Code.Common.Extensions;
 using Code.Game.Cameras.Services;
@@ -38,28 +37,31 @@ namespace Code.Game.Hostiles.Factories
       return _entityFactory.Create<GameEntity>()
           .With(e => e.isHostile = true)
           .AddHostileName(name)
-          .With(e => e.isAsteroid = name is HostileName.LargeAsteroid or HostileName.SmallAsteroid)
-          .With(e => e.isRotatable = true)
-          .With(e => e.isRotating = true)
-          .AddRotateDirection( _randomService.Range(0, 2) == 0 ? -1 : 1)
-          .AddRotationSpeed(_randomService.Range(config.RotateMinSpeed, config.RotateMaxSpeed))
-          .With(e => e.isMovable = true)
-          .With(e => e.isMoving = true)
-          .AddMoveVelocity(_randomService.Range(config.MinMoveSpeed, config.MaxMoveSpeed))
-          .AddMoveDirection(PickRandomMoveDirection(at))
+          .With(e => e.isAsteroid = (name | HostileName.Asteroid) > 0)
+          .AddTorque(PickRandomTorque(config))
+          .AddForce(PickRandomForce(config, at))
           .AddWorldPosition(at)
           .AddViewPrefab(config.ViewPrefabs.PickRandom())
         ;
     }
 
-    private Vector2 PickRandomMoveDirection(Vector2 at)
+    private float PickRandomTorque(HostileConfig config)
+    {
+      float direction = _randomService.Range(0, 2) == 0 ? -1f : 1f; 
+      float speed = _randomService.Range(config.MinTorqueImpuls, config.MaxTorqueImpuls);
+      return direction * speed;
+    }
+
+    private Vector2 PickRandomForce(HostileConfig config, Vector2 at)
     {
       Bounds bounds = _cameraProvider.ScreenBounds;
       Vector2 target = new(
         _randomService.Range(bounds.center.x - bounds.extents.x * 0.3f, bounds.center.x + bounds.extents.x * 0.3f),
         _randomService.Range(bounds.center.y - bounds.extents.y * 0.3f, bounds.center.y + bounds.extents.y * 0.3f));
-      
-      return (target - at).normalized;
+
+      float speed = _randomService.Range(config.MinMoveImpuls, config.MaxMoveImpuls);
+      Debug.Log($"Speed: {speed}");
+      return (target - at).normalized * speed;
     }
 
     private Vector2 PickRandomSpawnPosition() =>

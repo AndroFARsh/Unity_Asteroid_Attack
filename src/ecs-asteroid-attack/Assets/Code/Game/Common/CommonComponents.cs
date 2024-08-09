@@ -5,6 +5,10 @@ namespace Code.Game.Common
 {
   [Game] public class WorldPositionComponent : IComponent { public Vector2 Value; }
   
+  [Game] public class ForceComponent : IComponent { public Vector2 Value; }
+  
+  [Game] public class TorqueComponent : IComponent { public float Value; }
+  
   [Game] public class TransformComponent : IComponent { public Transform Value; }
   
   [Game] public class Collider2DComponent : IComponent { public Collider2D Value; }

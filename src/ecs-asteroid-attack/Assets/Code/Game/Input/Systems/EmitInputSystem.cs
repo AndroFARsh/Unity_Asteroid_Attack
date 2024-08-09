@@ -19,14 +19,14 @@ namespace Code.Game.Input.Systems
       foreach (InputEntity input in _inputs)
       {
         if (_inputService.HasVerticalAxisInput())
-          input.ReplaceAcceleration(_inputService.GetVerticalAxis());
-        else if (input.hasAcceleration)
-          input.RemoveAcceleration();
+          input.ReplaceThrottle(_inputService.GetVerticalAxis());
+        else if (input.hasThrottle)
+          input.RemoveThrottle();
         
         if (_inputService.HasHorizontalAxisInput())
-          input.ReplaceRotation(_inputService.GetHorizontalAxis());
-        else if (input.hasRotation)
-          input.RemoveRotation();
+          input.ReplaceYaw(-_inputService.GetHorizontalAxis());
+        else if (input.hasYaw)
+          input.RemoveYaw();
 
         input.isFire = _inputService.IsFireButtonPressed();
       }

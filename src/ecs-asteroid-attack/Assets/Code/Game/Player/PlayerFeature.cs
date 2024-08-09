@@ -9,8 +9,8 @@ namespace Code.Game.Player
     {
       Add(systems.Create<InitializePlayerSpawnerSystem>());
       Add(systems.Create<SpawnPlayerSystem>());
-      Add(systems.Create<RotationInputIntoPlayerRotationSystem>());
-      Add(systems.Create<AccelerationInputIntoPlayerVelocitySystem>());
+      Add(systems.Create<InputToAngularVelocitySystem>());
+      Add(systems.Create<InputToVelocitySystem>());
     }
   }
   
