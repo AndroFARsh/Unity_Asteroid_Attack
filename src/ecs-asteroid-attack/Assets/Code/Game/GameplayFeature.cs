@@ -19,7 +19,6 @@ namespace Code.Game
       Add(systems.Create<HostileSpawnerFeature>());
       Add(systems.Create<ViewFeature>());
       
-      Add(systems.Create<MovementFeature>());
       Add(systems.Create<CamerasFeature>());
       
       Add(systems.Create<GameplayViewFeature>());

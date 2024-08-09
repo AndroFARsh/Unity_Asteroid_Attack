@@ -22,14 +22,10 @@ namespace Code.Game.Player.Factories
       PlayerConfig config = _staticDataService.GetPlayerConfig();
       return _entityFactory.Create<GameEntity>()
         .With(e => e.isPlayer = true)
-        .With(e => e.isRotateAlongDirection = true)
-        .AddRotationSpeed(config.RotateSpeed)
-        .With(e => e.isMovable = true)
-        .AddMoveDirection(config.InitialMoveDirection)
-        .AddMoveVelocity(0)
-        .AddMoveAcceleration(config.MoveAcceleration)
-        .AddMaxMoveSpeed(config.MaxMoveSpeed)
+        .AddPlayerConfig(config)
         .AddWorldPosition(at)
+        .AddVelocity(Vector2.zero)
+        .AddAngularVelocity(0)
         .AddViewPrefab(config.ViewPrefab);
     }
   }

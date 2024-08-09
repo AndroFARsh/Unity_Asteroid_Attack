@@ -7,9 +7,11 @@ namespace Code.Game.View
   {
     public GameplayViewFeature(ISystemFactory systems)
     {
-      Add(systems.Create<UpdateTransformRotateSystem>());
-      Add(systems.Create<UpdateTransformRotationAlongDirectionSystem>());
-      Add(systems.Create<UpdateTransformPositionSystem>());
+      Add(systems.Create<ApplyWorldPositionSystem>());
+      Add(systems.Create<ApplyForceSystem>());
+      Add(systems.Create<ApplyTorqueSystem>());
+      Add(systems.Create<ApplyVelocitySystem>());
+      Add(systems.Create<ApplyAngularVelocitySystem>());
     }
   }
 }

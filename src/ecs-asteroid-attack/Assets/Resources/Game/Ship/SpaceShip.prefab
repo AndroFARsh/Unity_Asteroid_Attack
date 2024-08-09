@@ -125,10 +125,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8659091616621502878}
   - component: {fileID: 4446799023582278245}
+  - component: {fileID: 43144823954819176}
   - component: {fileID: 2917906465452553735}
   - component: {fileID: 5802042612859681810}
   - component: {fileID: 1520483178951176906}
   - component: {fileID: 8033133033648281634}
+  - component: {fileID: 5750033771282967372}
   m_Layer: 6
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -201,6 +203,33 @@ PolygonCollider2D:
       - {x: 0.26, y: -0.35}
       - {x: -0.26, y: -0.35}
   m_UseDelaunayMesh: 0
+--- !u!50 &43144823954819176
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883632537476907599}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &2917906465452553735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,3 +281,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 7388793444204860022}
+--- !u!114 &5750033771282967372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883632537476907599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96dc50d49a34823974b2e425fffdf70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 43144823954819176}
