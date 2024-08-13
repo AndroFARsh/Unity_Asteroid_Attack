@@ -1,3 +1,4 @@
+using Code.Game.Player.Behaviours;
 using Code.Game.Player.Configs;
 using Entitas;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace Code.Game.Player
   [Game] public class PlayerCurrentLiveComponent : IComponent { public int Value; }
   
   [Game] public class PlayerTotalLiveComponent : IComponent { public int Value; }
+  
+  [Game] public class CombustionAnimatorComponent : IComponent { public CombustionAnimator Value; }
   
   [Game] public class PlayerComponent : IComponent { }
 }

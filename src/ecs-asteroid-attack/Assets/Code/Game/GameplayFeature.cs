@@ -3,7 +3,6 @@ using Code.Common.View;
 using Code.Game.Cameras;
 using Code.Game.HostileSpawners;
 using Code.Game.Input;
-using Code.Game.Movement;
 using Code.Game.Player;
 using Code.Game.View;
 using Code.Infrastructure.Systems;

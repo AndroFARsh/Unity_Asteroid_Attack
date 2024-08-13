@@ -35,14 +35,15 @@ public static class GameComponentsLookup {
     public const int HostileSpawnerTimer = 24;
     public const int HostileSpawnerWave = 25;
     public const int AngularVelocity = 26;
-    public const int Player = 27;
-    public const int PlayerConfig = 28;
-    public const int PlayerCurrentLive = 29;
-    public const int PlayerSpawner = 30;
-    public const int PlayerTotalLive = 31;
-    public const int Velocity = 32;
+    public const int CombustionAnimator = 27;
+    public const int Player = 28;
+    public const int PlayerConfig = 29;
+    public const int PlayerCurrentLive = 30;
+    public const int PlayerSpawner = 31;
+    public const int PlayerTotalLive = 32;
+    public const int Velocity = 33;
 
-    public const int TotalComponents = 33;
+    public const int TotalComponents = 34;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -72,6 +73,7 @@ public static class GameComponentsLookup {
         "HostileSpawnerTimer",
         "HostileSpawnerWave",
         "AngularVelocity",
+        "CombustionAnimator",
         "Player",
         "PlayerConfig",
         "PlayerCurrentLive",
@@ -108,6 +110,7 @@ public static class GameComponentsLookup {
         typeof(Code.Game.HostileSpawners.HostileSpawnerTimerComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnerWaveComponent),
         typeof(Code.Game.Player.AngularVelocityComponent),
+        typeof(Code.Game.Player.CombustionAnimatorComponent),
         typeof(Code.Game.Player.PlayerComponent),
         typeof(Code.Game.Player.PlayerConfigComponent),
         typeof(Code.Game.Player.PlayerCurrentLiveComponent),
