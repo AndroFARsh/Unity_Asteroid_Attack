@@ -11,6 +11,7 @@ namespace Code.Game.Player
       Add(systems.Create<SpawnPlayerSystem>());
       Add(systems.Create<InputToAngularVelocitySystem>());
       Add(systems.Create<InputToVelocitySystem>());
+      Add(systems.Create<AnimatePlayerSystem>());
     }
   }
   

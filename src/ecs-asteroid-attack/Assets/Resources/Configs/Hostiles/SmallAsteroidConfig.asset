@@ -16,7 +16,7 @@ MonoBehaviour:
   ViewPrefabs:
   - {fileID: 133479939298261442, guid: 96dd4b33a002444a191bd939f4b80b40, type: 3}
   - {fileID: 133479939298261442, guid: 38c13331bdf134b7ba94e1a7618a4301, type: 3}
-  RotateMinSpeed: 10
-  RotateMaxSpeed: 60
-  MinMoveSpeed: 1
-  MaxMoveSpeed: 3
+  MinTorqueImpuls: 10
+  MaxTorqueImpuls: 30
+  MinMoveImpuls: 70
+  MaxMoveImpuls: 120
