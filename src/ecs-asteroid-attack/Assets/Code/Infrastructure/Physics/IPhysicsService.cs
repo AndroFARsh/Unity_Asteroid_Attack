@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.Common.Physics
+namespace Code.Infrastructure.Physics
 {
   public interface IPhysicsService
   {

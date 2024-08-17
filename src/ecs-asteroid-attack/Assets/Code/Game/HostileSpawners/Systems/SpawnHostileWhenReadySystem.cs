@@ -35,7 +35,7 @@ namespace Code.Game.HostileSpawners.Systems
           GameMatcher.HostileSpawnerWave,
           GameMatcher.HostileSpawnedPerWave,
           GameMatcher.HostileSpawnedTotal,
-          GameMatcher.HostileSpawnerReady));
+          GameMatcher.CooldownUp));
     }
 
     public void Execute()
@@ -53,8 +53,8 @@ namespace Code.Game.HostileSpawners.Systems
 
         entity.ReplaceHostileSpawnedPerWave(entity.HostileSpawnedPerWave+1);
         entity.ReplaceHostileSpawnedTotal(entity.HostileSpawnedTotal+1);
-        entity.ReplaceHostileSpawnerTimer(waveSetup.Cooldown);
-        entity.isHostileSpawnerReady = false;
+        entity.ReplaceCooldownLeft(waveSetup.Cooldown);
+        entity.isCooldownUp = false;
         entity.isHostileSpawnerReadyMoveToNextWave = entity.HostileSpawnedPerWave >= waveSetup.Total;
       }
     }

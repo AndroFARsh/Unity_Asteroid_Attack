@@ -39,8 +39,9 @@ namespace Code.Game.HostileSpawners.Systems
           entity
             .ReplaceHostileSpawnerWave(nextWave)
             .ReplaceHostileSpawnedPerWave(0)
-            .ReplaceHostileSpawnerTimer(waveSetup.Cooldown)
-            .With(e => e.isHostileSpawnerReady = false)
+            .ReplaceCooldownTime(waveSetup.Cooldown)
+            .ReplaceCooldownLeft(waveSetup.Cooldown)
+            .With(e => e.isCooldownUp = false)
             .With(e => e.isHostileSpawnerReadyMoveToNextWave = false);
         }
         else

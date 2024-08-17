@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherHostileSpawnerReady;
+    static Entitas.IMatcher<GameEntity> _matcherProjectile;
 
-    public static Entitas.IMatcher<GameEntity> HostileSpawnerReady {
+    public static Entitas.IMatcher<GameEntity> Projectile {
         get {
-            if (_matcherHostileSpawnerReady == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.HostileSpawnerReady);
+            if (_matcherProjectile == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Projectile);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherHostileSpawnerReady = matcher;
+                _matcherProjectile = matcher;
             }
 
-            return _matcherHostileSpawnerReady;
+            return _matcherProjectile;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Game.HostileSpawners.HostileSpawnerReadyComponent hostileSpawnerReadyComponent = new Code.Game.HostileSpawners.HostileSpawnerReadyComponent();
+    static readonly Code.Game.Armaments.ProjectileComponent projectileComponent = new Code.Game.Armaments.ProjectileComponent();
 
-    public bool isHostileSpawnerReady {
-        get { return HasComponent(GameComponentsLookup.HostileSpawnerReady); }
+    public bool isProjectile {
+        get { return HasComponent(GameComponentsLookup.Projectile); }
         set {
-            if (value != isHostileSpawnerReady) {
-                var index = GameComponentsLookup.HostileSpawnerReady;
+            if (value != isProjectile) {
+                var index = GameComponentsLookup.Projectile;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : hostileSpawnerReadyComponent;
+                            : projectileComponent;
 
                     AddComponent(index, component);
                 } else {

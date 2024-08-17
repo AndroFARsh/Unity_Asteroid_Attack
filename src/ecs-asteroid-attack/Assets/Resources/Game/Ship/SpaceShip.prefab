@@ -127,12 +127,14 @@ GameObject:
   - component: {fileID: 4446799023582278245}
   - component: {fileID: 43144823954819176}
   - component: {fileID: 9053922109870187070}
+  - component: {fileID: 7189836002960877895}
   - component: {fileID: 2917906465452553735}
   - component: {fileID: 5802042612859681810}
   - component: {fileID: 1520483178951176906}
   - component: {fileID: 8033133033648281634}
   - component: {fileID: 5750033771282967372}
   - component: {fileID: 3005405729989143517}
+  - component: {fileID: 5333714042289028540}
   m_Layer: 6
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -250,6 +252,19 @@ MonoBehaviour:
   _main: {fileID: 1677375141470783018}
   _left: {fileID: 3694990329613955801}
   _right: {fileID: 2881421881949045558}
+--- !u!114 &7189836002960877895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883632537476907599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b3031d9e4641cbac6e60e54e1de80c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 2733712747106596046}
 --- !u!114 &2917906465452553735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +342,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 9053922109870187070}
+--- !u!114 &5333714042289028540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883632537476907599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6b4d2ddf8f41a0ae4c9e99efc304fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawner: {fileID: 7189836002960877895}
 --- !u!1001 &5781425238821504068
 PrefabInstance:
   m_ObjectHideFlags: 0

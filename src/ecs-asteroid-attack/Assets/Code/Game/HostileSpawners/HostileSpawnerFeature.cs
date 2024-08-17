@@ -8,7 +8,6 @@ namespace Code.Game.HostileSpawners
     public HostileSpawnerFeature(ISystemFactory systems)
     {
       Add(systems.Create<InitializeHostileSpawnerSystem>());
-      Add(systems.Create<TickHostileSpawnerSystem>());
       Add(systems.Create<SpawnHostileWhenReadySystem>());
       Add(systems.Create<MoveToNextWaveSystem>());
     }

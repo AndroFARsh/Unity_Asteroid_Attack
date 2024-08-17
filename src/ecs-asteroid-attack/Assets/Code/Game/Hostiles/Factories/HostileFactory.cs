@@ -60,7 +60,6 @@ namespace Code.Game.Hostiles.Factories
         _randomService.Range(bounds.center.y - bounds.extents.y * 0.3f, bounds.center.y + bounds.extents.y * 0.3f));
 
       float speed = _randomService.Range(config.MinMoveImpuls, config.MaxMoveImpuls);
-      Debug.Log($"Speed: {speed}");
       return (target - at).normalized * speed;
     }
 

@@ -1,3 +1,5 @@
+using Code.Game.Abilities;
+using Code.Game.Abilities.Configs;
 using Code.Game.Hostiles;
 using Code.Game.Hostiles.Configs;
 using Code.Game.Player.Configs;
@@ -18,6 +20,8 @@ namespace Code.Infrastructure.StaticData
     LevelConfig GetLevelConfig(int index);
     
     PlayerConfig GetPlayerConfig();
+    
+    AbilityConfig GetAbilityConfig(AbilityName name);
     
     HostileConfig GetHostileName(HostileName name);
   }

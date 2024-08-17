@@ -25,8 +25,8 @@ namespace Code.Game.HostileSpawners.Systems
       _entityFactory.Create<GameEntity>()
         .With(e => e.isHostileSpawner = true)
         .AddHostileSpawnerWave(0)
-        .AddHostileSpawnerCooldown(wave.Cooldown)
-        .AddHostileSpawnerTimer(wave.Cooldown)
+        .AddCooldownTime(wave.Cooldown)
+        .AddCooldownLeft(wave.Cooldown)
         .AddHostileSpawnedPerWave(0)
         .AddHostileSpawnedTotal(0);
     }
