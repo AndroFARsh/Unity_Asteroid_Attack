@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Common.Extensions;
+using Code.Game.Abilities;
+using Code.Game.Abilities.Configs;
 using Code.Game.Hostiles;
 using Code.Game.Hostiles.Configs;
 using Code.Game.Player.Configs;
@@ -16,6 +18,7 @@ namespace Code.Infrastructure.StaticData
   {
     private readonly Dictionary<WindowName, WindowConfig> _windows = new();
     private readonly Dictionary<HostileName, HostileConfig> _hostiles = new();
+    private readonly Dictionary<AbilityName, AbilityConfig> _abilities = new();
     private readonly List<LevelConfig> _levels = new();
     private PlayerConfig _playerConfig;
 
@@ -27,8 +30,9 @@ namespace Code.Infrastructure.StaticData
       LoadAllHostileConfig();
       LoadAllLevelConfig();
       LoadPlayerConfig();
+      LoadAbilitiesConfig();
     }
-    
+
     private void LoadPlayerConfig()
     {
       PlayerConfig[] configs = Resources.LoadAll<PlayerConfig>("Configs/Players");
@@ -40,6 +44,7 @@ namespace Code.Infrastructure.StaticData
 
     public LevelConfig GetLevelConfig(int index) => _levels[index];
     public PlayerConfig GetPlayerConfig() => _playerConfig;
+    public AbilityConfig GetAbilityConfig(AbilityName name) => _abilities[name];
 
     public WindowConfig GetWindowConfig(WindowName name) => _windows[name];
     
@@ -49,6 +54,9 @@ namespace Code.Infrastructure.StaticData
       .ToDictionary(c => c.Name, c => c));
 
     private void LoadAllHostileConfig() => _hostiles.AddRange(Resources.LoadAll<HostileConfig>("Configs/Hostiles")
+      .ToDictionary(c => c.Name, c => c));
+    
+    private void LoadAbilitiesConfig() => _abilities.AddRange(Resources.LoadAll<AbilityConfig>("Configs/Players/Abilities")
       .ToDictionary(c => c.Name, c => c));
     
     private void LoadAllLevelConfig() =>

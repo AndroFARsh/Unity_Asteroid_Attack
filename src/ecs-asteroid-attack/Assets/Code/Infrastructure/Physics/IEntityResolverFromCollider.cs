@@ -1,4 +1,4 @@
-namespace Code.Common.Physics
+namespace Code.Infrastructure.Physics
 {
   public interface IEntityResolverFromCollider
   {

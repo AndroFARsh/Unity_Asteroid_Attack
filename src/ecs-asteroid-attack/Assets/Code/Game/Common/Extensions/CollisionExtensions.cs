@@ -6,6 +6,7 @@ namespace Code.Game.Common.Extensions
   {
     Player = 6,
     Hostiles = 7,
+    Armament = 8,
     Collectable = 9,
   }
   

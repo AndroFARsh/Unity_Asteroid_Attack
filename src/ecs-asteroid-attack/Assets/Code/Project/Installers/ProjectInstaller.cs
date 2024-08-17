@@ -1,7 +1,8 @@
 using Code.Common.Curtains;
 using Code.Common.EntityFactories;
-using Code.Common.Physics;
 using Code.Common.View.Factories;
+using Code.Game.Abilities.Factories;
+using Code.Game.Armaments.Factories;
 using Code.Game.Cameras.Services;
 using Code.Game.Hostiles.Factories;
 using Code.Game.HUD;
@@ -14,6 +15,7 @@ using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Instantioator;
 using Code.Infrastructure.LifetimeScope.Installers;
+using Code.Infrastructure.Physics;
 using Code.Infrastructure.Progress;
 using Code.Infrastructure.Randoms;
 using Code.Infrastructure.SceneManagement;
@@ -155,6 +157,8 @@ namespace Code.Project.Installers
     {
       builder.Register<PlayerFactory>(Lifetime.Singleton).As<IPlayerFactory>();
       builder.Register<HostileFactory>(Lifetime.Singleton).As<IHostileFactory>();
+      builder.Register<AbilityFactory>(Lifetime.Singleton).As<IAbilityFactory>();
+      builder.Register<ArmamentFactory>(Lifetime.Singleton).As<IArmamentFactory>();
     }
   }
 }

@@ -1,4 +1,6 @@
 using Code.Common.Extensions;
+using Code.Game.Abilities;
+using Code.Game.Abilities.Factories;
 using Code.Game.Player.Factories;
 using Code.Levels.Services;
 using Entitas;
@@ -8,16 +10,19 @@ namespace Code.Game.Player.Systems
   public class SpawnPlayerSystem : IExecuteSystem
   {
     private readonly IPlayerFactory _playerFactory;
+    private readonly IAbilityFactory _abilityFactory;
     private readonly ILevelDataProvider _levelDataProvider;
 
     private readonly IGroup<GameEntity> _spawnEntities;
     private readonly IGroup<GameEntity> _playerEntities;
 
     public SpawnPlayerSystem(GameContext game, 
-      IPlayerFactory playerFactory, 
+      IPlayerFactory playerFactory,
+      IAbilityFactory abilityFactory,
       ILevelDataProvider levelDataProvider)
     {
       _playerFactory = playerFactory;
+      _abilityFactory = abilityFactory;
       _levelDataProvider = levelDataProvider;
       _playerEntities = game.GetGroup(GameMatcher
         .AllOf(GameMatcher.Player));
@@ -44,7 +49,8 @@ namespace Code.Game.Player.Systems
 
     private void SpawnPlayer()
     {
-      _playerFactory.CreatePlayer(_levelDataProvider.PlayerSpawnPoint);
+      GameEntity player = _playerFactory.CreatePlayer(_levelDataProvider.PlayerSpawnPoint);
+      _abilityFactory.CreateAbility(AbilityName.Projectile, player.Id);
     }
     
     private void GameOver()

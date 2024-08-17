@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Common.Physics
+namespace Code.Infrastructure.Physics
 {
   class ColliderToEntityRegistryResolver : IColliderToEntityRegistry, IEntityResolverFromCollider
   {

@@ -1,5 +1,5 @@
-using Code.Common.Physics;
 using Code.Common.View.Registrars;
+using Code.Infrastructure.Physics;
 using Entitas;
 using UnityEngine;
 using VContainer;

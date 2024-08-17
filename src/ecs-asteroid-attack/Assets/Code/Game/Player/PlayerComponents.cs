@@ -20,4 +20,6 @@ namespace Code.Game.Player
   [Game] public class CombustionAnimatorComponent : IComponent { public CombustionAnimator Value; }
   
   [Game] public class PlayerComponent : IComponent { }
+  
+  [Game] public class ProjectileSpawnerComponent : IComponent { public ProjectileSpawner Value; }
 }

@@ -14,36 +14,45 @@ public static class GameComponentsLookup {
     public const int View = 3;
     public const int ViewPath = 4;
     public const int ViewPrefab = 5;
-    public const int Collider2D = 6;
-    public const int CollideRadius = 7;
-    public const int Force = 8;
-    public const int LayerMask = 9;
-    public const int Rigidbody2D = 10;
-    public const int SpriteRenderer = 11;
-    public const int Torque = 12;
-    public const int Transform = 13;
-    public const int WorldPosition = 14;
-    public const int Asteroid = 15;
-    public const int Hostile = 16;
-    public const int HostileName = 17;
-    public const int HostileSpawnedPerWave = 18;
-    public const int HostileSpawnedTotal = 19;
-    public const int HostileSpawner = 20;
-    public const int HostileSpawnerCooldown = 21;
-    public const int HostileSpawnerReady = 22;
-    public const int HostileSpawnerReadyMoveToNextWave = 23;
-    public const int HostileSpawnerTimer = 24;
-    public const int HostileSpawnerWave = 25;
-    public const int AngularVelocity = 26;
-    public const int CombustionAnimator = 27;
-    public const int Player = 28;
-    public const int PlayerConfig = 29;
-    public const int PlayerCurrentLive = 30;
-    public const int PlayerSpawner = 31;
-    public const int PlayerTotalLive = 32;
-    public const int Velocity = 33;
+    public const int Ability = 6;
+    public const int AbilityName = 7;
+    public const int OwnerId = 8;
+    public const int ProjectileAbility = 9;
+    public const int Armament = 10;
+    public const int ContactRadius = 11;
+    public const int PierceNumber = 12;
+    public const int Projectile = 13;
+    public const int Collider2D = 14;
+    public const int CollideRadius = 15;
+    public const int Force = 16;
+    public const int LayerMask = 17;
+    public const int Rigidbody2D = 18;
+    public const int SpriteRenderer = 19;
+    public const int Torque = 20;
+    public const int Transform = 21;
+    public const int WorldPosition = 22;
+    public const int CooldownLeft = 23;
+    public const int CooldownTime = 24;
+    public const int CooldownUp = 25;
+    public const int Asteroid = 26;
+    public const int Hostile = 27;
+    public const int HostileName = 28;
+    public const int HostileSpawnedPerWave = 29;
+    public const int HostileSpawnedTotal = 30;
+    public const int HostileSpawner = 31;
+    public const int HostileSpawnerReadyMoveToNextWave = 32;
+    public const int HostileSpawnerWave = 33;
+    public const int AngularVelocity = 34;
+    public const int CombustionAnimator = 35;
+    public const int Player = 36;
+    public const int PlayerConfig = 37;
+    public const int PlayerCurrentLive = 38;
+    public const int PlayerSpawner = 39;
+    public const int PlayerTotalLive = 40;
+    public const int ProjectileSpawner = 41;
+    public const int Velocity = 42;
 
-    public const int TotalComponents = 34;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -52,6 +61,14 @@ public static class GameComponentsLookup {
         "View",
         "ViewPath",
         "ViewPrefab",
+        "Ability",
+        "AbilityName",
+        "OwnerId",
+        "ProjectileAbility",
+        "Armament",
+        "ContactRadius",
+        "PierceNumber",
+        "Projectile",
         "Collider2D",
         "CollideRadius",
         "Force",
@@ -61,16 +78,16 @@ public static class GameComponentsLookup {
         "Torque",
         "Transform",
         "WorldPosition",
+        "CooldownLeft",
+        "CooldownTime",
+        "CooldownUp",
         "Asteroid",
         "Hostile",
         "HostileName",
         "HostileSpawnedPerWave",
         "HostileSpawnedTotal",
         "HostileSpawner",
-        "HostileSpawnerCooldown",
-        "HostileSpawnerReady",
         "HostileSpawnerReadyMoveToNextWave",
-        "HostileSpawnerTimer",
         "HostileSpawnerWave",
         "AngularVelocity",
         "CombustionAnimator",
@@ -79,6 +96,7 @@ public static class GameComponentsLookup {
         "PlayerCurrentLive",
         "PlayerSpawner",
         "PlayerTotalLive",
+        "ProjectileSpawner",
         "Velocity"
     };
 
@@ -89,6 +107,14 @@ public static class GameComponentsLookup {
         typeof(Code.Common.ViewComponent),
         typeof(Code.Common.ViewPathComponent),
         typeof(Code.Common.ViewPrefabComponent),
+        typeof(Code.Game.Abilities.AbilityComponent),
+        typeof(Code.Game.Abilities.AbilityNameComponent),
+        typeof(Code.Game.Abilities.OwnerIdComponent),
+        typeof(Code.Game.Abilities.ProjectileAbilityComponent),
+        typeof(Code.Game.Armaments.ArmamentComponent),
+        typeof(Code.Game.Armaments.ContactRadiusComponent),
+        typeof(Code.Game.Armaments.PierceNumberComponent),
+        typeof(Code.Game.Armaments.ProjectileComponent),
         typeof(Code.Game.Common.Collider2DComponent),
         typeof(Code.Game.Common.CollideRadiusComponent),
         typeof(Code.Game.Common.ForceComponent),
@@ -98,16 +124,16 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Common.TorqueComponent),
         typeof(Code.Game.Common.TransformComponent),
         typeof(Code.Game.Common.WorldPositionComponent),
+        typeof(Code.Game.Cooldowns.CooldownLeftComponent),
+        typeof(Code.Game.Cooldowns.CooldownTimeComponent),
+        typeof(Code.Game.Cooldowns.CooldownUpComponent),
         typeof(Code.Game.Hostiles.AsteroidComponent),
         typeof(Code.Game.Hostiles.HostileComponent),
         typeof(Code.Game.Hostiles.HostileNameComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnedPerWaveComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnedTotalComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnerComponent),
-        typeof(Code.Game.HostileSpawners.HostileSpawnerCooldownComponent),
-        typeof(Code.Game.HostileSpawners.HostileSpawnerReadyComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnerReadyMoveToNextWaveComponent),
-        typeof(Code.Game.HostileSpawners.HostileSpawnerTimerComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnerWaveComponent),
         typeof(Code.Game.Player.AngularVelocityComponent),
         typeof(Code.Game.Player.CombustionAnimatorComponent),
@@ -116,6 +142,7 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Player.PlayerCurrentLiveComponent),
         typeof(Code.Game.Player.PlayerSpawnerComponent),
         typeof(Code.Game.Player.PlayerTotalLiveComponent),
+        typeof(Code.Game.Player.ProjectileSpawnerComponent),
         typeof(Code.Game.Player.VelocityComponent)
     };
 }
