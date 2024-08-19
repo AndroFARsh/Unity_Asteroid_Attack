@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Game.Common.Behaviours
+namespace Code.Game.Explosions.Behaviours
 {
   public class ExplosionAnimator : MonoBehaviour
   {

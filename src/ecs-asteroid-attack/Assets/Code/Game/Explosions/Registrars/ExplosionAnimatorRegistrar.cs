@@ -1,8 +1,8 @@
 using Code.Common.View.Registrars;
-using Code.Game.Common.Behaviours;
+using Code.Game.Explosions.Behaviours;
 using UnityEngine;
 
-namespace Code.Game.Common.Registrars
+namespace Code.Game.Explosions.Registrars
 {
   public class ExplosionAnimatorRegistrar : EntityComponentRegistrar<GameEntity>
   {

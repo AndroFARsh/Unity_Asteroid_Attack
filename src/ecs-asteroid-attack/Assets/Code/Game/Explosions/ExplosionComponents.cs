@@ -1,4 +1,4 @@
-using Code.Game.Common.Behaviours;
+using Code.Game.Explosions.Behaviours;
 using Entitas;
 
 namespace Code.Game.Explosions

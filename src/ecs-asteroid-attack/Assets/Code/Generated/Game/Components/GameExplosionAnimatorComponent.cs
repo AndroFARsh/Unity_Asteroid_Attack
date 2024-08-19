@@ -34,10 +34,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Game.Explosions.ExplosionAnimatorComponent explosionAnimator { get { return (Code.Game.Explosions.ExplosionAnimatorComponent)GetComponent(GameComponentsLookup.ExplosionAnimator); } }
-    public Code.Game.Common.Behaviours.ExplosionAnimator ExplosionAnimator { get { return explosionAnimator.Value; } }
+    public Code.Game.Explosions.Behaviours.ExplosionAnimator ExplosionAnimator { get { return explosionAnimator.Value; } }
     public bool hasExplosionAnimator { get { return HasComponent(GameComponentsLookup.ExplosionAnimator); } }
 
-    public GameEntity AddExplosionAnimator(Code.Game.Common.Behaviours.ExplosionAnimator newValue) {
+    public GameEntity AddExplosionAnimator(Code.Game.Explosions.Behaviours.ExplosionAnimator newValue) {
         var index = GameComponentsLookup.ExplosionAnimator;
         var component = (Code.Game.Explosions.ExplosionAnimatorComponent)CreateComponent(index, typeof(Code.Game.Explosions.ExplosionAnimatorComponent));
         component.Value = newValue;
@@ -45,7 +45,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceExplosionAnimator(Code.Game.Common.Behaviours.ExplosionAnimator newValue) {
+    public GameEntity ReplaceExplosionAnimator(Code.Game.Explosions.Behaviours.ExplosionAnimator newValue) {
         var index = GameComponentsLookup.ExplosionAnimator;
         var component = (Code.Game.Explosions.ExplosionAnimatorComponent)CreateComponent(index, typeof(Code.Game.Explosions.ExplosionAnimatorComponent));
         component.Value = newValue;
