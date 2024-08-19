@@ -34,25 +34,28 @@ public static class GameComponentsLookup {
     public const int CooldownLeft = 23;
     public const int CooldownTime = 24;
     public const int CooldownUp = 25;
-    public const int Asteroid = 26;
-    public const int Hostile = 27;
-    public const int HostileName = 28;
-    public const int HostileSpawnedPerWave = 29;
-    public const int HostileSpawnedTotal = 30;
-    public const int HostileSpawner = 31;
-    public const int HostileSpawnerReadyMoveToNextWave = 32;
-    public const int HostileSpawnerWave = 33;
-    public const int AngularVelocity = 34;
-    public const int CombustionAnimator = 35;
-    public const int Player = 36;
-    public const int PlayerConfig = 37;
-    public const int PlayerCurrentLive = 38;
-    public const int PlayerSpawner = 39;
-    public const int PlayerTotalLive = 40;
-    public const int ProjectileSpawner = 41;
-    public const int Velocity = 42;
+    public const int ExplosionAnimator = 26;
+    public const int Explosion = 27;
+    public const int ExplosionRun = 28;
+    public const int Asteroid = 29;
+    public const int Hostile = 30;
+    public const int HostileName = 31;
+    public const int HostileSpawnedPerWave = 32;
+    public const int HostileSpawnedTotal = 33;
+    public const int HostileSpawner = 34;
+    public const int HostileSpawnerReadyMoveToNextWave = 35;
+    public const int HostileSpawnerWave = 36;
+    public const int AngularVelocity = 37;
+    public const int CombustionAnimator = 38;
+    public const int Player = 39;
+    public const int PlayerConfig = 40;
+    public const int PlayerCurrentLive = 41;
+    public const int PlayerSpawner = 42;
+    public const int PlayerTotalLive = 43;
+    public const int ProjectileSpawner = 44;
+    public const int Velocity = 45;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 46;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -81,6 +84,9 @@ public static class GameComponentsLookup {
         "CooldownLeft",
         "CooldownTime",
         "CooldownUp",
+        "ExplosionAnimator",
+        "Explosion",
+        "ExplosionRun",
         "Asteroid",
         "Hostile",
         "HostileName",
@@ -127,6 +133,9 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Cooldowns.CooldownLeftComponent),
         typeof(Code.Game.Cooldowns.CooldownTimeComponent),
         typeof(Code.Game.Cooldowns.CooldownUpComponent),
+        typeof(Code.Game.Explosions.ExplosionAnimatorComponent),
+        typeof(Code.Game.Explosions.ExplosionComponent),
+        typeof(Code.Game.Explosions.ExplosionRunComponent),
         typeof(Code.Game.Hostiles.AsteroidComponent),
         typeof(Code.Game.Hostiles.HostileComponent),
         typeof(Code.Game.Hostiles.HostileNameComponent),

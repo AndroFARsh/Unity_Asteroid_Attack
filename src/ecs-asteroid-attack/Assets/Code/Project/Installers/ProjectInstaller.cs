@@ -4,6 +4,7 @@ using Code.Common.View.Factories;
 using Code.Game.Abilities.Factories;
 using Code.Game.Armaments.Factories;
 using Code.Game.Cameras.Services;
+using Code.Game.Explosions.Factories;
 using Code.Game.Hostiles.Factories;
 using Code.Game.HUD;
 using Code.Game.HUD.Services;
@@ -159,6 +160,7 @@ namespace Code.Project.Installers
       builder.Register<HostileFactory>(Lifetime.Singleton).As<IHostileFactory>();
       builder.Register<AbilityFactory>(Lifetime.Singleton).As<IAbilityFactory>();
       builder.Register<ArmamentFactory>(Lifetime.Singleton).As<IArmamentFactory>();
+      builder.Register<ExplosionFactory>(Lifetime.Singleton).As<IExplosionFactory>();
     }
   }
 }
