@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccd64a9e62d41d8acb3176461ed3d8a, type: 3}
   m_Name: Level_02_Moon_Config
   m_EditorClassIdentifier: 
-  Number: 0
+  Number: 1
   Name: '[ Moon ]'
   SceneName: Game
   PlayerSpawnPoint: {x: 0, y: 0, z: 0}

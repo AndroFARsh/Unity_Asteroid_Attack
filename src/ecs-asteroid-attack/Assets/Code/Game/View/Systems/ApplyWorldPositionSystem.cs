@@ -11,16 +11,18 @@ namespace Code.Game.View.Systems
     public ApplyWorldPositionSystem(GameContext game)
     {
       _entities = game.GetGroup(
-        GameMatcher.AllOf(
-          GameMatcher.Rigidbody2D, 
-          GameMatcher.WorldPosition));
+        GameMatcher.AllOf(GameMatcher.WorldPosition));
     }
 
     public void Execute()
     {
       foreach (GameEntity entity in _entities.GetEntities(_buffer))
       {
-        entity.Rigidbody2D.position = entity.WorldPosition;
+        if (entity.hasRigidbody2D)
+          entity.Rigidbody2D.position = entity.WorldPosition;
+        else if (entity.hasTransform)
+          entity.Transform.position = entity.WorldPosition;
+        
         entity.RemoveWorldPosition();
       }
     }
