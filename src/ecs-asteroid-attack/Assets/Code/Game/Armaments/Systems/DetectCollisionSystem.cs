@@ -8,13 +8,11 @@ namespace Code.Game.Armaments.Systems
   public class DetectCollisionSystem : IExecuteSystem
   {
     private readonly IPhysicsService _physicsService;
-    private readonly IExplosionFactory _explosionFactory;
     private readonly IGroup<GameEntity> _entities;
 
-    public DetectCollisionSystem(GameContext game, IPhysicsService physicsService, IExplosionFactory explosionFactory)
+    public DetectCollisionSystem(GameContext game, IPhysicsService physicsService)
     {
       _physicsService = physicsService;
-      _explosionFactory = explosionFactory;
       _entities = game.GetGroup(GameMatcher.AllOf(
         GameMatcher.ContactRadius,
         GameMatcher.PierceNumber,
@@ -29,9 +27,6 @@ namespace Code.Game.Armaments.Systems
       {
         if (entity.PierceNumber > 0)
         {
-          // TODO: update destroy logic
-          _explosionFactory.CreateExplosion(otherEntity.Collider2D.transform.position);
-            
           otherEntity.isReadyToDestroy = true;
           entity.ReplacePierceNumber(entity.PierceNumber - 1);
         }

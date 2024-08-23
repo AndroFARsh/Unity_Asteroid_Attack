@@ -28,20 +28,33 @@ namespace Code.Game.Hostiles.Factories
       _randomService = randomService;
       _cameraProvider = cameraProvider;
     }
-    
+
+    public GameEntity CreateHostileShard(HostileName name, Vector2 at, Vector2 direction)
+    {
+      HostileConfig config = _staticDataService.GetHostileName(name);
+      HostileName shardName = PickRandomShards(config);
+      return CreateHostile(shardName)
+        .ReplaceWorldPosition(at)
+        .ReplaceForce(direction * PickRandomImpulse(config))
+        .With(e => e.isShard = true);
+    }
+
     public GameEntity CreateHostile(HostileName name)
     {
       HostileConfig config = _staticDataService.GetHostileName(name);
 
       Vector2 at = PickRandomSpawnPosition();
+      int shards = PickRandomShardsNumber(config);
       return _entityFactory.Create<GameEntity>()
           .With(e => e.isHostile = true)
           .AddHostileName(name)
           .With(e => e.isAsteroid = (name | HostileName.Asteroid) > 0)
+          .With(e => e.AddShards(shards), when: shards > 0)
           .AddTorque(PickRandomTorque(config))
-          .AddForce(PickRandomForce(config, at))
+          .AddForce(PickRandomDirection(at) * PickRandomImpulse(config))
           .AddWorldPosition(at)
           .AddViewPrefab(config.ViewPrefabs.PickRandom())
+          .With(e => e.isExplosive = true)
         ;
     }
 
@@ -52,15 +65,24 @@ namespace Code.Game.Hostiles.Factories
       return direction * speed;
     }
 
-    private Vector2 PickRandomForce(HostileConfig config, Vector2 at)
+    private HostileName PickRandomShards(HostileConfig config) => config.Shards.PickRandom();
+
+    private int PickRandomShardsNumber(HostileConfig config) =>
+      config.MinShards < config.MaxShards 
+        ? _randomService.Range(config.MinShards, config.MaxShards)
+        : Mathf.Max(0, config.MinShards);
+
+
+    private float PickRandomImpulse(HostileConfig config) => _randomService.Range(config.MinMoveImpuls, config.MaxMoveImpuls);
+
+    private Vector2 PickRandomDirection(Vector2 at)
     {
       Bounds bounds = _cameraProvider.ScreenBounds;
       Vector2 target = new(
         _randomService.Range(bounds.center.x - bounds.extents.x * 0.3f, bounds.center.x + bounds.extents.x * 0.3f),
         _randomService.Range(bounds.center.y - bounds.extents.y * 0.3f, bounds.center.y + bounds.extents.y * 0.3f));
 
-      float speed = _randomService.Range(config.MinMoveImpuls, config.MaxMoveImpuls);
-      return (target - at).normalized * speed;
+      return (target - at).normalized;
     }
 
     private Vector2 PickRandomSpawnPosition() =>

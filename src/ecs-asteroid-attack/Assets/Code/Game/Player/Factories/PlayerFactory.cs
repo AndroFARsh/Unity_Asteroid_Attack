@@ -26,7 +26,9 @@ namespace Code.Game.Player.Factories
         .AddWorldPosition(at)
         .AddVelocity(Vector2.zero)
         .AddAngularVelocity(0)
-        .AddViewPrefab(config.ViewPrefab);
+        .AddViewPrefab(config.ViewPrefab)
+        .With(e => e.isExplosive = true)
+        ;
     }
   }
 }
