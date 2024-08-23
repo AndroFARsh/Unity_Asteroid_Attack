@@ -8,6 +8,8 @@ namespace Code.Game.Armaments
     public ArmamentFeature(ISystemFactory systems)
     {
       Add(systems.Create<DetectCollisionSystem>());
+      Add(systems.Create<SpawnExplosionEffectSystem>());
+      Add(systems.Create<SpawnShardsSystem>());
     }
   }
 }

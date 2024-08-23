@@ -15,5 +15,9 @@ namespace Code.Game.Hostiles.Configs
     
     public float MinMoveImpuls = 70f;
     public float MaxMoveImpuls = 120f;
+    
+    public int MinShards = 0;
+    public int MaxShards = 0;
+    public List<HostileName> Shards;
   }
 }

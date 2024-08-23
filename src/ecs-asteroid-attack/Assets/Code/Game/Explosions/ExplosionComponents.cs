@@ -8,4 +8,6 @@ namespace Code.Game.Explosions
   [Game] public class ExplosionAnimatorComponent : IComponent { public ExplosionAnimator Value; }
   
   [Game] public class ExplosionRunComponent : IComponent { }
+  
+  [Game] public class ExplosiveComponent : IComponent { }
 }

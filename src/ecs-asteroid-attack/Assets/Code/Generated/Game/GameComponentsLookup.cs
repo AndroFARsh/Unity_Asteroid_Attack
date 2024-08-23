@@ -37,25 +37,28 @@ public static class GameComponentsLookup {
     public const int ExplosionAnimator = 26;
     public const int Explosion = 27;
     public const int ExplosionRun = 28;
-    public const int Asteroid = 29;
-    public const int Hostile = 30;
-    public const int HostileName = 31;
-    public const int HostileSpawnedPerWave = 32;
-    public const int HostileSpawnedTotal = 33;
-    public const int HostileSpawner = 34;
-    public const int HostileSpawnerReadyMoveToNextWave = 35;
-    public const int HostileSpawnerWave = 36;
-    public const int AngularVelocity = 37;
-    public const int CombustionAnimator = 38;
-    public const int Player = 39;
-    public const int PlayerConfig = 40;
-    public const int PlayerCurrentLive = 41;
-    public const int PlayerSpawner = 42;
-    public const int PlayerTotalLive = 43;
-    public const int ProjectileSpawner = 44;
-    public const int Velocity = 45;
+    public const int Explosive = 29;
+    public const int Asteroid = 30;
+    public const int Hostile = 31;
+    public const int HostileName = 32;
+    public const int Shard = 33;
+    public const int Shards = 34;
+    public const int HostileSpawnedPerWave = 35;
+    public const int HostileSpawnedTotal = 36;
+    public const int HostileSpawner = 37;
+    public const int HostileSpawnerReadyMoveToNextWave = 38;
+    public const int HostileSpawnerWave = 39;
+    public const int AngularVelocity = 40;
+    public const int CombustionAnimator = 41;
+    public const int Player = 42;
+    public const int PlayerConfig = 43;
+    public const int PlayerCurrentLive = 44;
+    public const int PlayerSpawner = 45;
+    public const int PlayerTotalLive = 46;
+    public const int ProjectileSpawner = 47;
+    public const int Velocity = 48;
 
-    public const int TotalComponents = 46;
+    public const int TotalComponents = 49;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -87,9 +90,12 @@ public static class GameComponentsLookup {
         "ExplosionAnimator",
         "Explosion",
         "ExplosionRun",
+        "Explosive",
         "Asteroid",
         "Hostile",
         "HostileName",
+        "Shard",
+        "Shards",
         "HostileSpawnedPerWave",
         "HostileSpawnedTotal",
         "HostileSpawner",
@@ -136,9 +142,12 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Explosions.ExplosionAnimatorComponent),
         typeof(Code.Game.Explosions.ExplosionComponent),
         typeof(Code.Game.Explosions.ExplosionRunComponent),
+        typeof(Code.Game.Explosions.ExplosiveComponent),
         typeof(Code.Game.Hostiles.AsteroidComponent),
         typeof(Code.Game.Hostiles.HostileComponent),
         typeof(Code.Game.Hostiles.HostileNameComponent),
+        typeof(Code.Game.Hostiles.ShardComponent),
+        typeof(Code.Game.Hostiles.ShardsComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnedPerWaveComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnedTotalComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnerComponent),
