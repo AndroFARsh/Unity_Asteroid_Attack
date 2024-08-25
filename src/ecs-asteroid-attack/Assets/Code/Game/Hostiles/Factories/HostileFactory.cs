@@ -1,7 +1,7 @@
-using Code.Common.EntityFactories;
 using Code.Common.Extensions;
 using Code.Game.Cameras.Services;
 using Code.Game.Hostiles.Configs;
+using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.Randoms;
 using Code.Infrastructure.StaticData;
 using UnityEngine;
@@ -45,13 +45,14 @@ namespace Code.Game.Hostiles.Factories
 
       Vector2 at = PickRandomSpawnPosition();
       int shards = PickRandomShardsNumber(config);
-      return _entityFactory.Create<GameEntity>()
+      return _entityFactory.CreateEntity<GameEntity>()
           .With(e => e.isHostile = true)
           .AddHostileName(name)
           .With(e => e.isAsteroid = (name | HostileName.Asteroid) > 0)
           .With(e => e.AddShards(shards), when: shards > 0)
           .AddTorque(PickRandomTorque(config))
           .AddForce(PickRandomDirection(at) * PickRandomImpulse(config))
+          .AddScore(config.Score)
           .AddWorldPosition(at)
           .AddViewPrefab(config.ViewPrefabs.PickRandom())
           .With(e => e.isExplosive = true)

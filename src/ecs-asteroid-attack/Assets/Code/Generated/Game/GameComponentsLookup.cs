@@ -9,62 +9,68 @@
 public static class GameComponentsLookup {
 
     public const int Id = 0;
-    public const int ReadyToDestroy = 1;
+    public const int ReadyToCleanUp = 1;
     public const int SelfDestroyTimer = 2;
     public const int View = 3;
-    public const int ViewPath = 4;
-    public const int ViewPrefab = 5;
-    public const int Ability = 6;
-    public const int AbilityName = 7;
-    public const int OwnerId = 8;
-    public const int ProjectileAbility = 9;
-    public const int Armament = 10;
-    public const int ContactRadius = 11;
-    public const int PierceNumber = 12;
-    public const int Projectile = 13;
-    public const int Collider2D = 14;
-    public const int CollideRadius = 15;
-    public const int Force = 16;
-    public const int LayerMask = 17;
-    public const int Rigidbody2D = 18;
-    public const int SpriteRenderer = 19;
-    public const int Torque = 20;
-    public const int Transform = 21;
-    public const int WorldPosition = 22;
-    public const int CooldownLeft = 23;
-    public const int CooldownTime = 24;
-    public const int CooldownUp = 25;
-    public const int ExplosionAnimator = 26;
-    public const int Explosion = 27;
-    public const int ExplosionRun = 28;
-    public const int Explosive = 29;
-    public const int Asteroid = 30;
-    public const int Hostile = 31;
-    public const int HostileName = 32;
-    public const int Shard = 33;
-    public const int Shards = 34;
-    public const int HostileSpawnedPerWave = 35;
-    public const int HostileSpawnedTotal = 36;
-    public const int HostileSpawner = 37;
-    public const int HostileSpawnerReadyMoveToNextWave = 38;
-    public const int HostileSpawnerWave = 39;
-    public const int AngularVelocity = 40;
-    public const int CombustionAnimator = 41;
-    public const int Player = 42;
-    public const int PlayerConfig = 43;
-    public const int PlayerCurrentLive = 44;
-    public const int PlayerSpawner = 45;
-    public const int PlayerTotalLive = 46;
-    public const int ProjectileSpawner = 47;
-    public const int Velocity = 48;
+    public const int ViewDDD = 4;
+    public const int ViewPath = 5;
+    public const int ViewPrefab = 6;
+    public const int Ability = 7;
+    public const int AbilityName = 8;
+    public const int OwnerId = 9;
+    public const int ProjectileAbility = 10;
+    public const int Armament = 11;
+    public const int ContactRadius = 12;
+    public const int PierceNumber = 13;
+    public const int Projectile = 14;
+    public const int Collider2D = 15;
+    public const int CollideRadius = 16;
+    public const int Force = 17;
+    public const int LayerMask = 18;
+    public const int Rigidbody2D = 19;
+    public const int SpriteRenderer = 20;
+    public const int Torque = 21;
+    public const int Transform = 22;
+    public const int WorldPosition = 23;
+    public const int CooldownLeft = 24;
+    public const int CooldownTime = 25;
+    public const int CooldownUp = 26;
+    public const int ExplosionAnimator = 27;
+    public const int Explosion = 28;
+    public const int ExplosionRun = 29;
+    public const int Explosive = 30;
+    public const int CurrentScore = 31;
+    public const int GameOver = 32;
+    public const int GameState = 33;
+    public const int PlayerCurrentLive = 34;
+    public const int PlayerTotalLive = 35;
+    public const int PreviousScore = 36;
+    public const int Asteroid = 37;
+    public const int Hostile = 38;
+    public const int HostileName = 39;
+    public const int Score = 40;
+    public const int Shard = 41;
+    public const int Shards = 42;
+    public const int HostileSpawnedPerWave = 43;
+    public const int HostileSpawnedTotal = 44;
+    public const int HostileSpawner = 45;
+    public const int HostileSpawnerReadyMoveToNextWave = 46;
+    public const int HostileSpawnerWave = 47;
+    public const int AngularVelocity = 48;
+    public const int CombustionAnimator = 49;
+    public const int Player = 50;
+    public const int PlayerConfig = 51;
+    public const int ProjectileSpawner = 52;
+    public const int Velocity = 53;
 
-    public const int TotalComponents = 49;
+    public const int TotalComponents = 54;
 
     public static readonly string[] componentNames = {
         "Id",
-        "ReadyToDestroy",
+        "ReadyToCleanUp",
         "SelfDestroyTimer",
         "View",
+        "ViewDDD",
         "ViewPath",
         "ViewPrefab",
         "Ability",
@@ -91,9 +97,16 @@ public static class GameComponentsLookup {
         "Explosion",
         "ExplosionRun",
         "Explosive",
+        "CurrentScore",
+        "GameOver",
+        "GameState",
+        "PlayerCurrentLive",
+        "PlayerTotalLive",
+        "PreviousScore",
         "Asteroid",
         "Hostile",
         "HostileName",
+        "Score",
         "Shard",
         "Shards",
         "HostileSpawnedPerWave",
@@ -105,18 +118,16 @@ public static class GameComponentsLookup {
         "CombustionAnimator",
         "Player",
         "PlayerConfig",
-        "PlayerCurrentLive",
-        "PlayerSpawner",
-        "PlayerTotalLive",
         "ProjectileSpawner",
         "Velocity"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.IdComponent),
-        typeof(Code.Common.ReadyToDestroyComponent),
+        typeof(Code.Common.ReadyToCleanUpComponent),
         typeof(Code.Common.SelfDestroyTimerComponent),
         typeof(Code.Common.ViewComponent),
+        typeof(Code.Common.ViewDDDComponent),
         typeof(Code.Common.ViewPathComponent),
         typeof(Code.Common.ViewPrefabComponent),
         typeof(Code.Game.Abilities.AbilityComponent),
@@ -143,9 +154,16 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Explosions.ExplosionComponent),
         typeof(Code.Game.Explosions.ExplosionRunComponent),
         typeof(Code.Game.Explosions.ExplosiveComponent),
+        typeof(Code.Game.GameState.CurrentScoreComponent),
+        typeof(Code.Game.GameState.GameOverComponent),
+        typeof(Code.Game.GameState.GameStateComponent),
+        typeof(Code.Game.GameState.PlayerCurrentLiveComponent),
+        typeof(Code.Game.GameState.PlayerTotalLiveComponent),
+        typeof(Code.Game.GameState.PreviousScoreComponent),
         typeof(Code.Game.Hostiles.AsteroidComponent),
         typeof(Code.Game.Hostiles.HostileComponent),
         typeof(Code.Game.Hostiles.HostileNameComponent),
+        typeof(Code.Game.Hostiles.ScoreComponent),
         typeof(Code.Game.Hostiles.ShardComponent),
         typeof(Code.Game.Hostiles.ShardsComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnedPerWaveComponent),
@@ -157,9 +175,6 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Player.CombustionAnimatorComponent),
         typeof(Code.Game.Player.PlayerComponent),
         typeof(Code.Game.Player.PlayerConfigComponent),
-        typeof(Code.Game.Player.PlayerCurrentLiveComponent),
-        typeof(Code.Game.Player.PlayerSpawnerComponent),
-        typeof(Code.Game.Player.PlayerTotalLiveComponent),
         typeof(Code.Game.Player.ProjectileSpawnerComponent),
         typeof(Code.Game.Player.VelocityComponent)
     };

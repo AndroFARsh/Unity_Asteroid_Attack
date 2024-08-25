@@ -1,6 +1,6 @@
-using Code.Common.EntityFactories;
 using Code.Common.Extensions;
 using Code.Game.Player.Configs;
+using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.StaticData;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ namespace Code.Game.Player.Factories
     public GameEntity CreatePlayer(Vector3 at)
     {
       PlayerConfig config = _staticDataService.GetPlayerConfig();
-      return _entityFactory.Create<GameEntity>()
+      return _entityFactory.CreateEntity<GameEntity>()
         .With(e => e.isPlayer = true)
         .AddPlayerConfig(config)
         .AddWorldPosition(at)

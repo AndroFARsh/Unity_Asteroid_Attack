@@ -9,28 +9,31 @@
 public static class MetaComponentsLookup {
 
     public const int Id = 0;
-    public const int ReadyToDestroy = 1;
+    public const int ReadyToCleanUp = 1;
     public const int SelfDestroyTimer = 2;
     public const int View = 3;
-    public const int ViewPath = 4;
-    public const int ViewPrefab = 5;
+    public const int ViewDDD = 4;
+    public const int ViewPath = 5;
+    public const int ViewPrefab = 6;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "Id",
-        "ReadyToDestroy",
+        "ReadyToCleanUp",
         "SelfDestroyTimer",
         "View",
+        "ViewDDD",
         "ViewPath",
         "ViewPrefab"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.IdComponent),
-        typeof(Code.Common.ReadyToDestroyComponent),
+        typeof(Code.Common.ReadyToCleanUpComponent),
         typeof(Code.Common.SelfDestroyTimerComponent),
         typeof(Code.Common.ViewComponent),
+        typeof(Code.Common.ViewDDDComponent),
         typeof(Code.Common.ViewPathComponent),
         typeof(Code.Common.ViewPrefabComponent)
     };

@@ -45,8 +45,6 @@ namespace Code.Game.Player.Systems
       Vector2 newNormalizedVelocity = newVelocity.normalized;
       float speed = newVelocity.magnitude;
 
-      if (Vector2.Dot(forward, newNormalizedVelocity) < 0 && speed > 0)
-        return Vector2.zero;
       if (speed > config.MaxMoveSpeed)
         return newNormalizedVelocity * config.MaxMoveSpeed;
       

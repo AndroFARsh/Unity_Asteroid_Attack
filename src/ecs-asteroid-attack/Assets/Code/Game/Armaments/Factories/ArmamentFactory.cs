@@ -1,8 +1,8 @@
-using Code.Common.EntityFactories;
 using Code.Common.Extensions;
 using Code.Game.Abilities;
 using Code.Game.Abilities.Configs;
 using Code.Game.Common.Extensions;
+using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.StaticData;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ namespace Code.Game.Armaments.Factories
     public GameEntity CreateProjectile(Vector2 at, Vector2 direction)
     {
       AbilityConfig config = _staticDataService.GetAbilityConfig(AbilityName.Projectile);
-      return _factory.Create<GameEntity>()
+      return _factory.CreateEntity<GameEntity>()
           .With(e => e.isArmament = true)
           .AddWorldPosition(at)
           .AddViewPrefab(config.ViewPrefabs)

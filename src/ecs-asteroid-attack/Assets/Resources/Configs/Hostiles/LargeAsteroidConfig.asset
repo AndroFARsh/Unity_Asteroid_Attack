@@ -20,3 +20,6 @@ MonoBehaviour:
   MaxTorqueImpuls: 30
   MinMoveImpuls: 70
   MaxMoveImpuls: 120
+  MinShards: 2
+  MaxShards: 4
+  Shards: 01000000

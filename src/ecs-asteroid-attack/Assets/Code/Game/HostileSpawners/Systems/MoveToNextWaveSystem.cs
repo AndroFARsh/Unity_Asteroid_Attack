@@ -47,7 +47,7 @@ namespace Code.Game.HostileSpawners.Systems
         else
         {
           // todo: init win screen 
-          entity.isReadyToDestroy = true;
+          entity.isReadyToCleanUp = true;
         }
 
       }

@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Game.Player.PlayerTotalLiveComponent playerTotalLive { get { return (Code.Game.Player.PlayerTotalLiveComponent)GetComponent(GameComponentsLookup.PlayerTotalLive); } }
+    public Code.Game.GameState.PlayerTotalLiveComponent playerTotalLive { get { return (Code.Game.GameState.PlayerTotalLiveComponent)GetComponent(GameComponentsLookup.PlayerTotalLive); } }
     public int PlayerTotalLive { get { return playerTotalLive.Value; } }
     public bool hasPlayerTotalLive { get { return HasComponent(GameComponentsLookup.PlayerTotalLive); } }
 
     public GameEntity AddPlayerTotalLive(int newValue) {
         var index = GameComponentsLookup.PlayerTotalLive;
-        var component = (Code.Game.Player.PlayerTotalLiveComponent)CreateComponent(index, typeof(Code.Game.Player.PlayerTotalLiveComponent));
+        var component = (Code.Game.GameState.PlayerTotalLiveComponent)CreateComponent(index, typeof(Code.Game.GameState.PlayerTotalLiveComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplacePlayerTotalLive(int newValue) {
         var index = GameComponentsLookup.PlayerTotalLive;
-        var component = (Code.Game.Player.PlayerTotalLiveComponent)CreateComponent(index, typeof(Code.Game.Player.PlayerTotalLiveComponent));
+        var component = (Code.Game.GameState.PlayerTotalLiveComponent)CreateComponent(index, typeof(Code.Game.GameState.PlayerTotalLiveComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

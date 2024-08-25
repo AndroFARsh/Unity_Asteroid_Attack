@@ -5,17 +5,6 @@ namespace Code.Game.HUD.Services
 {
   class GameHUDService : IGameHUDService
   {
-    public event Action WaveChanged;
-    public int CurrentWave { get; private set; }
-    public int TotalWave { get; private set; }
-    
-    public void UpdateWave(int current, int total)
-    {
-      CurrentWave = Mathf.Max(0, Mathf.Min(current, total));
-      TotalWave = Mathf.Max(0, total);
-      WaveChanged?.Invoke();
-    }
-
     public event Action ScoreChanged;
     public int CurrentScore { get; private set; }
     

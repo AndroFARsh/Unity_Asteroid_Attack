@@ -364,6 +364,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8659091616621502878}
     m_Modifications:
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: RotationModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -374,6 +378,14 @@ PrefabInstance:
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: RotationModule.curve.scalar
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5151137562617758318, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -507,12 +519,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 8659091616621502878}
     m_Modifications:
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
+      propertyPath: simulationSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: moveWithTransform
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: InitialModule.startRotation.scalar
@@ -602,12 +622,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 8659091616621502878}
     m_Modifications:
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
+      propertyPath: simulationSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: moveWithTransform
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1833413439989948702, guid: 74416887ecda94cb0a295cf2d088c0e5, type: 3}
       propertyPath: InitialModule.startRotation.scalar

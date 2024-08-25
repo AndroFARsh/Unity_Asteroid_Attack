@@ -1,10 +1,10 @@
 using Code.Common.Curtains;
-using Code.Common.EntityFactories;
 using Code.Common.View.Factories;
 using Code.Game.Abilities.Factories;
 using Code.Game.Armaments.Factories;
 using Code.Game.Cameras.Services;
 using Code.Game.Explosions.Factories;
+using Code.Game.GameState.Factories;
 using Code.Game.Hostiles.Factories;
 using Code.Game.HUD;
 using Code.Game.HUD.Services;
@@ -13,6 +13,7 @@ using Code.Game.Player.Factories;
 using Code.Game.Windows.Pause;
 using Code.Home.UI.MainMenu;
 using Code.Infrastructure.AssetManagement;
+using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Instantioator;
 using Code.Infrastructure.LifetimeScope.Installers;
@@ -156,6 +157,7 @@ namespace Code.Project.Installers
 
     private static void RegisterGameplayFactories(IContainerBuilder builder)
     {
+      builder.Register<GameStateFactory>(Lifetime.Singleton).As<IGameStateFactory>();
       builder.Register<PlayerFactory>(Lifetime.Singleton).As<IPlayerFactory>();
       builder.Register<HostileFactory>(Lifetime.Singleton).As<IHostileFactory>();
       builder.Register<AbilityFactory>(Lifetime.Singleton).As<IAbilityFactory>();

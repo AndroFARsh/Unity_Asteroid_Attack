@@ -1,5 +1,5 @@
-using Code.Common.EntityFactories;
 using Code.Common.Extensions;
+using Code.Infrastructure.EntityFactories;
 using UnityEngine;
 
 namespace Code.Game.Explosions.Factories
@@ -14,7 +14,7 @@ namespace Code.Game.Explosions.Factories
     }
     public GameEntity CreateExplosion(Vector2 at)
     {
-      return _factory.Create<GameEntity>()
+      return _factory.CreateEntity<GameEntity>()
         .With(e => e.isExplosion = true)
         .AddWorldPosition(at)
         .AddViewPath("Game/Effects/Explosion")

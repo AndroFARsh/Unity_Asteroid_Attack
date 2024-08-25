@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Code.Common.EntityFactories;
 using Code.Common.Extensions;
 using Code.Game.HostileSpawners.Configs;
+using Code.Infrastructure.EntityFactories;
 using Code.Levels.Services;
 using Entitas;
 
@@ -22,7 +22,7 @@ namespace Code.Game.HostileSpawners.Systems
     {
       List<HostileWaveSetup> waves = _levelDataProvider.LevelConfig.WavesSetup;
       HostileWaveSetup wave = waves[0];
-      _entityFactory.Create<GameEntity>()
+      _entityFactory.CreateEntity<GameEntity>()
         .With(e => e.isHostileSpawner = true)
         .AddHostileSpawnerWave(0)
         .AddCooldownTime(wave.Cooldown)

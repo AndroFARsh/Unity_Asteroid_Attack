@@ -1,6 +1,6 @@
-using Code.Common.EntityFactories;
 using Code.Common.Extensions;
 using Code.Game.Abilities.Configs;
+using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.StaticData;
 
 namespace Code.Game.Abilities.Factories
@@ -19,7 +19,7 @@ namespace Code.Game.Abilities.Factories
     public GameEntity CreateAbility(AbilityName name, ulong ownerId)
     {
       AbilityConfig config = _staticDataService.GetAbilityConfig(name);
-      return _factory.Create<GameEntity>()
+      return _factory.CreateEntity<GameEntity>()
           .With(e => e.isAbility = true)
           .AddAbilityName(name)
           .AddOwnerId(ownerId)
