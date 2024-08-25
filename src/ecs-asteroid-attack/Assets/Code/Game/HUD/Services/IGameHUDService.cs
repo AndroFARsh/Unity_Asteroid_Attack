@@ -2,7 +2,7 @@ using System;
 
 namespace Code.Game.HUD.Services
 {
-  interface IGameHUDService
+  public interface IGameHUDService
   {
     event Action ScoreChanged;
     int CurrentScore { get; }

@@ -52,6 +52,7 @@ namespace Code.Game.Hostiles.Factories
           .With(e => e.AddShards(shards), when: shards > 0)
           .AddTorque(PickRandomTorque(config))
           .AddForce(PickRandomDirection(at) * PickRandomImpulse(config))
+          .AddScore(config.Score)
           .AddWorldPosition(at)
           .AddViewPrefab(config.ViewPrefabs.PickRandom())
           .With(e => e.isExplosive = true)

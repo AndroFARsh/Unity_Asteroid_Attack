@@ -39,27 +39,31 @@ public static class GameComponentsLookup {
     public const int Explosion = 28;
     public const int ExplosionRun = 29;
     public const int Explosive = 30;
-    public const int Asteroid = 31;
-    public const int Hostile = 32;
-    public const int HostileName = 33;
-    public const int Shard = 34;
-    public const int Shards = 35;
-    public const int HostileSpawnedPerWave = 36;
-    public const int HostileSpawnedTotal = 37;
-    public const int HostileSpawner = 38;
-    public const int HostileSpawnerReadyMoveToNextWave = 39;
-    public const int HostileSpawnerWave = 40;
-    public const int AngularVelocity = 41;
-    public const int CombustionAnimator = 42;
-    public const int Player = 43;
-    public const int PlayerConfig = 44;
-    public const int PlayerCurrentLive = 45;
-    public const int PlayerSpawner = 46;
-    public const int PlayerTotalLive = 47;
-    public const int ProjectileSpawner = 48;
-    public const int Velocity = 49;
+    public const int CurrentScore = 31;
+    public const int GameOver = 32;
+    public const int GameState = 33;
+    public const int PlayerCurrentLive = 34;
+    public const int PlayerTotalLive = 35;
+    public const int PreviousScore = 36;
+    public const int Asteroid = 37;
+    public const int Hostile = 38;
+    public const int HostileName = 39;
+    public const int Score = 40;
+    public const int Shard = 41;
+    public const int Shards = 42;
+    public const int HostileSpawnedPerWave = 43;
+    public const int HostileSpawnedTotal = 44;
+    public const int HostileSpawner = 45;
+    public const int HostileSpawnerReadyMoveToNextWave = 46;
+    public const int HostileSpawnerWave = 47;
+    public const int AngularVelocity = 48;
+    public const int CombustionAnimator = 49;
+    public const int Player = 50;
+    public const int PlayerConfig = 51;
+    public const int ProjectileSpawner = 52;
+    public const int Velocity = 53;
 
-    public const int TotalComponents = 50;
+    public const int TotalComponents = 54;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -93,9 +97,16 @@ public static class GameComponentsLookup {
         "Explosion",
         "ExplosionRun",
         "Explosive",
+        "CurrentScore",
+        "GameOver",
+        "GameState",
+        "PlayerCurrentLive",
+        "PlayerTotalLive",
+        "PreviousScore",
         "Asteroid",
         "Hostile",
         "HostileName",
+        "Score",
         "Shard",
         "Shards",
         "HostileSpawnedPerWave",
@@ -107,9 +118,6 @@ public static class GameComponentsLookup {
         "CombustionAnimator",
         "Player",
         "PlayerConfig",
-        "PlayerCurrentLive",
-        "PlayerSpawner",
-        "PlayerTotalLive",
         "ProjectileSpawner",
         "Velocity"
     };
@@ -146,9 +154,16 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Explosions.ExplosionComponent),
         typeof(Code.Game.Explosions.ExplosionRunComponent),
         typeof(Code.Game.Explosions.ExplosiveComponent),
+        typeof(Code.Game.GameState.CurrentScoreComponent),
+        typeof(Code.Game.GameState.GameOverComponent),
+        typeof(Code.Game.GameState.GameStateComponent),
+        typeof(Code.Game.GameState.PlayerCurrentLiveComponent),
+        typeof(Code.Game.GameState.PlayerTotalLiveComponent),
+        typeof(Code.Game.GameState.PreviousScoreComponent),
         typeof(Code.Game.Hostiles.AsteroidComponent),
         typeof(Code.Game.Hostiles.HostileComponent),
         typeof(Code.Game.Hostiles.HostileNameComponent),
+        typeof(Code.Game.Hostiles.ScoreComponent),
         typeof(Code.Game.Hostiles.ShardComponent),
         typeof(Code.Game.Hostiles.ShardsComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnedPerWaveComponent),
@@ -160,9 +175,6 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Player.CombustionAnimatorComponent),
         typeof(Code.Game.Player.PlayerComponent),
         typeof(Code.Game.Player.PlayerConfigComponent),
-        typeof(Code.Game.Player.PlayerCurrentLiveComponent),
-        typeof(Code.Game.Player.PlayerSpawnerComponent),
-        typeof(Code.Game.Player.PlayerTotalLiveComponent),
         typeof(Code.Game.Player.ProjectileSpawnerComponent),
         typeof(Code.Game.Player.VelocityComponent)
     };

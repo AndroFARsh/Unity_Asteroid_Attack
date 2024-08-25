@@ -25,7 +25,7 @@ public static class IEntityExtensions
     };
   }
 
-  public static void IsComponentAllowed<TComponent>(this Entitas.IEntity entity)
+  public static bool IsComponentAllowed<TComponent>(this Entitas.IEntity entity)
     where TComponent : class, Entitas.IComponent =>
     IsComponentAllowed(entity, typeof(TComponent));
 

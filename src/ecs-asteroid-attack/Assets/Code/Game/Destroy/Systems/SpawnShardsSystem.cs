@@ -2,7 +2,7 @@ using Code.Game.Hostiles.Factories;
 using Entitas;
 using UnityEngine;
 
-namespace Code.Game.Armaments.Systems
+namespace Code.Game.Destroy.Systems
 {
   public class SpawnShardsSystem : IExecuteSystem
   {

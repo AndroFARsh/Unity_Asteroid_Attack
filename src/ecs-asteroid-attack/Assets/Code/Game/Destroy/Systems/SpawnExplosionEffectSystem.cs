@@ -2,7 +2,7 @@ using Code.Game.Explosions.Factories;
 using Code.Infrastructure.Physics;
 using Entitas;
 
-namespace Code.Game.Armaments.Systems
+namespace Code.Game.Destroy.Systems
 {
   public class SpawnExplosionEffectSystem : IExecuteSystem
   {

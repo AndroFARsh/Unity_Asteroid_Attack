@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.Game.Player
 {
-  [Game] public class PlayerSpawnerComponent : IComponent { }
+  [Game] public class PlayerComponent : IComponent { }
   
   [Game] public class VelocityComponent : IComponent { public Vector2 Value; }
   
@@ -13,13 +13,7 @@ namespace Code.Game.Player
   
   [Game] public class PlayerConfigComponent : IComponent { public PlayerConfig Value; }
   
-  [Game] public class PlayerCurrentLiveComponent : IComponent { public int Value; }
-  
-  [Game] public class PlayerTotalLiveComponent : IComponent { public int Value; }
-  
   [Game] public class CombustionAnimatorComponent : IComponent { public CombustionAnimator Value; }
-  
-  [Game] public class PlayerComponent : IComponent { }
   
   [Game] public class ProjectileSpawnerComponent : IComponent { public ProjectileSpawner Value; }
 }

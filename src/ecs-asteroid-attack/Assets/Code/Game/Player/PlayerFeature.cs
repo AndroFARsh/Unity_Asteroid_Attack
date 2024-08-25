@@ -7,8 +7,6 @@ namespace Code.Game.Player
   {
     public PlayerFeature(ISystemFactory systems)
     {
-      Add(systems.Create<InitializePlayerSpawnerSystem>());
-      Add(systems.Create<SpawnPlayerSystem>());
       Add(systems.Create<InputToAngularVelocitySystem>());
       Add(systems.Create<InputToVelocitySystem>());
       Add(systems.Create<AnimatePlayerSystem>());

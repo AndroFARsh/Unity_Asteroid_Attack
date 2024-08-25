@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
   ViewPrefab: {fileID: 2917906465452553735, guid: bf12d5c1da9634cb180b053da3a3cfff, type: 3}
-  RotateSpeed: 60
-  MoveAcceleration: 0.01
+  RotateSpeed: 90
+  MoveAcceleration: 0.007
   MaxMoveSpeed: 2
   InitialMoveDirection: {x: 0, y: 1}
   PlayerSpawnPoint: {x: 0, y: 0}

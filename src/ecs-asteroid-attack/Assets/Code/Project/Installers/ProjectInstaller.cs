@@ -4,6 +4,7 @@ using Code.Game.Abilities.Factories;
 using Code.Game.Armaments.Factories;
 using Code.Game.Cameras.Services;
 using Code.Game.Explosions.Factories;
+using Code.Game.GameState.Factories;
 using Code.Game.Hostiles.Factories;
 using Code.Game.HUD;
 using Code.Game.HUD.Services;
@@ -156,6 +157,7 @@ namespace Code.Project.Installers
 
     private static void RegisterGameplayFactories(IContainerBuilder builder)
     {
+      builder.Register<GameStateFactory>(Lifetime.Singleton).As<IGameStateFactory>();
       builder.Register<PlayerFactory>(Lifetime.Singleton).As<IPlayerFactory>();
       builder.Register<HostileFactory>(Lifetime.Singleton).As<IHostileFactory>();
       builder.Register<AbilityFactory>(Lifetime.Singleton).As<IAbilityFactory>();

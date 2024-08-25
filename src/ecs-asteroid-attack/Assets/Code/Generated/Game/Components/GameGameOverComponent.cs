@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherPlayerSpawner;
+    static Entitas.IMatcher<GameEntity> _matcherGameOver;
 
-    public static Entitas.IMatcher<GameEntity> PlayerSpawner {
+    public static Entitas.IMatcher<GameEntity> GameOver {
         get {
-            if (_matcherPlayerSpawner == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.PlayerSpawner);
+            if (_matcherGameOver == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameOver);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherPlayerSpawner = matcher;
+                _matcherGameOver = matcher;
             }
 
-            return _matcherPlayerSpawner;
+            return _matcherGameOver;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Game.Player.PlayerSpawnerComponent playerSpawnerComponent = new Code.Game.Player.PlayerSpawnerComponent();
+    static readonly Code.Game.GameState.GameOverComponent gameOverComponent = new Code.Game.GameState.GameOverComponent();
 
-    public bool isPlayerSpawner {
-        get { return HasComponent(GameComponentsLookup.PlayerSpawner); }
+    public bool isGameOver {
+        get { return HasComponent(GameComponentsLookup.GameOver); }
         set {
-            if (value != isPlayerSpawner) {
-                var index = GameComponentsLookup.PlayerSpawner;
+            if (value != isGameOver) {
+                var index = GameComponentsLookup.GameOver;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : playerSpawnerComponent;
+                            : gameOverComponent;
 
                     AddComponent(index, component);
                 } else {
