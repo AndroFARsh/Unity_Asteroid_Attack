@@ -1,8 +1,8 @@
 using Entitas;
 
-namespace Code.Game.GameplayState
+namespace Code.Game.Level
 {
-  [Game] public class GameStateComponent : IComponent { }
+  [Game] public class LevelComponent : IComponent { }
   
   [Game] public class GameOverComponent : IComponent { }
   

@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameState;
+    static Entitas.IMatcher<GameEntity> _matcherLevel;
 
-    public static Entitas.IMatcher<GameEntity> GameState {
+    public static Entitas.IMatcher<GameEntity> Level {
         get {
-            if (_matcherGameState == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameState);
+            if (_matcherLevel == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Level);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGameState = matcher;
+                _matcherLevel = matcher;
             }
 
-            return _matcherGameState;
+            return _matcherLevel;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Game.GameplayState.GameStateComponent gameStateComponent = new Code.Game.GameplayState.GameStateComponent();
+    static readonly Code.Game.Level.LevelComponent levelComponent = new Code.Game.Level.LevelComponent();
 
-    public bool isGameState {
-        get { return HasComponent(GameComponentsLookup.GameState); }
+    public bool isLevel {
+        get { return HasComponent(GameComponentsLookup.Level); }
         set {
-            if (value != isGameState) {
-                var index = GameComponentsLookup.GameState;
+            if (value != isLevel) {
+                var index = GameComponentsLookup.Level;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : gameStateComponent;
+                            : levelComponent;
 
                     AddComponent(index, component);
                 } else {

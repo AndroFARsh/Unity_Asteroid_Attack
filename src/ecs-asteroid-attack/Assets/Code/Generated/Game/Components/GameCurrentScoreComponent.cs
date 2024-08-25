@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Game.GameplayState.CurrentScoreComponent currentScore { get { return (Code.Game.GameplayState.CurrentScoreComponent)GetComponent(GameComponentsLookup.CurrentScore); } }
+    public Code.Game.Level.CurrentScoreComponent currentScore { get { return (Code.Game.Level.CurrentScoreComponent)GetComponent(GameComponentsLookup.CurrentScore); } }
     public int CurrentScore { get { return currentScore.Value; } }
     public bool hasCurrentScore { get { return HasComponent(GameComponentsLookup.CurrentScore); } }
 
     public GameEntity AddCurrentScore(int newValue) {
         var index = GameComponentsLookup.CurrentScore;
-        var component = (Code.Game.GameplayState.CurrentScoreComponent)CreateComponent(index, typeof(Code.Game.GameplayState.CurrentScoreComponent));
+        var component = (Code.Game.Level.CurrentScoreComponent)CreateComponent(index, typeof(Code.Game.Level.CurrentScoreComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceCurrentScore(int newValue) {
         var index = GameComponentsLookup.CurrentScore;
-        var component = (Code.Game.GameplayState.CurrentScoreComponent)CreateComponent(index, typeof(Code.Game.GameplayState.CurrentScoreComponent));
+        var component = (Code.Game.Level.CurrentScoreComponent)CreateComponent(index, typeof(Code.Game.Level.CurrentScoreComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

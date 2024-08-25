@@ -4,11 +4,11 @@ using Code.Game.Abilities.Factories;
 using Code.Game.Armaments.Factories;
 using Code.Game.Cameras.Services;
 using Code.Game.Explosions.Factories;
-using Code.Game.GameState.Factories;
 using Code.Game.Hostiles.Factories;
 using Code.Game.HUD;
 using Code.Game.HUD.Services;
 using Code.Game.Input.Service;
+using Code.Game.Level.Factories;
 using Code.Game.Player.Factories;
 using Code.Game.Windows.GameOver;
 using Code.Game.Windows.Pause;
@@ -159,7 +159,7 @@ namespace Code.Project.Installers
 
     private static void RegisterGameplayFactories(IContainerBuilder builder)
     {
-      builder.Register<GameStateFactory>(Lifetime.Singleton).As<IGameStateFactory>();
+      builder.Register<LevelInfoFactory>(Lifetime.Singleton).As<ILevelInfoFactory>();
       builder.Register<PlayerFactory>(Lifetime.Singleton).As<IPlayerFactory>();
       builder.Register<HostileFactory>(Lifetime.Singleton).As<IHostileFactory>();
       builder.Register<AbilityFactory>(Lifetime.Singleton).As<IAbilityFactory>();

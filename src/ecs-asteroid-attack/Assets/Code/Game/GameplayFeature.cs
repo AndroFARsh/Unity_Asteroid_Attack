@@ -6,11 +6,10 @@ using Code.Game.Cameras;
 using Code.Game.Cooldowns.Systems;
 using Code.Game.Destroy;
 using Code.Game.Explosions;
-using Code.Game.GameplayState;
-using Code.Game.GameState;
 using Code.Game.HostileSpawners;
 using Code.Game.HUD;
 using Code.Game.Input;
+using Code.Game.Level;
 using Code.Game.Player;
 using Code.Game.View;
 using Code.Infrastructure.Systems;
@@ -23,7 +22,7 @@ namespace Code.Game
     {
       Add(systems.Create<CooldownSystem>());
       Add(systems.Create<InputFeature>());
-      Add(systems.Create<GameStateFeature>());
+      Add(systems.Create<LevelFeature>());
       Add(systems.Create<HUDFeature>());
       Add(systems.Create<PlayerFeature>());
       Add(systems.Create<HostileSpawnerFeature>());

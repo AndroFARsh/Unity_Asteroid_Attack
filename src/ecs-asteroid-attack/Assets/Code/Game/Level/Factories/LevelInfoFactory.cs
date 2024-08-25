@@ -4,26 +4,26 @@ using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.Progress;
 using Code.Infrastructure.StaticData;
 
-namespace Code.Game.GameState.Factories
+namespace Code.Game.Level.Factories
 {
-  public class GameStateFactory : IGameStateFactory
+  public class LevelInfoFactory : ILevelInfoFactory
   {
     private readonly IEntityFactory _entityFactory;
     private readonly IProgressDataProvider _progressDataProvider;
     private readonly IStaticDataService _staticDataService;
 
-    public GameStateFactory(IEntityFactory entityFactory, IProgressDataProvider progressDataProvider, IStaticDataService staticDataService)
+    public LevelInfoFactory(IEntityFactory entityFactory, IProgressDataProvider progressDataProvider, IStaticDataService staticDataService)
     {
       _entityFactory = entityFactory;
       _progressDataProvider = progressDataProvider;
       _staticDataService = staticDataService;
     }
 
-    public GameEntity CreateState()
+    public GameEntity CreateInfo()
     {
       PlayerConfig config = _staticDataService.GetPlayerConfig();
       return _entityFactory.CreateEntity<GameEntity>()
-        .With(e => e.isGameState = true)
+        .With(e => e.isLevel = true)
         .AddCurrentScore(0)
         .AddPreviousScore(_progressDataProvider.ProgressData?.LastScore ?? 0)
         .AddPlayerTotalLive(config.MaxLives)
