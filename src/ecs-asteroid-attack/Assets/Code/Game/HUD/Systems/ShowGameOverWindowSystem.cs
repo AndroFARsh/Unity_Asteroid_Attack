@@ -17,7 +17,7 @@ namespace Code.Game.HUD.Systems
       _windowService = windowService;
       _entities = game.GetGroup(
         GameMatcher
-          .AllOf(GameMatcher.GameState, GameMatcher.GameOver)
+          .AllOf(GameMatcher.Level, GameMatcher.GameOver)
           .NoneOf(GameMatcher.GameOverWindowShown));
     }
 

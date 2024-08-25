@@ -12,7 +12,7 @@ namespace Code.Game.HUD.Systems
     {
       _gameHUDService = gameHUDService;
       _entities = game.GetGroup(
-        GameMatcher.AllOf(GameMatcher.GameState, GameMatcher.CurrentScore));
+        GameMatcher.AllOf(GameMatcher.Level, GameMatcher.CurrentScore));
     }
 
     public void Execute()

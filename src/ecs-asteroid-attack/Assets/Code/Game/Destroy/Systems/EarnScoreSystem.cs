@@ -10,7 +10,7 @@ namespace Code.Game.Destroy.Systems
     public EarnScoreSystem(GameContext game)
     {
       _scoreEntities = game.GetGroup(GameMatcher.AllOf(GameMatcher.ReadyToCleanUp, GameMatcher.Score));
-      _gameStateEntities = game.GetGroup(GameMatcher.AllOf(GameMatcher.GameState, GameMatcher.CurrentScore));
+      _gameStateEntities = game.GetGroup(GameMatcher.AllOf(GameMatcher.Level, GameMatcher.CurrentScore));
     }
 
     public void Execute()

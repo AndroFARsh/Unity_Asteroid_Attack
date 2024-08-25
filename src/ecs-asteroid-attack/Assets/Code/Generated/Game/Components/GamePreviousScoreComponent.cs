@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Game.GameplayState.PreviousScoreComponent previousScore { get { return (Code.Game.GameplayState.PreviousScoreComponent)GetComponent(GameComponentsLookup.PreviousScore); } }
+    public Code.Game.Level.PreviousScoreComponent previousScore { get { return (Code.Game.Level.PreviousScoreComponent)GetComponent(GameComponentsLookup.PreviousScore); } }
     public int PreviousScore { get { return previousScore.Value; } }
     public bool hasPreviousScore { get { return HasComponent(GameComponentsLookup.PreviousScore); } }
 
     public GameEntity AddPreviousScore(int newValue) {
         var index = GameComponentsLookup.PreviousScore;
-        var component = (Code.Game.GameplayState.PreviousScoreComponent)CreateComponent(index, typeof(Code.Game.GameplayState.PreviousScoreComponent));
+        var component = (Code.Game.Level.PreviousScoreComponent)CreateComponent(index, typeof(Code.Game.Level.PreviousScoreComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplacePreviousScore(int newValue) {
         var index = GameComponentsLookup.PreviousScore;
-        var component = (Code.Game.GameplayState.PreviousScoreComponent)CreateComponent(index, typeof(Code.Game.GameplayState.PreviousScoreComponent));
+        var component = (Code.Game.Level.PreviousScoreComponent)CreateComponent(index, typeof(Code.Game.Level.PreviousScoreComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

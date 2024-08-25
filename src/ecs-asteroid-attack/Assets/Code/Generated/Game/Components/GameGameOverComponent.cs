@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Game.GameplayState.GameOverComponent gameOverComponent = new Code.Game.GameplayState.GameOverComponent();
+    static readonly Code.Game.Level.GameOverComponent gameOverComponent = new Code.Game.Level.GameOverComponent();
 
     public bool isGameOver {
         get { return HasComponent(GameComponentsLookup.GameOver); }

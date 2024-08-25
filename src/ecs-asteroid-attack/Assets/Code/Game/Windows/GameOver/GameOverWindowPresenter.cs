@@ -52,7 +52,7 @@ namespace Code.Game.Windows.GameOver
     private void OnRestartClick()
     {
       _windowService.Pop();
-      _stateMachine.Enter<Code.Project.States.GameState>();
+      _stateMachine.Enter<GameState>();
     }
   }
 }

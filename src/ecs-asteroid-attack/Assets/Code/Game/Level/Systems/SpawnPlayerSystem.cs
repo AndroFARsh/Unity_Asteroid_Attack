@@ -6,7 +6,7 @@ using Code.Game.Player.Factories;
 using Code.Levels.Services;
 using Entitas;
 
-namespace Code.Game.GameplayState.Systems
+namespace Code.Game.Level.Systems
 {
   public class SpawnPlayerSystem : IExecuteSystem
   {
@@ -29,7 +29,7 @@ namespace Code.Game.GameplayState.Systems
       _playerEntities = game.GetGroup(GameMatcher.AllOf(GameMatcher.Player));
       _spawnEntities = game.GetGroup(
         GameMatcher.AllOf(
-            GameMatcher.GameState,
+            GameMatcher.Level,
             GameMatcher.PlayerCurrentLive)
           .NoneOf(GameMatcher.GameOver));
     }

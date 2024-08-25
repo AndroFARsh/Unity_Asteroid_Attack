@@ -39,24 +39,24 @@ public static class GameComponentsLookup {
     public const int Explosion = 28;
     public const int ExplosionRun = 29;
     public const int Explosive = 30;
-    public const int CurrentScore = 31;
-    public const int GameOver = 32;
-    public const int GameOverWindowShown = 33;
-    public const int GameState = 34;
-    public const int PlayerCurrentLive = 35;
-    public const int PlayerTotalLive = 36;
-    public const int PreviousScore = 37;
-    public const int Asteroid = 38;
-    public const int Hostile = 39;
-    public const int HostileName = 40;
-    public const int Score = 41;
-    public const int Shard = 42;
-    public const int Shards = 43;
-    public const int HostileSpawnedPerWave = 44;
-    public const int HostileSpawnedTotal = 45;
-    public const int HostileSpawner = 46;
-    public const int HostileSpawnerReadyMoveToNextWave = 47;
-    public const int HostileSpawnerWave = 48;
+    public const int Asteroid = 31;
+    public const int Hostile = 32;
+    public const int HostileName = 33;
+    public const int Score = 34;
+    public const int Shard = 35;
+    public const int Shards = 36;
+    public const int HostileSpawnedPerWave = 37;
+    public const int HostileSpawnedTotal = 38;
+    public const int HostileSpawner = 39;
+    public const int HostileSpawnerReadyMoveToNextWave = 40;
+    public const int HostileSpawnerWave = 41;
+    public const int CurrentScore = 42;
+    public const int GameOver = 43;
+    public const int GameOverWindowShown = 44;
+    public const int Level = 45;
+    public const int PlayerCurrentLive = 46;
+    public const int PlayerTotalLive = 47;
+    public const int PreviousScore = 48;
     public const int AngularVelocity = 49;
     public const int CombustionAnimator = 50;
     public const int Player = 51;
@@ -98,13 +98,6 @@ public static class GameComponentsLookup {
         "Explosion",
         "ExplosionRun",
         "Explosive",
-        "CurrentScore",
-        "GameOver",
-        "GameOverWindowShown",
-        "GameState",
-        "PlayerCurrentLive",
-        "PlayerTotalLive",
-        "PreviousScore",
         "Asteroid",
         "Hostile",
         "HostileName",
@@ -116,6 +109,13 @@ public static class GameComponentsLookup {
         "HostileSpawner",
         "HostileSpawnerReadyMoveToNextWave",
         "HostileSpawnerWave",
+        "CurrentScore",
+        "GameOver",
+        "GameOverWindowShown",
+        "Level",
+        "PlayerCurrentLive",
+        "PlayerTotalLive",
+        "PreviousScore",
         "AngularVelocity",
         "CombustionAnimator",
         "Player",
@@ -156,13 +156,6 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Explosions.ExplosionComponent),
         typeof(Code.Game.Explosions.ExplosionRunComponent),
         typeof(Code.Game.Explosions.ExplosiveComponent),
-        typeof(Code.Game.GameplayState.CurrentScoreComponent),
-        typeof(Code.Game.GameplayState.GameOverComponent),
-        typeof(Code.Game.GameplayState.GameOverWindowShownComponent),
-        typeof(Code.Game.GameplayState.GameStateComponent),
-        typeof(Code.Game.GameplayState.PlayerCurrentLiveComponent),
-        typeof(Code.Game.GameplayState.PlayerTotalLiveComponent),
-        typeof(Code.Game.GameplayState.PreviousScoreComponent),
         typeof(Code.Game.Hostiles.AsteroidComponent),
         typeof(Code.Game.Hostiles.HostileComponent),
         typeof(Code.Game.Hostiles.HostileNameComponent),
@@ -174,6 +167,13 @@ public static class GameComponentsLookup {
         typeof(Code.Game.HostileSpawners.HostileSpawnerComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnerReadyMoveToNextWaveComponent),
         typeof(Code.Game.HostileSpawners.HostileSpawnerWaveComponent),
+        typeof(Code.Game.Level.CurrentScoreComponent),
+        typeof(Code.Game.Level.GameOverComponent),
+        typeof(Code.Game.Level.GameOverWindowShownComponent),
+        typeof(Code.Game.Level.LevelComponent),
+        typeof(Code.Game.Level.PlayerCurrentLiveComponent),
+        typeof(Code.Game.Level.PlayerTotalLiveComponent),
+        typeof(Code.Game.Level.PreviousScoreComponent),
         typeof(Code.Game.Player.AngularVelocityComponent),
         typeof(Code.Game.Player.CombustionAnimatorComponent),
         typeof(Code.Game.Player.PlayerComponent),
