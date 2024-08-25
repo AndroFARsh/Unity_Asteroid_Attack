@@ -27,11 +27,11 @@ namespace Code.Game.Armaments.Systems
       {
         if (entity.PierceNumber > 0)
         {
-          otherEntity.isReadyToDestroy = true;
+          otherEntity.isReadyToCleanUp = true;
           entity.ReplacePierceNumber(entity.PierceNumber - 1);
         }
 
-        entity.isReadyToDestroy = entity.PierceNumber <= 0;
+        entity.isReadyToCleanUp = entity.PierceNumber <= 0;
       }
     }
 

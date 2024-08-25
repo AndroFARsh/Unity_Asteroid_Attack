@@ -14,8 +14,7 @@ namespace Code.Game.Armaments.Systems
       _explosionFactory = explosionFactory;
       _entities = game.GetGroup(
         GameMatcher.AllOf(
-          GameMatcher.ReadyToDestroy,
-          GameMatcher.ReadyToDestroy,
+          GameMatcher.ReadyToCleanUp,
           GameMatcher.HostileName,
           GameMatcher.Collider2D,
           GameMatcher.Shards));

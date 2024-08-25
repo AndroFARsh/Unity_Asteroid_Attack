@@ -1,4 +1,4 @@
-﻿using Code.Common.EntityFactories;
+﻿using Code.Infrastructure.EntityFactories;
 using Entitas;
 
 namespace Code.Gameplay.Input.Systems
@@ -14,7 +14,7 @@ namespace Code.Gameplay.Input.Systems
 
     public void Initialize()
     {
-      _entityFactory.Create<InputEntity>()
+      _entityFactory.CreateEntity<InputEntity>()
         .isInput = true;
     }
   }

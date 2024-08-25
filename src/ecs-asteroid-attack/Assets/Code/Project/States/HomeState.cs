@@ -52,7 +52,7 @@ namespace Code.Project.States
     private void MarkAllEntitiesReadyToDestroy()
     {
       foreach (MetaEntity entity in _meta.GetEntities())
-        entity.isReadyToDestroy = true;
+        entity.isReadyToCleanUp = true;
     }
   }
 }

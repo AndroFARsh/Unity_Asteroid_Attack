@@ -1,4 +1,4 @@
-using Code.Common.Destroy;
+using Code.Common.CleanUp;
 using Code.Common.View;
 using Code.Game.Abilities;
 using Code.Game.Armaments;
@@ -27,7 +27,8 @@ namespace Code.Game
       Add(systems.Create<ViewFeature>());
       Add(systems.Create<CamerasFeature>());
       Add(systems.Create<GameplayViewFeature>());
-      Add(systems.Create<DestroyFeature>());
+      
+      Add(systems.Create<CleanUpFeature>());
     }
   }
 }

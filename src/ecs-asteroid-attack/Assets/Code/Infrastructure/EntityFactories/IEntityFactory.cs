@@ -1,9 +1,13 @@
 using Entitas;
 
-namespace Code.Common.EntityFactories
+namespace Code.Infrastructure.EntityFactories
 {
   public interface IEntityFactory
   {
-    TEntity Create<TEntity>() where TEntity : class, IEntity;
+    TEntity CreateEntity<TEntity>() where TEntity : class, IEntity;
+    
+    IGroup<TEntity> CreateGroup<TEntity>(IMatcher<TEntity> matcher) where TEntity : class, IEntity;
+    
+    IGroupBuilder<TEntity> BuildGroup<TEntity>() where TEntity : class, IEntity;
   }
 }

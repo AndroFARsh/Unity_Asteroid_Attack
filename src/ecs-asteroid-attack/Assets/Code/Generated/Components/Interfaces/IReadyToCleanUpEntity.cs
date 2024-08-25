@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial interface IReadyToDestroyEntity {
-    bool isReadyToDestroy { get; set; }
+public partial interface IReadyToCleanUpEntity {
+    bool isReadyToCleanUp { get; set; }
 }

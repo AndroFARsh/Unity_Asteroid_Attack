@@ -1,6 +1,6 @@
-using Code.Common.EntityFactories;
 using Code.Common.Extensions;
 using Code.Game.HUD.Services;
+using Code.Infrastructure.EntityFactories;
 using Entitas;
 
 namespace Code.Game.Player.Systems
@@ -19,7 +19,7 @@ namespace Code.Game.Player.Systems
     public void Initialize()
     {
       _gameHUDService.UpdateLives(3, 3);
-      _entityFactory.Create<GameEntity>()
+      _entityFactory.CreateEntity<GameEntity>()
         .With(e => e.isPlayerSpawner = true)
         .AddPlayerCurrentLive(3)
         .AddPlayerTotalLive(3)

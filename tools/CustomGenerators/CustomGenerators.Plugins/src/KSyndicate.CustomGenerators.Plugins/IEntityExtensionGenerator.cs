@@ -30,7 +30,7 @@ public static class IEntityExtensions
     };
   }
 
-  public static void IsComponentAllowed<TComponent>(this Entitas.IEntity entity)
+  public static bool IsComponentAllowed<TComponent>(this Entitas.IEntity entity)
     where TComponent : class, Entitas.IComponent =>
     IsComponentAllowed(entity, typeof(TComponent));
 
@@ -59,7 +59,7 @@ public static class IEntityExtensions
   public static bool TryAddComponent(this Entitas.IEntity entity, Entitas.IComponent component)
   {
     int componentIndex = LookUpComponentIndex(entity, component.GetType());
-    if (componentIndex >= 0 && !entity.HasComponent(componentIndex))
+    if (componentIndex >= 0 && entity.HasComponent(componentIndex))
     {
       entity.AddComponent(componentIndex, component);
       return true;
@@ -84,7 +84,7 @@ public static class IEntityExtensions
     where TComponent : class, Entitas.IComponent
   {
     int componentIndex = LookUpComponentIndex(entity, typeof(TComponent));
-    if (componentIndex >= 0 && !entity.HasComponent(componentIndex))
+    if (componentIndex >= 0 && entity.HasComponent(componentIndex))
     {
       component = (TComponent)entity.GetComponent(componentIndex);
       return true;

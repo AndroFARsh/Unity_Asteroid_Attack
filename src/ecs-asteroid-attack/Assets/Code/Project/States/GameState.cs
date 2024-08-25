@@ -58,10 +58,10 @@ namespace Code.Project.States
     private void MarkAllEntitiesReadyToDestroy()
     {
       foreach (InputEntity entity in _input.GetEntities())
-        entity.isReadyToDestroy = true;
+        entity.isReadyToCleanUp = true;
       
       foreach (GameEntity entity in _game.GetEntities())
-        entity.isReadyToDestroy = true;
+        entity.isReadyToCleanUp = true;
     }
   }
 }

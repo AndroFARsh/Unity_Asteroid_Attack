@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Common;
 using Code.Infrastructure.Identifiers;
 using Entitas;
 
-namespace Code.Common.EntityFactories
+namespace Code.Infrastructure.EntityFactories
 {
   public class EntityFactory : IEntityFactory
   {
@@ -19,7 +20,7 @@ namespace Code.Common.EntityFactories
         .ToDictionary(c => c.contextInfo.name, c => c);
     }
 
-    public TEntity Create<TEntity>() where TEntity : class, IEntity
+    public TEntity CreateEntity<TEntity>() where TEntity : class, IEntity
     {
       string name = GetContextName(typeof(TEntity));
       
@@ -30,6 +31,18 @@ namespace Code.Common.EntityFactories
       
       return entity;
     }
+
+    public IGroup<TEntity> CreateGroup<TEntity>(IMatcher<TEntity> matcher) where TEntity : class, IEntity
+    {
+      string name = GetContextName(typeof(TEntity));
+      
+      IContext<TEntity> context = _contextNameToContext[name] as IContext<TEntity>;
+
+      return context?.GetGroup(matcher);
+    }
+
+    public IGroupBuilder<TEntity> BuildGroup<TEntity>() where TEntity : class, IEntity => 
+      new GroupBuilder<TEntity>(this);
 
     private string GetContextName(Type type)
     {

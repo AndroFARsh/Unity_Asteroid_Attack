@@ -1,5 +1,4 @@
 using Code.Common.Curtains;
-using Code.Common.EntityFactories;
 using Code.Common.View.Factories;
 using Code.Game.Abilities.Factories;
 using Code.Game.Armaments.Factories;
@@ -13,6 +12,7 @@ using Code.Game.Player.Factories;
 using Code.Game.Windows.Pause;
 using Code.Home.UI.MainMenu;
 using Code.Infrastructure.AssetManagement;
+using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Instantioator;
 using Code.Infrastructure.LifetimeScope.Installers;

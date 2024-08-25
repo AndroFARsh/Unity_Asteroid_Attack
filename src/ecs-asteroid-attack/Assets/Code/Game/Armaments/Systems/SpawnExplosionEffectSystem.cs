@@ -16,7 +16,7 @@ namespace Code.Game.Armaments.Systems
       _entities = game.GetGroup(
         GameMatcher.AllOf(
           GameMatcher.Explosive,
-          GameMatcher.ReadyToDestroy,
+          GameMatcher.ReadyToCleanUp,
           GameMatcher.Rigidbody2D));
     }
 
