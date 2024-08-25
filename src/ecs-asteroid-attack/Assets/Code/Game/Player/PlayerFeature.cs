@@ -7,6 +7,7 @@ namespace Code.Game.Player
   {
     public PlayerFeature(ISystemFactory systems)
     {
+      Add(systems.Create<DetectHostileOverlapSystem>());
       Add(systems.Create<InputToAngularVelocitySystem>());
       Add(systems.Create<InputToVelocitySystem>());
       Add(systems.Create<AnimatePlayerSystem>());

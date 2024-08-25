@@ -1,7 +1,7 @@
-using Code.Game.GameState.Systems;
+using Code.Game.GameplayState.Systems;
 using Code.Infrastructure.Systems;
 
-namespace Code.Game.GameState
+namespace Code.Game.GameplayState
 {
   public class GameStateFeature : Feature
   {

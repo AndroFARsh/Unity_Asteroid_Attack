@@ -32,5 +32,8 @@ namespace Code.Infrastructure.Physics
 
     TEntity OverlapArea<TEntity>(Vector2 worldPosition, Vector2 size, int layerMask) where TEntity : class;
     IEnumerable<TEntity> OverlapAreaAll<TEntity>(Vector2 worldPosition, Vector2 size, int layerMask) where TEntity : class;
+    
+    TEntity OverlapCollider<TEntity>(Collider2D collider, int layerMask) where TEntity : class;
+    IEnumerable<TEntity> OverlapColliderAll<TEntity>(Collider2D collider, int layerMask) where TEntity : class;
   }
 }

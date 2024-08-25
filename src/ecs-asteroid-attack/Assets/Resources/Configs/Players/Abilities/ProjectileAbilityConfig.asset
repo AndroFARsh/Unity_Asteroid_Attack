@@ -20,5 +20,5 @@ MonoBehaviour:
     Pierce: 1
     Speed: 200
     Lifetime: 5
-    ContactRadius: 0.5
+    ContactRadius: 0.05
     OrbitRadius: 0

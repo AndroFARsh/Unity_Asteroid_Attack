@@ -1,4 +1,3 @@
-using Code.Common.View.UI;
 using Code.Infrastructure.UI;
 using Code.Infrastructure.Windows;
 using UnityEngine;
@@ -11,7 +10,7 @@ namespace Code.Game.Windows.Pause
   {
     [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _exitButton;
-
+    
     public Button Resume => _resumeButton;
     public Button Exit => _exitButton;
     

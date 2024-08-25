@@ -6,7 +6,7 @@ namespace Code.Infrastructure.Time
   {
     float DeltaTime { get; }
     DateTime UtcNow { get; }
-    void StopTime();
-    void StartTime();
+    void Pause();
+    void Resume();
   }
 }

@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameOver;
+    static Entitas.IMatcher<GameEntity> _matcherGameOverWindowShown;
 
-    public static Entitas.IMatcher<GameEntity> GameOver {
+    public static Entitas.IMatcher<GameEntity> GameOverWindowShown {
         get {
-            if (_matcherGameOver == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameOver);
+            if (_matcherGameOverWindowShown == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameOverWindowShown);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGameOver = matcher;
+                _matcherGameOverWindowShown = matcher;
             }
 
-            return _matcherGameOver;
+            return _matcherGameOverWindowShown;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Game.GameplayState.GameOverComponent gameOverComponent = new Code.Game.GameplayState.GameOverComponent();
+    static readonly Code.Game.GameplayState.GameOverWindowShownComponent gameOverWindowShownComponent = new Code.Game.GameplayState.GameOverWindowShownComponent();
 
-    public bool isGameOver {
-        get { return HasComponent(GameComponentsLookup.GameOver); }
+    public bool isGameOverWindowShown {
+        get { return HasComponent(GameComponentsLookup.GameOverWindowShown); }
         set {
-            if (value != isGameOver) {
-                var index = GameComponentsLookup.GameOver;
+            if (value != isGameOverWindowShown) {
+                var index = GameComponentsLookup.GameOverWindowShown;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : gameOverComponent;
+                            : gameOverWindowShownComponent;
 
                     AddComponent(index, component);
                 } else {
