@@ -221,5 +221,30 @@ namespace Code.Infrastructure.Physics
         yield return entity;
       }
     }
+    
+    public TEntity OverlapCollider<TEntity>(Collider2D collider, int layerMask) where TEntity : class
+    {
+      int hitCount = Physics2D.OverlapCollider(collider, new ContactFilter2D { layerMask = layerMask },  _overlapHits);
+      return hitCount > 0 
+        ? _resolver.Resolve<TEntity>(_overlapHits[0].GetInstanceID())
+        : null;
+    }
+    
+    public IEnumerable<TEntity> OverlapColliderAll<TEntity>(Collider2D collider, int layerMask) where TEntity : class
+    {
+      int hitCount = Physics2D.OverlapCollider(collider, new ContactFilter2D { layerMask = layerMask },  _overlapHits);
+      for (int i = 0; i < hitCount; i++)
+      {
+        Collider2D hit = _overlapHits[i];
+        if (hit == null)
+          continue;
+
+        TEntity entity = _resolver.Resolve<TEntity>(hit.GetInstanceID());
+        if (entity == null)
+          continue;
+
+        yield return entity;
+      }
+    }
   }
 }

@@ -41,29 +41,30 @@ public static class GameComponentsLookup {
     public const int Explosive = 30;
     public const int CurrentScore = 31;
     public const int GameOver = 32;
-    public const int GameState = 33;
-    public const int PlayerCurrentLive = 34;
-    public const int PlayerTotalLive = 35;
-    public const int PreviousScore = 36;
-    public const int Asteroid = 37;
-    public const int Hostile = 38;
-    public const int HostileName = 39;
-    public const int Score = 40;
-    public const int Shard = 41;
-    public const int Shards = 42;
-    public const int HostileSpawnedPerWave = 43;
-    public const int HostileSpawnedTotal = 44;
-    public const int HostileSpawner = 45;
-    public const int HostileSpawnerReadyMoveToNextWave = 46;
-    public const int HostileSpawnerWave = 47;
-    public const int AngularVelocity = 48;
-    public const int CombustionAnimator = 49;
-    public const int Player = 50;
-    public const int PlayerConfig = 51;
-    public const int ProjectileSpawner = 52;
-    public const int Velocity = 53;
+    public const int GameOverWindowShown = 33;
+    public const int GameState = 34;
+    public const int PlayerCurrentLive = 35;
+    public const int PlayerTotalLive = 36;
+    public const int PreviousScore = 37;
+    public const int Asteroid = 38;
+    public const int Hostile = 39;
+    public const int HostileName = 40;
+    public const int Score = 41;
+    public const int Shard = 42;
+    public const int Shards = 43;
+    public const int HostileSpawnedPerWave = 44;
+    public const int HostileSpawnedTotal = 45;
+    public const int HostileSpawner = 46;
+    public const int HostileSpawnerReadyMoveToNextWave = 47;
+    public const int HostileSpawnerWave = 48;
+    public const int AngularVelocity = 49;
+    public const int CombustionAnimator = 50;
+    public const int Player = 51;
+    public const int PlayerConfig = 52;
+    public const int ProjectileSpawner = 53;
+    public const int Velocity = 54;
 
-    public const int TotalComponents = 54;
+    public const int TotalComponents = 55;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -99,6 +100,7 @@ public static class GameComponentsLookup {
         "Explosive",
         "CurrentScore",
         "GameOver",
+        "GameOverWindowShown",
         "GameState",
         "PlayerCurrentLive",
         "PlayerTotalLive",
@@ -154,12 +156,13 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Explosions.ExplosionComponent),
         typeof(Code.Game.Explosions.ExplosionRunComponent),
         typeof(Code.Game.Explosions.ExplosiveComponent),
-        typeof(Code.Game.GameState.CurrentScoreComponent),
-        typeof(Code.Game.GameState.GameOverComponent),
-        typeof(Code.Game.GameState.GameStateComponent),
-        typeof(Code.Game.GameState.PlayerCurrentLiveComponent),
-        typeof(Code.Game.GameState.PlayerTotalLiveComponent),
-        typeof(Code.Game.GameState.PreviousScoreComponent),
+        typeof(Code.Game.GameplayState.CurrentScoreComponent),
+        typeof(Code.Game.GameplayState.GameOverComponent),
+        typeof(Code.Game.GameplayState.GameOverWindowShownComponent),
+        typeof(Code.Game.GameplayState.GameStateComponent),
+        typeof(Code.Game.GameplayState.PlayerCurrentLiveComponent),
+        typeof(Code.Game.GameplayState.PlayerTotalLiveComponent),
+        typeof(Code.Game.GameplayState.PreviousScoreComponent),
         typeof(Code.Game.Hostiles.AsteroidComponent),
         typeof(Code.Game.Hostiles.HostileComponent),
         typeof(Code.Game.Hostiles.HostileNameComponent),

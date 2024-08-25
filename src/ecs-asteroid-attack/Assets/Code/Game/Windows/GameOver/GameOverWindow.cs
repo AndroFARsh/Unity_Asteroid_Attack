@@ -1,64 +1,36 @@
 using Code.Infrastructure.States;
 using Code.Infrastructure.Time;
+using Code.Infrastructure.UI;
 using Code.Infrastructure.Windows;
 using Code.Infrastructure.Windows.Services;
 using Code.Project.States;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
-namespace Code.Gameplay.HUD.Windows
+namespace Code.Game.Windows.GameOver
 {
   public class GameOverWindow : BaseWindow
   {
+    [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitButton;
+    
+    private IUIViewPresenter<GameOverWindow> _viewPresenter;
 
-    private IWindowService _windowService;
-    private IStateMachine _stateMachine;
-    private ITimeService _timeService;
+    public TextMeshProUGUI Score => _scoreText;
+    public Button Restart => _restartButton;
+    public Button Exit => _exitButton;
     
     [Inject]
-    public void Construct(
-      IWindowService windowService, 
-      IStateMachine stateMachine,
-      ITimeService timeService)
+    public void Construct(IUIViewPresenter<GameOverWindow> viewPresenter)
     {
-      _windowService = windowService;
-      _stateMachine = stateMachine;
-      _timeService = timeService;
-    }
-    
-    protected override void OnResume()
-    {
-      _timeService.StopTime();
-      
-      _restartButton.onClick.AddListener(OnRestartClick);
-      _exitButton.onClick.AddListener(OnExitClick);
+      _viewPresenter = viewPresenter;
     }
 
-    protected override void OnPause()
-    {
-      _restartButton.onClick.RemoveListener(OnRestartClick);
-      _exitButton.onClick.RemoveListener(OnExitClick);
-      
-      _timeService.StartTime();
-    }
-    
-    private void OnExitClick()
-    {
-      _timeService.StartTime();
-      
-      _windowService.Pop();
-      _stateMachine.Enter<LoadHomeState>();
-    }
-    
-    private void OnRestartClick()
-    {
-      _timeService.StartTime();
-      
-      _windowService.Pop();
-      //_stateMachine.Enter<GameState>();
-    }
+    protected override void OnResume() => _viewPresenter.OnAttach(this);
+
+    protected override void OnPause() => _viewPresenter.OnDetach(this);
   }
 }

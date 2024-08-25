@@ -8,12 +8,12 @@ using UnityEngine;
 
 namespace Code.Levels.UI.LevelsButton
 {
-  public class LevelButtonIuiPresenter : IUIViewPresenter<LevelButtonUIView>
+  public class LevelButtonUIPresenter : IUIViewPresenter<LevelButtonUIView>
   {
     private readonly IStaticDataService _staticDataService;
     private readonly IStateMachine _stateMachine;
 
-    public LevelButtonIuiPresenter(IStaticDataService staticDataService, IStateMachine stateMachine)
+    public LevelButtonUIPresenter(IStaticDataService staticDataService, IStateMachine stateMachine)
     {
       _staticDataService = staticDataService;
       _stateMachine = stateMachine;

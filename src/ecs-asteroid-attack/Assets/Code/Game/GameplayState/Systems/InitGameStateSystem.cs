@@ -1,7 +1,7 @@
 using Code.Game.GameState.Factories;
 using Entitas;
 
-namespace Code.Game.GameState.Systems
+namespace Code.Game.GameplayState.Systems
 {
   public class InitGameStateSystem : IInitializeSystem 
   {

@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace Code.Levels.UI.LevelsMenu
 {
-  public class LevelsMenuIuiPresenter : IUIViewPresenter<LevelsMenuUIView>
+  public class LevelsMenuUIPresenter : IUIViewPresenter<LevelsMenuUIView>
   {
     private readonly IStaticDataService _staticDataService;
     private readonly ILevelButtonFactory _factory;
     private readonly List<LevelButtonUIView> _buttons = new ();
     
-    public LevelsMenuIuiPresenter(IStaticDataService staticDataService, ILevelButtonFactory factory)
+    public LevelsMenuUIPresenter(IStaticDataService staticDataService, ILevelButtonFactory factory)
     {
       _staticDataService = staticDataService;
       _factory = factory;

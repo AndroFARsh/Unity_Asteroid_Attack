@@ -6,11 +6,11 @@ using Code.Project.States;
 
 namespace Code.Home.UI.MainMenu
 {
-  public class MainMenuIuiPresenter : IUIViewPresenter<MainMenuUIView>
+  public class MainMenuUIPresenter : IUIViewPresenter<MainMenuUIView>
   {
     private readonly IStateMachine _stateMachine;
 
-    public MainMenuIuiPresenter(IStateMachine stateMachine)
+    public MainMenuUIPresenter(IStateMachine stateMachine)
     {
       _stateMachine = stateMachine;
     }

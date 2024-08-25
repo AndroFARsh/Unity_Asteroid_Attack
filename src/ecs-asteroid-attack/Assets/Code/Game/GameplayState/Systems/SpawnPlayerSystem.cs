@@ -6,7 +6,7 @@ using Code.Game.Player.Factories;
 using Code.Levels.Services;
 using Entitas;
 
-namespace Code.Game.GameState.Systems
+namespace Code.Game.GameplayState.Systems
 {
   public class SpawnPlayerSystem : IExecuteSystem
   {

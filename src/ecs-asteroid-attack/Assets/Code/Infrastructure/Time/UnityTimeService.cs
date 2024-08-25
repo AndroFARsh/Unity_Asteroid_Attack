@@ -11,13 +11,13 @@ namespace Code.Infrastructure.Time
 
     public DateTime UtcNow => DateTime.UtcNow;
 
-    public void StopTime()
+    public void Pause()
     {
       _paused = true;
       Physics2D.simulationMode = SimulationMode2D.Script;
     } 
     
-    public void StartTime()
+    public void Resume()
     {
       _paused = false;
       Physics2D.simulationMode = SimulationMode2D.FixedUpdate;

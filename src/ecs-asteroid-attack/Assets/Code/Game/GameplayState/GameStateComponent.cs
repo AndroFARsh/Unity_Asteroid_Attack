@@ -1,10 +1,12 @@
 using Entitas;
 
-namespace Code.Game.GameState
+namespace Code.Game.GameplayState
 {
   [Game] public class GameStateComponent : IComponent { }
   
   [Game] public class GameOverComponent : IComponent { }
+  
+  [Game] public class GameOverWindowShownComponent : IComponent { }
   
   [Game] public class PreviousScoreComponent : IComponent { public int Value; }
   
