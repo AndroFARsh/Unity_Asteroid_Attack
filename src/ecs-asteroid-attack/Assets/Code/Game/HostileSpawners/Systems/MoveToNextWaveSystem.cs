@@ -46,10 +46,8 @@ namespace Code.Game.HostileSpawners.Systems
         }
         else
         {
-          // todo: init win screen 
           entity.isReadyToCleanUp = true;
         }
-
       }
     }
   }

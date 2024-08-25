@@ -12,6 +12,7 @@ using Code.Game.Level.Factories;
 using Code.Game.Player.Factories;
 using Code.Game.Windows.GameOver;
 using Code.Game.Windows.Pause;
+using Code.Game.Windows.Win;
 using Code.Home.UI.MainMenu;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.EntityFactories;
@@ -143,6 +144,7 @@ namespace Code.Project.Installers
       builder.Register<GameHUDPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
       builder.Register<PauseWindowPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
       builder.Register<GameOverWindowPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
+      builder.Register<WinWindowPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
     }
 
     private static void RegisterUIViewServices(IContainerBuilder builder)

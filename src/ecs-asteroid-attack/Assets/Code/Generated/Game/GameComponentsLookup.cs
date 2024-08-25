@@ -57,14 +57,16 @@ public static class GameComponentsLookup {
     public const int PlayerCurrentLive = 46;
     public const int PlayerTotalLive = 47;
     public const int PreviousScore = 48;
-    public const int AngularVelocity = 49;
-    public const int CombustionAnimator = 50;
-    public const int Player = 51;
-    public const int PlayerConfig = 52;
-    public const int ProjectileSpawner = 53;
-    public const int Velocity = 54;
+    public const int Win = 49;
+    public const int WinWindowShown = 50;
+    public const int AngularVelocity = 51;
+    public const int CombustionAnimator = 52;
+    public const int Player = 53;
+    public const int PlayerConfig = 54;
+    public const int ProjectileSpawner = 55;
+    public const int Velocity = 56;
 
-    public const int TotalComponents = 55;
+    public const int TotalComponents = 57;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -116,6 +118,8 @@ public static class GameComponentsLookup {
         "PlayerCurrentLive",
         "PlayerTotalLive",
         "PreviousScore",
+        "Win",
+        "WinWindowShown",
         "AngularVelocity",
         "CombustionAnimator",
         "Player",
@@ -174,6 +178,8 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Level.PlayerCurrentLiveComponent),
         typeof(Code.Game.Level.PlayerTotalLiveComponent),
         typeof(Code.Game.Level.PreviousScoreComponent),
+        typeof(Code.Game.Level.WinComponent),
+        typeof(Code.Game.Level.WinWindowShownComponent),
         typeof(Code.Game.Player.AngularVelocityComponent),
         typeof(Code.Game.Player.CombustionAnimatorComponent),
         typeof(Code.Game.Player.PlayerComponent),

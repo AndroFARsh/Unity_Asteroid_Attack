@@ -10,6 +10,7 @@ namespace Code.Game.HUD
       Add(systems.Create<UpdateHUDLivesSystem>());
       Add(systems.Create<UpdateHUDScoreSystem>());
       Add(systems.Create<ShowGameOverWindowSystem>());
+      Add(systems.Create<ShowWinWindowSystem>());
     }
   }
 }
