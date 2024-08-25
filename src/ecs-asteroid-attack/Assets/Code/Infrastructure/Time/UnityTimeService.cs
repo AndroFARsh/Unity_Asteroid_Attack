@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Code.Infrastructure.Time
 {
@@ -10,8 +11,16 @@ namespace Code.Infrastructure.Time
 
     public DateTime UtcNow => DateTime.UtcNow;
 
-    public void StopTime() => _paused = true;
+    public void StopTime()
+    {
+      _paused = true;
+      Physics2D.simulationMode = SimulationMode2D.Script;
+    } 
     
-    public void StartTime() => _paused = false;
+    public void StartTime()
+    {
+      _paused = false;
+      Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
+    }
   }
 }

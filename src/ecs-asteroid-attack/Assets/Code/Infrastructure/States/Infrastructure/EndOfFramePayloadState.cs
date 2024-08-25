@@ -29,6 +29,8 @@ namespace Code.Infrastructure.States.Infrastructure
       
       await _completionSource.Task;
       await OnExitAsync();
+      
+      _completionSource = null;
     }
 
     void ITickableState.Tick()
