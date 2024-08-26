@@ -20,7 +20,7 @@ namespace Code.Game.HUD.Services
     
     public void UpdateLives(int current, int total)
     {
-      CurrentLive = Mathf.Max(0, Mathf.Min(current, total));
+      CurrentLive = Mathf.Max(0, Mathf.Min(current+1, total));
       TotalLive = Mathf.Max(0, total);
       LiveChanged?.Invoke();
     }

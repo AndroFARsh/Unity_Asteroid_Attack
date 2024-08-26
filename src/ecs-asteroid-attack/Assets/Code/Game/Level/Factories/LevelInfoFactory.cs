@@ -27,7 +27,7 @@ namespace Code.Game.Level.Factories
         .AddCurrentScore(0)
         .AddPreviousScore(_progressDataProvider.ProgressData?.LastScore ?? 0)
         .AddPlayerTotalLive(config.MaxLives)
-        .AddPlayerCurrentLive(config.MaxLives + 1)
+        .AddPlayerCurrentLive(config.MaxLives)
         ;
     }
   }
