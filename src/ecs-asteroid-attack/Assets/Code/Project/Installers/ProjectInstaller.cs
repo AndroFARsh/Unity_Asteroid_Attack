@@ -122,6 +122,7 @@ namespace Code.Project.Installers
 
     private static void RegisterFactories(IContainerBuilder builder)
     {
+      builder.Register<EntityViewPool>(Lifetime.Singleton).As<IEntityViewPool>();
       builder.Register<Instantiator>(Lifetime.Singleton).As<IInstantiator>();
       builder.Register<EntityViewFactory>(Lifetime.Singleton).As<IEntityViewFactory>();
       builder.Register<SystemFactory>(Lifetime.Singleton).As<ISystemFactory>();

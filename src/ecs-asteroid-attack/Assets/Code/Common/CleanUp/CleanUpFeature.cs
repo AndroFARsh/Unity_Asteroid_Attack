@@ -18,6 +18,8 @@ namespace Code.Common.CleanUp
       Add(systems.Create<CleanupEntitySystem<GameEntity>>());
       Add(systems.Create<CleanupEntitySystem<InputEntity>>());
       Add(systems.Create<CleanupEntitySystem<MetaEntity>>());
+
+      Add(systems.Create<CeanaupPoolSystem>());
     }
   }
 }

@@ -11,6 +11,8 @@ namespace Code.Common.View
     private IEntity _entity;
     private IColliderToEntityRegistry _colliderRegistry;
 
+    public string PoolKey { get; set; }
+    
     public GameObject GameObject => gameObject;
     
     [Inject]

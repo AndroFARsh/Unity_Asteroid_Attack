@@ -1,5 +1,6 @@
 using Code.Infrastructure.AssetManagement;
 using Entitas;
+using UnityEditor;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -12,11 +13,13 @@ namespace Code.Common.View.Factories
     
     private readonly IObjectResolver _objectResolver;
     private readonly IAssetProvider _assetProvider;
+    private readonly IEntityViewPool _pool;
 
-    public EntityViewFactory(IObjectResolver objectResolver, IAssetProvider assetProvider)
+    public EntityViewFactory(IObjectResolver objectResolver, IAssetProvider assetProvider, IEntityViewPool pool)
     {
       _objectResolver = objectResolver;
       _assetProvider = assetProvider;
+      _pool = pool;
     }
 
     public IEntityView CreateViewForEntityFromPath(IEntity entity) => 
@@ -26,12 +29,28 @@ namespace Code.Common.View.Factories
     public IEntityView CreateViewForEntityFromPrefab(IEntity entity) =>
       CreateEntityView(entity, entity.GetComponent<ViewPrefabComponent>().Value);
 
-    private EntityViewBehaviour CreateEntityView(IEntity entity, EntityViewBehaviour prefab)
+    public void Release(IEntityView view)
     {
-      EntityViewBehaviour view = _objectResolver.Instantiate(prefab,
-        position: _farAway,
-        rotation: Quaternion.identity);
+      view.Release();
       
+      view.GameObject.SetActive(false);
+      view.GameObject.transform.position = _farAway;
+      
+      _pool.Release(view.PoolKey, view);
+    }
+
+    private IEntityView CreateEntityView(IEntity entity, EntityViewBehaviour prefab)
+    {
+      string poolKey = AssetDatabase.GetAssetPath(prefab);
+      
+      if (!_pool.TryRetain(poolKey, out IEntityView view))
+      {
+        view = _objectResolver.Instantiate(prefab,
+          position: _farAway,
+          rotation: Quaternion.identity);
+        view.PoolKey = poolKey;
+      }
+
       view.Retain(entity);
 
       return view;
