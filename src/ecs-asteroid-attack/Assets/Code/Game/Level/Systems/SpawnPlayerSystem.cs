@@ -41,7 +41,7 @@ namespace Code.Game.Level.Systems
       foreach (GameEntity entity in _spawnEntities.GetEntities(_buffer))
       {
         entity.ReplacePlayerCurrentLive(entity.PlayerCurrentLive - 1);
-        if (entity.PlayerCurrentLive >= 0)
+        if (entity.PlayerCurrentLive > 0)
           SpawnPlayer();
         else
           entity.isGameOver = true;

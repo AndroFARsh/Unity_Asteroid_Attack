@@ -9,6 +9,7 @@ namespace Code.Game.Level
     {
       Add(systems.Create<InitLevelSystem>());
       Add(systems.Create<SpawnPlayerSystem>());
+      Add(systems.Create<DetectWinSystem>());
     }
   }
 }

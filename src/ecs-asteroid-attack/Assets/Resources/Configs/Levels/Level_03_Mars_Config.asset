@@ -22,12 +22,4 @@ MonoBehaviour:
       Probability: 1
     Cooldown: 1
     MaxAlive: 3
-    Total: 5
-  - Hostiles:
-    - Name: 2
-      Probability: 0.5
-    - Name: 1
-      Probability: 1
-    Cooldown: 1
-    MaxAlive: 3
-    Total: 8
+    Total: 3

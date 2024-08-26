@@ -5,5 +5,6 @@ namespace Code.Infrastructure.Windows
     Unknown,
     PauseWindow,
     GameOverWindow,
+    WinWindow,
   }
 }

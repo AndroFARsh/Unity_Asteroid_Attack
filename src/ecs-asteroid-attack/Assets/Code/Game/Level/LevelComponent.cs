@@ -7,6 +7,10 @@ namespace Code.Game.Level
   [Game] public class GameOverComponent : IComponent { }
   
   [Game] public class GameOverWindowShownComponent : IComponent { }
+ 
+  [Game] public class WinComponent : IComponent { }
+  
+  [Game] public class WinWindowShownComponent : IComponent { }
   
   [Game] public class PreviousScoreComponent : IComponent { public int Value; }
   
