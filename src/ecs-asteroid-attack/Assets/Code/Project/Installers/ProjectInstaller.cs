@@ -23,6 +23,8 @@ using Code.Infrastructure.Physics;
 using Code.Infrastructure.Progress;
 using Code.Infrastructure.Randoms;
 using Code.Infrastructure.SceneManagement;
+using Code.Infrastructure.Sounds;
+using Code.Infrastructure.Sounds.Factories;
 using Code.Infrastructure.States;
 using Code.Infrastructure.States.Resolvers;
 using Code.Infrastructure.StaticData;
@@ -111,6 +113,7 @@ namespace Code.Project.Installers
       builder.Register<UnityTimeService>(Lifetime.Singleton).As<ITimeService>();
       builder.Register<UnityRandomService>(Lifetime.Singleton).As<IRandomService>();
 
+      builder.Register<SoundService>(Lifetime.Singleton).As<ISoundService>();
       builder.Register<UnityResourcesAssetProvider>(Lifetime.Singleton).As<IAssetProvider>();
       builder.Register<UnitySceneLoader>(Lifetime.Singleton).As<ISceneLoader>();
 
@@ -122,6 +125,7 @@ namespace Code.Project.Installers
 
     private static void RegisterFactories(IContainerBuilder builder)
     {
+      builder.Register<SoundSourceFactory>(Lifetime.Singleton).As<ISoundSourceFactory>();
       builder.Register<EntityViewPool>(Lifetime.Singleton).As<IEntityViewPool>();
       builder.Register<Instantiator>(Lifetime.Singleton).As<IInstantiator>();
       builder.Register<EntityViewFactory>(Lifetime.Singleton).As<IEntityViewFactory>();

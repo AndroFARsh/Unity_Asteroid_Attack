@@ -3,9 +3,11 @@ using Code.Game.Abilities.Configs;
 using Code.Game.Hostiles;
 using Code.Game.Hostiles.Configs;
 using Code.Game.Player.Configs;
+using Code.Infrastructure.Sounds;
 using Code.Infrastructure.Windows;
 using Code.Infrastructure.Windows.Configs;
 using Code.Levels.Configs;
+using UnityEngine;
 
 namespace Code.Infrastructure.StaticData
 {
@@ -23,6 +25,11 @@ namespace Code.Infrastructure.StaticData
     
     AbilityConfig GetAbilityConfig(AbilityName name);
     
-    HostileConfig GetHostileName(HostileName name);
+    HostileConfig GetHostileConfig(HostileName name);
+    
+    AudioClip GetFxClip(FxName name);
+    
+    AudioClip GetMusicClip(MusicName name);
+    AudioSource GetAudioSourcePrefab();
   }
 }
