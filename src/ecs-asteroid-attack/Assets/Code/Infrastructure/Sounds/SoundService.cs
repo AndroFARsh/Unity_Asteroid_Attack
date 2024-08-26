@@ -23,30 +23,32 @@ namespace Code.Infrastructure.Sounds
       _staticDataService = staticDataService;
     }
 
-    public bool PlayMusic(MusicName name)
+    public async void PlayMusic(MusicName name)
     {
-      if (_playedMusicSource.ContainsKey(name)) return false;
+      if (_playedMusicSource.ContainsKey(name)) return;
 
       AudioClip clip = _staticDataService.GetMusicClip(name);
       AudioSource source = _sourceFactory.PeekOrCreate();
       source.clip = clip;
       source.loop = true;
-      source.volume = MusicVolume;
+      source.volume = 0;
       source.Play();
-
       _playedMusicSource.Add(name, source);
-      return true;
+      
+      while(source.volume < MusicVolume)
+      {
+        source.volume = Mathf.Min(source.volume + UnityEngine.Time.deltaTime, MusicVolume);
+        await UniTask.NextFrame();
+      }
     }
     
-    public bool StopMusic(MusicName name)
+    public void StopMusic(MusicName name)
     {
-      if (!_playedMusicSource.TryGetValue(name, out AudioSource source)) return false;
+      if (!_playedMusicSource.TryGetValue(name, out AudioSource source)) return;
       
       source.Stop();
       _sourceFactory.Release(source);
       _playedMusicSource.Remove(name);
-      return true;
-
     }
     
     public async void PlayFx(FxName name)
