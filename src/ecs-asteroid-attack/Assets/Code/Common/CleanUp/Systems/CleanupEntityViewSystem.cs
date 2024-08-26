@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Code.Common.View.Factories;
 using Code.Infrastructure.EntityFactories;
 using Entitas;
 using UnityEngine;
@@ -8,11 +9,14 @@ namespace Code.Common.CleanUp.Systems
   public class CleanupEntityViewSystem<TEntity> : ICleanupSystem
     where TEntity : class, IEntity
   {
+    private readonly IEntityViewFactory _viewFactory;
+
     private readonly IGroup<TEntity> _entities;
     private readonly List<TEntity> _buffer = new(128);
 
-    public CleanupEntityViewSystem(IEntityFactory factory)
+    public CleanupEntityViewSystem(IEntityFactory factory, IEntityViewFactory viewFactory)
     {
+      _viewFactory = viewFactory;
       _entities = factory.BuildGroup<TEntity>()
           .With<ReadyToCleanUpComponent>()
           .With<ViewComponent>()
@@ -25,9 +29,7 @@ namespace Code.Common.CleanUp.Systems
       {
         if (entity.TryGetComponent(out ViewComponent view))
         {
-          view.Value.Release();
-          // TODO: return to pool
-          Object.Destroy(view.Value.GameObject);
+          _viewFactory.Release(view.Value);
         }
       }
     }
