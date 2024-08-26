@@ -4,8 +4,8 @@ namespace Code.Infrastructure.Sounds
   {
     float MusicVolume { get; set; }
     float FxVolume { get; set; }
-    bool PlayMusic(MusicName name);
-    bool StopMusic(MusicName name);
+    void PlayMusic(MusicName name);
+    void StopMusic(MusicName name);
     void PlayFx(FxName name);
   }
 }
