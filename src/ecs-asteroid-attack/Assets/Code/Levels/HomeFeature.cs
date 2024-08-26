@@ -1,12 +1,12 @@
 using Code.Common.CleanUp;
-using Code.Home.Systems;
+using Code.Game.Level.Systems;
 using Code.Infrastructure.Systems;
 
-namespace Code.Home
+namespace Code.Levels
 {
-  public sealed class HomeFeature : Feature
+  public sealed class LevelsFeature : Feature
   {
-    public HomeFeature(ISystemFactory systems)
+    public LevelsFeature(ISystemFactory systems)
     {
       Add(systems.Create<PlayBackgroundMusicSystem>());
       Add(systems.Create<CleanUpFeature>());

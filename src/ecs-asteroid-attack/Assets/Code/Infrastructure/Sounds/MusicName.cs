@@ -3,6 +3,7 @@ namespace Code.Infrastructure.Sounds
   public enum MusicName
   {
     Unknown = 0,
-    Gameplay = 1,
+    Home = 1,
+    Gameplay = 2,
   }
 }

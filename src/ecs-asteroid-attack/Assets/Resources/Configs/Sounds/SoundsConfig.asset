@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9d0962dbbf4e7292930250a4178571, type: 3}
   m_Name: SoundsConfig
   m_EditorClassIdentifier: 
-  Music: []
+  Music:
+  - Name: 1
+    Value: {fileID: 8300000, guid: fbc29e7d890ca41009c8cbfc3124ecb7, type: 3}
+  - Name: 2
+    Value: {fileID: 8300000, guid: e5a2e94348b8643ea98707f31cf7332e, type: 3}
   Fx:
   - Name: 1
     Value: {fileID: 8300000, guid: c860e45b18083498e92f02620202c274, type: 3}
   - Name: 2
     Value: {fileID: 8300000, guid: 7ea0c35fbde4b4c348dd822be6d09c70, type: 3}
   - Name: 3
-    Value: {fileID: 8300000, guid: c860e45b18083498e92f02620202c274, type: 3}
+    Value: {fileID: 8300000, guid: 5a808645d9f694899bb16dbed0e04a22, type: 3}
   SourcePrefab: {fileID: 304560721340678483, guid: 8ec536260fcd94855b99ba194799d223, type: 3}
