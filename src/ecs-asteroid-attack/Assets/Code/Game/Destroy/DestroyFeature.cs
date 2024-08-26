@@ -10,6 +10,9 @@ namespace Code.Game.Destroy
       Add(systems.Create<SpawnExplosionEffectSystem>());
       Add(systems.Create<SpawnShardsSystem>());
       Add(systems.Create<EarnScoreSystem>());
+
+      Add(systems.Create<PlayShipExplosionSoundEffectSystem>());
+      Add(systems.Create<PlayAsteroidExplosionSoundEffectSystem>());
     }
   }
 }

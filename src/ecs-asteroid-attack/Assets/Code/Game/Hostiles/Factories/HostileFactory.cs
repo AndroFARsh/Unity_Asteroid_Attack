@@ -31,7 +31,7 @@ namespace Code.Game.Hostiles.Factories
 
     public GameEntity CreateHostileShard(HostileName name, Vector2 at, Vector2 direction)
     {
-      HostileConfig config = _staticDataService.GetHostileName(name);
+      HostileConfig config = _staticDataService.GetHostileConfig(name);
       HostileName shardName = PickRandomShards(config);
       return CreateHostile(shardName)
         .ReplaceWorldPosition(at)
@@ -41,7 +41,7 @@ namespace Code.Game.Hostiles.Factories
 
     public GameEntity CreateHostile(HostileName name)
     {
-      HostileConfig config = _staticDataService.GetHostileName(name);
+      HostileConfig config = _staticDataService.GetHostileConfig(name);
 
       Vector2 at = PickRandomSpawnPosition();
       int shards = PickRandomShardsNumber(config);

@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using Code.Common.View;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Code.Game.Abilities.Configs
 {

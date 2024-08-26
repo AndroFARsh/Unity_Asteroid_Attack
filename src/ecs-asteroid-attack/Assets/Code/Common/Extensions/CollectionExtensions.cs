@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -18,6 +19,14 @@ namespace Code.Common.Extensions
       foreach (object item in items)
       {
         list.Add(item);
+      }
+    }
+
+    public static void ForEach<T>(this ICollection<T> collection, Action<T> action)
+    {
+      foreach (T item in collection)
+      {
+        action(item);
       }
     }
   }
