@@ -9,9 +9,11 @@ namespace Code.Game.Windows.Pause
   public class PauseWindow : BaseWindow
   {
     [SerializeField] private Button _resumeButton;
+    [SerializeField] private Button _settingsButton;
     [SerializeField] private Button _exitButton;
     
     public Button Resume => _resumeButton;
+    public Button Settings => _settingsButton;
     public Button Exit => _exitButton;
     
     private IUIViewPresenter<PauseWindow> _viewPresenter;
