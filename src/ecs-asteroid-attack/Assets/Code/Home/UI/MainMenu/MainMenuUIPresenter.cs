@@ -20,11 +20,20 @@ namespace Code.Home.UI.MainMenu
       view.Title.text = ProjectConst.ProjectName;
       view.Version.text = ProjectConst.ProjectVersion;
       view.Play.onClick.AddListener(OnPlayClicked);
+      view.Settings.onClick.AddListener(OnSettingsClicked);
+      view.Credits.onClick.AddListener(OnCreditsClicked);
     }
 
     public void OnDetach(MainMenuUIView view) => 
       view.Play.onClick.RemoveListener(OnPlayClicked);
 
     private void OnPlayClicked() => _stateMachine.Enter<LoadLevelsState>();
+    
+    private void OnCreditsClicked() => _stateMachine.Enter<LoadCreditsState>();
+    
+    private void OnSettingsClicked()
+    {
+      throw new System.NotImplementedException();
+    }
   }
 }

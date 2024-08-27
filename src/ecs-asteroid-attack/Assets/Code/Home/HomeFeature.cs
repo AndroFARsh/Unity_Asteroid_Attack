@@ -8,7 +8,7 @@ namespace Code.Home
   {
     public HomeFeature(ISystemFactory systems)
     {
-      Add(systems.Create<PlayBackgroundMusicSystem>());
+      Add(systems.Create<PlayMenuBackgroundMusicSystem>());
       Add(systems.Create<CleanUpFeature>());
     }
   }

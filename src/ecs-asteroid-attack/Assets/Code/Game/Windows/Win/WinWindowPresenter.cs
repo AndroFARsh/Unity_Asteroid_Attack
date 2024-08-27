@@ -38,17 +38,18 @@ namespace Code.Game.Windows.Win
 
     public void OnAttach(WinWindow view)
     {
+      bool lastLevel = _levelDataProvider.LevelConfig.Number + 1 >= _staticDataService.NumberOfLevels;
+      
       _timeService.Pause();
 
       view.MissionName.text = _levelDataProvider.LevelConfig.Name;
       view.Score.text = _gameHUDService.CurrentScore.ToString();
       view.Exit.onClick.AddListener(OnExitClick);
       view.Next.onClick.AddListener(OnNextClick);
-      if (_levelDataProvider.LevelConfig.Number + 1 >= _staticDataService.NumberOfLevels)
-      {
-        // todo: add cred screen
-        view.Next.interactable = false;
-      }
+      view.Credits.onClick.AddListener(OnCreditsClick);
+      
+      view.Next.gameObject.SetActive(!lastLevel);
+      view.Credits.gameObject.SetActive(lastLevel);
     }
 
     public void OnDetach(WinWindow view)
@@ -71,6 +72,12 @@ namespace Code.Game.Windows.Win
       _stateMachine.Enter<LoadGameState, LevelConfig>(
         _staticDataService.GetLevelConfig(_levelDataProvider.LevelConfig.Number + 1)
       );
+    }
+
+    private void OnCreditsClick()
+    {
+      _windowService.Pop();
+      _stateMachine.Enter<LoadCreditsState>();
     }
   }
 }

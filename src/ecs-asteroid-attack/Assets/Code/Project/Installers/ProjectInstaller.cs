@@ -1,5 +1,6 @@
 using Code.Common.Curtains;
 using Code.Common.View.Factories;
+using Code.Credits.UI.Credits;
 using Code.Game.Abilities.Factories;
 using Code.Game.Armaments.Factories;
 using Code.Game.Cameras.Services;
@@ -36,7 +37,6 @@ using Code.Levels.Services;
 using Code.Levels.UI.Factories;
 using Code.Levels.UI.LevelsButton;
 using Code.Levels.UI.LevelsMenu;
-using Code.Project.States;
 using VContainer;
 using VContainer.Unity;
 
@@ -56,7 +56,6 @@ namespace Code.Project.Installers
       RegisterFactories(builder);
 
       RegisterStateMachine(builder);
-      RegisterStates(builder);
 
       RegisterUIViewPresenters(builder);
       RegisterUIViewServices(builder);
@@ -94,17 +93,6 @@ namespace Code.Project.Installers
     {
       builder.Register<StateResolver>(Lifetime.Singleton).As<IStateResolver>();
       builder.Register<StateMachine>(Lifetime.Singleton).AsImplementedInterfaces();
-    }
-
-    private static void RegisterStates(IContainerBuilder builder)
-    {
-      builder.Register<BootstrapState>(Lifetime.Singleton).AsSelf();
-      builder.Register<LoadHomeState>(Lifetime.Singleton).AsSelf();
-      builder.Register<HomeState>(Lifetime.Singleton).AsSelf();
-      builder.Register<LoadLevelsState>(Lifetime.Singleton).AsSelf();
-      builder.Register<LevelsState>(Lifetime.Singleton).AsSelf();
-      builder.Register<LoadGameState>(Lifetime.Singleton).AsSelf();
-      builder.Register<GameState>(Lifetime.Singleton).AsSelf();
     }
 
     private static void RegisterCommonServices(IContainerBuilder builder)
@@ -145,6 +133,8 @@ namespace Code.Project.Installers
       
       builder.Register<LevelsMenuUIPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
       builder.Register<LevelButtonUIPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
+      
+      builder.Register<CreditsUIPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
       
       builder.Register<GameHUDPresenter>(Lifetime.Singleton).AsImplementedInterfaces();
       builder.Register<PauseWindowPresenter>(Lifetime.Singleton).AsImplementedInterfaces();

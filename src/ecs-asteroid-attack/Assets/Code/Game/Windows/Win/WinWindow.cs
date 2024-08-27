@@ -13,6 +13,7 @@ namespace Code.Game.Windows.Win
     [SerializeField] private TextMeshProUGUI _missionNameText;
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private Button _nextButton;
+    [SerializeField] private Button _creditsButton;
     [SerializeField] private Button _exitButton;
     
     private IUIViewPresenter<WinWindow> _viewPresenter;
@@ -21,6 +22,7 @@ namespace Code.Game.Windows.Win
     public TextMeshProUGUI Score => _scoreText;
     public Button Next => _nextButton;
     public Button Exit => _exitButton;
+    public Button Credits => _creditsButton;
     
     [Inject]
     public void Construct(IUIViewPresenter<WinWindow> viewPresenter)
