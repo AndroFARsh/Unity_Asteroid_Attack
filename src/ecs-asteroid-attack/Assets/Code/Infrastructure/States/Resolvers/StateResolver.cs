@@ -1,17 +1,30 @@
+using System;
+using System.Collections.Generic;
+using Code.Infrastructure.Instantioator;
 using Code.Infrastructure.States.Infrastructure;
-using VContainer;
 
 namespace Code.Infrastructure.States.Resolvers
 {
   class StateResolver : IStateResolver
   {
-    private readonly IObjectResolver _resolver;
-
-    public StateResolver(IObjectResolver resolver)
-    {
-      _resolver = resolver;
-    }
+    private readonly IInstantiator _instantiator;
+    private readonly Dictionary<Type, IState> _states = new();
     
-    public TState Resolve<TState>() where TState : class, IState => _resolver.Resolve<TState>();
+    public StateResolver(IInstantiator instantiator)
+    {
+      _instantiator = instantiator;
+    }
+
+    public TState Resolve<TState>() where TState : class, IState
+    {
+      Type type = typeof(TState);
+      if (!_states.TryGetValue(type, out IState state))
+      {
+        state = _instantiator.Instantiate<TState>();
+        _states.Add(type, state);
+      }
+
+      return state as TState;
+    }
   }
 }

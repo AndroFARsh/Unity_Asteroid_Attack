@@ -12,10 +12,16 @@ namespace Code.Home.UI.MainMenu
     [SerializeField] private TextMeshProUGUI _title;
     [SerializeField] private TextMeshProUGUI _version;
     [SerializeField] private Button _play;
+    [SerializeField] private Button _settings;
+    [SerializeField] private Button _credits;
 
     public TextMeshProUGUI Title => _title;
     public TextMeshProUGUI Version => _version;
     public Button Play => _play;
+    
+    public Button Settings => _settings;
+    
+    public Button Credits => _credits;
     
     private IUIViewPresenter<MainMenuUIView> _viewPresenter;
     

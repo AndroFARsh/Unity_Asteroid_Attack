@@ -3,11 +3,11 @@ using Entitas;
 
 namespace Code.Home.Systems
 {
-  public class PlayBackgroundMusicSystem : IInitializeSystem, ITearDownSystem 
+  public class PlayMenuBackgroundMusicSystem : IInitializeSystem, ITearDownSystem 
   {
     private readonly ISoundService _soundService;
 
-    private PlayBackgroundMusicSystem(ISoundService soundService)
+    private PlayMenuBackgroundMusicSystem(ISoundService soundService)
     {
       _soundService = soundService;
     }
