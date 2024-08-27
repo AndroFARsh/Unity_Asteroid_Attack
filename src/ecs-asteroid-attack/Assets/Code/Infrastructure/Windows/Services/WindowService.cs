@@ -33,8 +33,8 @@ namespace Code.Infrastructure.Windows.Services
         prevWindow.Pause();
       }
 
-      if ((flag | IWindowService.REPLACE_TOP_FLAG) > 0) _stack.TryPop(out WindowName _);
-      if ((flag | IWindowService.CLEAR_STACK_FLAG) > 0) _stack.Clear();
+      if ((flag & IWindowService.REPLACE_TOP_FLAG) > 0) _stack.TryPop(out WindowName _);
+      if ((flag & IWindowService.CLEAR_STACK_FLAG) > 0) _stack.Clear();
 
       IWindow window = GetOrCreateWindow(name);
       window.Resume();
@@ -50,6 +50,12 @@ namespace Code.Infrastructure.Windows.Services
       {
         IWindow window = GetOrCreateWindow(name);
         window.Pause();
+      }
+      
+      if (_stack.TryPeek(out WindowName prevName))
+      {
+        IWindow prevWindow = GetOrCreateWindow(prevName);
+        prevWindow.Resume();
       }
 
       if (_stack.Count == 0) _windowRoot.Hide().Forget();

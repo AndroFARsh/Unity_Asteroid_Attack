@@ -1,6 +1,7 @@
 using Code.Infrastructure.States;
 using Code.Infrastructure.Time;
 using Code.Infrastructure.UI;
+using Code.Infrastructure.Windows;
 using Code.Infrastructure.Windows.Services;
 using Code.Project.States;
 
@@ -27,15 +28,15 @@ namespace Code.Game.Windows.Pause
       _timeService.Pause();
       
       view.Resume.onClick.AddListener(OnResumeClick);
+      view.Settings.onClick.AddListener(OnSettingsClick);
       view.Exit.onClick.AddListener(OnExitClick);
     }
 
     public void OnDetach(PauseWindow view)
     {
       view.Resume.onClick.RemoveListener(OnResumeClick);
+      view.Settings.onClick.RemoveListener(OnSettingsClick);
       view.Exit.onClick.RemoveListener(OnExitClick);
-      
-      _timeService.Resume();
     }
     
     private void OnExitClick()
@@ -48,7 +49,10 @@ namespace Code.Game.Windows.Pause
     
     private void OnResumeClick()
     {
+      _timeService.Resume();
       _windowService.Pop();
     }
+
+    private void OnSettingsClick() => _windowService.Push(WindowName.SettingsWindow);
   }
 }
