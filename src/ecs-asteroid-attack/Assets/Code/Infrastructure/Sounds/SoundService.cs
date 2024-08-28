@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Code.Infrastructure.PersistentData;
 using Code.Infrastructure.Sounds.Factories;
 using Code.Infrastructure.StaticData;
 using Cysharp.Threading.Tasks;
@@ -11,15 +12,16 @@ namespace Code.Infrastructure.Sounds
     private readonly Dictionary<MusicName, AudioSource> _playedMusicSource = new();
     
     private readonly ISoundSourceFactory _sourceFactory;
+    private readonly IPersistentDataProvider _persistentDataProvider;
     private readonly IStaticDataService _staticDataService;
 
-    public float MusicVolume { get; set; } = 1;
-
-    public float FxVolume { get; set; } = 1;
-
-    public SoundService(ISoundSourceFactory sourceFactory, IStaticDataService staticDataService)
+    public SoundService(
+      ISoundSourceFactory sourceFactory, 
+      IPersistentDataProvider persistentDataProvider, 
+      IStaticDataService staticDataService)
     {
       _sourceFactory = sourceFactory;
+      _persistentDataProvider = persistentDataProvider;
       _staticDataService = staticDataService;
     }
 
@@ -35,9 +37,9 @@ namespace Code.Infrastructure.Sounds
       source.Play();
       _playedMusicSource.Add(name, source);
       
-      while(source.volume < MusicVolume)
+      while(source.volume < _persistentDataProvider.SettingsData.MusicVolume)
       {
-        source.volume = Mathf.Min(source.volume + UnityEngine.Time.deltaTime, MusicVolume);
+        source.volume = Mathf.Min(source.volume + UnityEngine.Time.deltaTime, _persistentDataProvider.SettingsData.MusicVolume);
         await UniTask.NextFrame();
       }
     }
@@ -51,18 +53,28 @@ namespace Code.Infrastructure.Sounds
       _playedMusicSource.Remove(name);
     }
     
-    public async void PlayFx(FxName name)
+    public async void PlayEffect(FxName name)
     {
       AudioClip clip = _staticDataService.GetFxClip(name);
       AudioSource source = _sourceFactory.PeekOrCreate();
       source.clip = clip;
       source.loop = false;
-      source.volume = FxVolume;
+      source.volume = _persistentDataProvider.SettingsData.EffectVolume;
       source.gameObject.SetActive(true);
       source.Play();
       
       await UniTask.WaitUntil(() => !source.isPlaying);
       _sourceFactory.Release(source);
+    }
+
+    public void MusicVolumeChanged(float value)
+    {
+      foreach (AudioSource source in _playedMusicSource.Values)
+        source.volume = value;
+    }
+
+    public void EffectVolumeChanged(float value)
+    {
     }
   }
 }

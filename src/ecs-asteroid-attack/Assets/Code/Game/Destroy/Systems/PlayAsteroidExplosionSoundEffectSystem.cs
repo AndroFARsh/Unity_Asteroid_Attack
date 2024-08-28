@@ -17,7 +17,7 @@ namespace Code.Game.Destroy.Systems
     public void Execute()
     {
       foreach (GameEntity _ in _entities)
-        _soundService.PlayFx(FxName.AsteroidExplode);
+        _soundService.PlayEffect(FxName.AsteroidExplode);
     }
   }
 }

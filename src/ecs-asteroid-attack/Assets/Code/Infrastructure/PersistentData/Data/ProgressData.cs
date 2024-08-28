@@ -1,6 +1,6 @@
 using System;
 
-namespace Code.Infrastructure.Progress.Data
+namespace Code.Infrastructure.PersistentData.Data
 {
   [Serializable]
   public class ProgressData
@@ -8,5 +8,7 @@ namespace Code.Infrastructure.Progress.Data
     public int LastScore;
     
     public int CurrentScore;
+
+    public int LastUnlockedLevel;
   }
 }
