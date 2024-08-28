@@ -44,7 +44,7 @@ namespace Code.Game.Abilities.Systems
         {
           ProjectileSpawner spawner = player.ProjectileSpawner;
           
-          _soundService.PlayFx(FxName.ShipShoot);
+          _soundService.PlayEffect(FxName.ShipShoot);
           _armamentFactory.CreateProjectile(spawner.Position, spawner.Direction)
             .AddOwnerId(ability.OwnerId);
         }

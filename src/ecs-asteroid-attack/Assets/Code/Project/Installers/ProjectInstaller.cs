@@ -15,14 +15,16 @@ using Code.Game.Windows.GameOver;
 using Code.Game.Windows.Pause;
 using Code.Game.Windows.Win;
 using Code.Home.UI.MainMenu;
+using Code.Home.Windows.Services;
 using Code.Home.Windows.Settings;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Instantioator;
 using Code.Infrastructure.LifetimeScope.Installers;
+using Code.Infrastructure.PersistentData;
+using Code.Infrastructure.PersistentData.SaveLoad;
 using Code.Infrastructure.Physics;
-using Code.Infrastructure.Progress;
 using Code.Infrastructure.Randoms;
 using Code.Infrastructure.SceneManagement;
 using Code.Infrastructure.Sounds;
@@ -49,9 +51,6 @@ namespace Code.Project.Installers
     {
       RegisterContexts(builder);
       RegisterCurtain(builder);
-
-      RegisterStaticData(builder);
-      RegisterProgressData(builder);
 
       RegisterCommonServices(builder);
       RegisterFactories(builder);
@@ -80,16 +79,6 @@ namespace Code.Project.Installers
         .As<ICurtainService>();
     }
 
-    private static void RegisterProgressData(IContainerBuilder builder)
-    {
-      builder.Register<ProgressDataProvider>(Lifetime.Singleton).As<IProgressDataProvider>().AsSelf();
-    }
-
-    private static void RegisterStaticData(IContainerBuilder builder)
-    {
-      builder.Register<StaticDataService>(Lifetime.Singleton).As<IStaticDataService>();
-    }
-
     private static void RegisterStateMachine(IContainerBuilder builder)
     {
       builder.Register<StateResolver>(Lifetime.Singleton).As<IStateResolver>();
@@ -98,6 +87,11 @@ namespace Code.Project.Installers
 
     private static void RegisterCommonServices(IContainerBuilder builder)
     {
+      builder.Register<StaticDataService>(Lifetime.Singleton).As<IStaticDataService>();
+      
+      builder.Register<PersistentDataProvider>(Lifetime.Singleton).As<IPersistentDataProvider>().AsSelf();
+      builder.Register<SaveLoadService>(Lifetime.Singleton).As<ISaveLoadService>().AsSelf();
+      
       builder.Register<IdProvider>(Lifetime.Singleton).As<IIdProvider>();
       builder.Register<UnityTimeService>(Lifetime.Singleton).As<ITimeService>();
       builder.Register<UnityRandomService>(Lifetime.Singleton).As<IRandomService>();
@@ -147,6 +141,7 @@ namespace Code.Project.Installers
     private static void RegisterUIViewServices(IContainerBuilder builder)
     {
       builder.Register<GameHUDService>(Lifetime.Singleton).AsImplementedInterfaces();
+      builder.Register<SettingsUIService>(Lifetime.Singleton).AsImplementedInterfaces();
     }
 
     private static void RegisterGameplayServices(IContainerBuilder builder)
