@@ -23,8 +23,13 @@ namespace Code.Game.HUD
     public void OnAttach(GameHUDView view)
     {
       _livesWave = () => { view.Lives.text = $"{_service.CurrentLive}/{_service.TotalLive}"; };
-      _scoreWave = () => { view.Score.text = _service.CurrentScore.ToString(); };
-
+      _scoreWave = () =>
+      {
+        view.CurrentScore.text = _service.CurrentScore.ToString();
+        view.PreviousScore.text = _service.PrevScore.ToString();
+        view.MaxScore.text = _service.MaxScore.ToString();
+      };
+      
       _livesWave();
       _scoreWave();
       

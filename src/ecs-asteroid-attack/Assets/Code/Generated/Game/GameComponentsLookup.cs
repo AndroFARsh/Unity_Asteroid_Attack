@@ -54,19 +54,20 @@ public static class GameComponentsLookup {
     public const int GameOver = 43;
     public const int GameOverWindowShown = 44;
     public const int Level = 45;
-    public const int PlayerCurrentLive = 46;
-    public const int PlayerTotalLive = 47;
-    public const int PreviousScore = 48;
-    public const int Win = 49;
-    public const int WinWindowShown = 50;
-    public const int AngularVelocity = 51;
-    public const int CombustionAnimator = 52;
-    public const int Player = 53;
-    public const int PlayerConfig = 54;
-    public const int ProjectileSpawner = 55;
-    public const int Velocity = 56;
+    public const int MaxScore = 46;
+    public const int PlayerCurrentLive = 47;
+    public const int PlayerTotalLive = 48;
+    public const int PreviousScore = 49;
+    public const int Win = 50;
+    public const int WinWindowShown = 51;
+    public const int AngularVelocity = 52;
+    public const int CombustionAnimator = 53;
+    public const int Player = 54;
+    public const int PlayerConfig = 55;
+    public const int ProjectileSpawner = 56;
+    public const int Velocity = 57;
 
-    public const int TotalComponents = 57;
+    public const int TotalComponents = 58;
 
     public static readonly string[] componentNames = {
         "Id",
@@ -115,6 +116,7 @@ public static class GameComponentsLookup {
         "GameOver",
         "GameOverWindowShown",
         "Level",
+        "MaxScore",
         "PlayerCurrentLive",
         "PlayerTotalLive",
         "PreviousScore",
@@ -175,6 +177,7 @@ public static class GameComponentsLookup {
         typeof(Code.Game.Level.GameOverComponent),
         typeof(Code.Game.Level.GameOverWindowShownComponent),
         typeof(Code.Game.Level.LevelComponent),
+        typeof(Code.Game.Level.MaxScoreComponent),
         typeof(Code.Game.Level.PlayerCurrentLiveComponent),
         typeof(Code.Game.Level.PlayerTotalLiveComponent),
         typeof(Code.Game.Level.PreviousScoreComponent),

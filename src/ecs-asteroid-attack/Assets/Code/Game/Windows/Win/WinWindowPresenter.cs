@@ -1,4 +1,5 @@
 using Code.Game.HUD.Services;
+using Code.Infrastructure.PersistentData;
 using Code.Infrastructure.States;
 using Code.Infrastructure.StaticData;
 using Code.Infrastructure.Time;
@@ -7,6 +8,7 @@ using Code.Infrastructure.Windows.Services;
 using Code.Levels.Configs;
 using Code.Levels.Services;
 using Code.Project.States;
+using UnityEngine;
 
 namespace Code.Game.Windows.Win
 {
@@ -18,6 +20,7 @@ namespace Code.Game.Windows.Win
     private readonly IGameHUDService _gameHUDService;
     private readonly ILevelDataProvider _levelDataProvider;
     private readonly IStaticDataService _staticDataService;
+    private readonly IPersistentDataProvider _persistentDataProvider;
 
     public WinWindowPresenter(
       IWindowService windowService,
@@ -25,7 +28,8 @@ namespace Code.Game.Windows.Win
       ITimeService timeService,
       IGameHUDService gameHUDService,
       ILevelDataProvider levelDataProvider,
-      IStaticDataService staticDataService
+      IStaticDataService staticDataService,
+      IPersistentDataProvider persistentDataProvider
     )
     {
       _windowService = windowService;
@@ -34,11 +38,13 @@ namespace Code.Game.Windows.Win
       _gameHUDService = gameHUDService;
       _levelDataProvider = levelDataProvider;
       _staticDataService = staticDataService;
+      _persistentDataProvider = persistentDataProvider;
     }
 
     public void OnAttach(WinWindow view)
     {
-      bool lastLevel = _levelDataProvider.LevelConfig.Number + 1 >= _staticDataService.NumberOfLevels;
+      int nextLevel = _levelDataProvider.LevelConfig.Number + 1;
+      bool lastLevel = nextLevel >= _staticDataService.NumberOfLevels;
       
       _timeService.Pause();
 
@@ -50,6 +56,8 @@ namespace Code.Game.Windows.Win
       
       view.Next.gameObject.SetActive(!lastLevel);
       view.Credits.gameObject.SetActive(lastLevel);
+      
+      UpdateProgressData(nextLevel);
     }
 
     public void OnDetach(WinWindow view)
@@ -62,20 +70,42 @@ namespace Code.Game.Windows.Win
 
     private void OnExitClick()
     {
+      ResetScore();
+
       _windowService.Pop();
       _stateMachine.Enter<LoadHomeState>();
+    }
+
+    private void ResetScore()
+    {
+      _persistentDataProvider.ProgressData.PrevScore = _persistentDataProvider.ProgressData.Score;
+      _persistentDataProvider.ProgressData.Score = 0;
     }
 
     private void OnNextClick()
     {
       _windowService.Pop();
-      _stateMachine.Enter<LoadGameState, LevelConfig>(
-        _staticDataService.GetLevelConfig(_levelDataProvider.LevelConfig.Number + 1)
-      );
+      
+      int nextLevel = _levelDataProvider.LevelConfig.Number + 1;
+      LevelConfig nextLevelConfig = _staticDataService.GetLevelConfig(nextLevel);
+
+      _levelDataProvider.SetCurrentLevel(nextLevelConfig);
+      _stateMachine.Enter<LoadGameState>();
+    }
+
+    private void UpdateProgressData(int nextLevel)
+    {
+      _persistentDataProvider.ProgressData.Score = _gameHUDService.CurrentScore;
+      _persistentDataProvider.ProgressData.MaxScore =
+        Mathf.Max(_persistentDataProvider.ProgressData.MaxScore, _gameHUDService.CurrentScore);
+      _persistentDataProvider.ProgressData.LastUnlockedLevel =
+        Mathf.Max(_persistentDataProvider.ProgressData.LastUnlockedLevel, nextLevel);
     }
 
     private void OnCreditsClick()
     {
+      ResetScore();
+      
       _windowService.Pop();
       _stateMachine.Enter<LoadCreditsState>();
     }

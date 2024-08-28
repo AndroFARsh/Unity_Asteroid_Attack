@@ -24,8 +24,9 @@ namespace Code.Game.Level.Factories
       PlayerConfig config = _staticDataService.GetPlayerConfig();
       return _entityFactory.CreateEntity<GameEntity>()
         .With(e => e.isLevel = true)
-        .AddCurrentScore(0)
-        .AddPreviousScore(_persistentDataProvider.ProgressData?.LastScore ?? 0)
+        .AddCurrentScore(_persistentDataProvider.ProgressData.Score)
+        .AddPreviousScore(_persistentDataProvider.ProgressData.PrevScore)
+        .AddMaxScore(_persistentDataProvider.ProgressData.MaxScore)
         .AddPlayerTotalLive(config.MaxLives)
         .AddPlayerCurrentLive(config.MaxLives)
         ;

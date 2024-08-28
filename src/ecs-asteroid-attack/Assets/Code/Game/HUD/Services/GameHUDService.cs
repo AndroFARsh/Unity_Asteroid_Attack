@@ -7,10 +7,14 @@ namespace Code.Game.HUD.Services
   {
     public event Action ScoreChanged;
     public int CurrentScore { get; private set; }
+    public int PrevScore { get; private set; }
+    public int MaxScore { get; private set; }
     
-    public void UpdateScore(int score)
+    public void UpdateScore(int score, int prev, int max)
     {
       CurrentScore = Mathf.Max(0, score);
+      PrevScore = Mathf.Max(0, prev);
+      MaxScore = Mathf.Max(score, max);
       ScoreChanged?.Invoke();
     }
     
