@@ -41,9 +41,8 @@ namespace Code.Common.View.Factories
 
     private IEntityView CreateEntityView(IEntity entity, EntityViewBehaviour prefab)
     {
-      string poolKey = AssetDatabase.GetAssetPath(prefab);
-      
-      if (!_pool.TryRetain(poolKey, out IEntityView view))
+      string poolKey = prefab.GetInstanceID().ToString(); 
+      git if (!_pool.TryRetain(poolKey, out IEntityView view))
       {
         view = _objectResolver.Instantiate(prefab,
           position: _farAway,
