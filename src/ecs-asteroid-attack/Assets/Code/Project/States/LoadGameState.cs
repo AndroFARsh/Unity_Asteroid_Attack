@@ -6,7 +6,7 @@ using Code.Levels.Services;
 
 namespace Code.Project.States
 {
-  public class LoadGameState : PayloadState<LevelConfig>
+  public class LoadGameState : NoPayloadState
   {
     private readonly IStateMachine _stateMachine;
     private readonly ISceneLoader _sceneLoader;
@@ -19,10 +19,9 @@ namespace Code.Project.States
       _levelDataProvider = levelDataProvider;
     }
 
-    protected override async void OnEnter(LevelConfig config)
+    protected override async void OnEnter()
     {
-      await _sceneLoader.LoadSceneAsync(config.SceneName);
-      _levelDataProvider.SetCurrentLevel(config);
+      await _sceneLoader.LoadSceneAsync(_levelDataProvider.SceneName);
       _stateMachine.Enter<GameState>();
     }
   }

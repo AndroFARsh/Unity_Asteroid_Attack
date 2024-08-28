@@ -12,13 +12,21 @@ namespace Code.Game.HUD.Systems
     {
       _gameHUDService = gameHUDService;
       _entities = game.GetGroup(
-        GameMatcher.AllOf(GameMatcher.Level, GameMatcher.CurrentScore));
+        GameMatcher.AllOf(
+          GameMatcher.Level, 
+          GameMatcher.CurrentScore, 
+          GameMatcher.PreviousScore, 
+          GameMatcher.MaxScore));
     }
 
     public void Execute()
     {
       foreach (GameEntity entity in _entities)
-        _gameHUDService.UpdateScore(entity.CurrentScore);
+      {
+        if (entity.CurrentScore > entity.MaxScore) entity.ReplaceMaxScore(entity.CurrentScore);
+
+        _gameHUDService.UpdateScore(entity.CurrentScore, entity.PreviousScore, entity.MaxScore);
+      }
     }
   }
 }

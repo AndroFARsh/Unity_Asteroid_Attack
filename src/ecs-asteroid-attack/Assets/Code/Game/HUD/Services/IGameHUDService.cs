@@ -6,8 +6,10 @@ namespace Code.Game.HUD.Services
   {
     event Action ScoreChanged;
     int CurrentScore { get; }
-    
-    void UpdateScore(int score);
+    int MaxScore { get; }
+    int PrevScore { get; }
+
+    void UpdateScore(int score, int prev, int max);
     
     event Action LiveChanged;
     int CurrentLive { get; }

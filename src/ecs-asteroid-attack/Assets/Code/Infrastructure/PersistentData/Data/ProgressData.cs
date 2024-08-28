@@ -5,10 +5,12 @@ namespace Code.Infrastructure.PersistentData.Data
   [Serializable]
   public class ProgressData
   {
-    public int LastScore;
+    public int Score;
     
-    public int CurrentScore;
-
+    public int MaxScore;
+    
+    public int PrevScore;
+    
     public int LastUnlockedLevel;
   }
 }

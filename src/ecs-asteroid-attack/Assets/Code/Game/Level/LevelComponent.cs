@@ -12,6 +12,8 @@ namespace Code.Game.Level
   
   [Game] public class WinWindowShownComponent : IComponent { }
   
+  [Game] public class MaxScoreComponent : IComponent { public int Value; }
+  
   [Game] public class PreviousScoreComponent : IComponent { public int Value; }
   
   [Game] public class CurrentScoreComponent : IComponent { public int Value; }

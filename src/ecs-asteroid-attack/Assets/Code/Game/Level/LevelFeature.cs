@@ -11,6 +11,7 @@ namespace Code.Game.Level
       Add(systems.Create<SpawnPlayerSystem>());
       Add(systems.Create<DetectWinSystem>());
       Add(systems.Create<PlayBackgroundMusicSystem>());
+      Add(systems.Create<SaveProgressDataSystem>());
     }
   }
 }
