@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dccd64a9e62d41d8acb3176461ed3d8a, type: 3}
-  m_Name: Level_03_Mars_Config
+  m_Name: Level_04_Jupiter_Config
   m_EditorClassIdentifier: 
-  Number: 2
-  Name: '[ Mars ]'
+  Number: 3
+  Name: '[ Jupiter ]'
   SceneName: Game
   PlayerSpawnPoint: {x: 0, y: 0, z: 0}
   WavesSetup:
   - Hostiles:
     - Name: 2
-      Probability: 0.5
+      Probability: 0.9
     - Name: 1
       Probability: 1
     Cooldown: 1
     MaxAlive: 3
-    Total: 3
+    Total: 5

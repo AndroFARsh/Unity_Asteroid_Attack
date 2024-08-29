@@ -16,5 +16,7 @@ namespace Code.Home.Windows.Services
     
     void Reset();
     void Apply();
+
+    void ResetProgress();
   }
 }
