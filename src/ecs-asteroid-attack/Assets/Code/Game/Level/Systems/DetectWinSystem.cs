@@ -23,7 +23,10 @@ namespace Code.Game.Level.Systems
       if (_hostileSpawnerEntities.IsNotEmpty() || _hostileEntities.IsNotEmpty() || _playerEntities.IsEmpty()) return;
 
       foreach (GameEntity entity in _levelEntities)
+      {
         entity.isWin = true;
+        entity.isPause = true;
+      }
     }
   }
 }

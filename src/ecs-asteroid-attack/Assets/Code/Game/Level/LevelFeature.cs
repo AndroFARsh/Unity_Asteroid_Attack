@@ -10,7 +10,17 @@ namespace Code.Game.Level
       Add(systems.Create<InitLevelSystem>());
       Add(systems.Create<SpawnPlayerSystem>());
       Add(systems.Create<DetectWinSystem>());
+      Add(systems.Create<UnlockNextLevelSystem>());
       Add(systems.Create<PlayBackgroundMusicSystem>());
+
+      Add(systems.Create<PauseGameSystem>());
+      Add(systems.Create<ResumeGameSystem>());
+      
+      Add(systems.Create<NavigateSystem>());
+
+      Add(systems.Create<UpdateProgressDataOnGameOverSystem>());
+      Add(systems.Create<UpdateProgressDataOnWinSystem>());
+      Add(systems.Create<ResetTimeServiceSystem>());
       Add(systems.Create<SaveProgressDataSystem>());
     }
   }

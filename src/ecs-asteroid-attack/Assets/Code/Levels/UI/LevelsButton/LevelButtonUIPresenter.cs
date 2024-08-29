@@ -34,16 +34,16 @@ namespace Code.Levels.UI.LevelsButton
       LevelConfig levelConfig = _staticDataService.GetLevelConfig(view.Level);
       view.Title.text = levelConfig.Name;
       view.Subtitle.text = $"Level {levelConfig.Number+1}";
-      view.Button.onClick.AddListener(() => { OnLevelButtonClick(levelConfig); });
+      view.Button.onClick.AddListener(() => { OnLevelButtonClick(levelConfig.Number); });
 
       view.Button.interactable = levelConfig.Number <= _persistentDataProvider.ProgressData.LastUnlockedLevel;
     }
 
     public void OnDetach(LevelButtonUIView view) => view.Button.onClick.RemoveAllListeners();
 
-    private void OnLevelButtonClick(LevelConfig config)
+    private void OnLevelButtonClick(int level)
     {
-      _levelDataProvider.SetCurrentLevel(config);
+      _levelDataProvider.SetCurrentLevel(level);
       _stateMachine.Enter<LoadGameState>();
     }
   }

@@ -1,22 +1,22 @@
 using System;
 using Code.Game.HUD.Services;
+using Code.Game.Level;
+using Code.Infrastructure.EntityFactories;
 using Code.Infrastructure.UI;
-using Code.Infrastructure.Windows;
-using Code.Infrastructure.Windows.Services;
 
 namespace Code.Game.HUD
 {
   public class GameHUDPresenter : IUIViewPresenter<GameHUDView>
   {
-    private readonly IWindowService _windowService;
+    private readonly IEntityFactory _entityFactory;
     private readonly IGameHUDService _service;
     
     private Action _livesWave;
     private Action _scoreWave;
     
-    GameHUDPresenter(IWindowService windowService, IGameHUDService service)
+    GameHUDPresenter(IEntityFactory entityFactory, IGameHUDService service)
     {
-      _windowService = windowService;
+      _entityFactory = entityFactory;
       _service = service;
     }
 
@@ -50,6 +50,7 @@ namespace Code.Game.HUD
       _scoreWave = null;
     }
 
-    private void OnMenuButton() => _windowService.Push(WindowName.PauseWindow);
+    private void OnMenuButton() => _entityFactory.CreateEntity<GameEntity>()
+      .AddRoute(RouteName.Pause);
   }
 }

@@ -44,7 +44,6 @@ namespace Code.Project.States
 
       MarkAllEntitiesReadyToDestroy();
 
-      _feature.Cleanup();
       _feature.TearDown();
       _feature = null;
     }
