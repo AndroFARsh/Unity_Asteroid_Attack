@@ -1,5 +1,6 @@
 using System;
 using Code.Infrastructure.PersistentData;
+using Code.Infrastructure.PersistentData.Data;
 using Code.Infrastructure.Sounds;
 using UnityEngine;
 
@@ -50,5 +51,7 @@ namespace Code.Home.Windows.Services
       _persistentDataProvider.SettingsData.MusicVolume = CurrentMusicVolume;
       _persistentDataProvider.SettingsData.EffectVolume = CurrentEffectVolume;
     }
+
+    public void ResetProgress() => _persistentDataProvider.SetProgressData(new ProgressData());
   }
 }

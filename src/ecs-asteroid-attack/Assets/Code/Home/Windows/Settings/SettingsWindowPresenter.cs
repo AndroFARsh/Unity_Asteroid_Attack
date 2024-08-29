@@ -31,12 +31,14 @@ namespace Code.Home.Windows.Settings
       view.EffectVolume.value = _settingsUIService.CurrentEffectVolume;
       view.EffectVolume.onValueChanged.AddListener(OnEffectVolumeChanged);
       
+      view.ResetProgress.onClick.AddListener(OnResetProgressClick);
       view.Save.onClick.AddListener(OnSaveClick);
       view.Back.onClick.AddListener(OnBackClick); 
     }
-    
+
     public void OnDetach(SettingsWindow view)
     {
+      view.ResetProgress.onClick.RemoveListener(OnResetProgressClick);
       view.Save.onClick.RemoveListener(OnSaveClick);
       view.Back.onClick.RemoveListener(OnBackClick);
     }
@@ -59,5 +61,14 @@ namespace Code.Home.Windows.Settings
       _settingsUIService.Apply();
       _saveLoadService.SaveSettings();
     }
+    
+    
+    private void OnResetProgressClick()
+    {
+      _windowService.Pop();
+      _settingsUIService.ResetProgress();
+      _saveLoadService.SaveProgress();
+    }
+
   }
 }

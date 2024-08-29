@@ -1,7 +1,5 @@
-using Code.Game.Windows.Win;
 using Code.Infrastructure.UI;
 using Code.Infrastructure.Windows;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
@@ -12,6 +10,7 @@ namespace Code.Home.Windows.Settings
   {
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _effectSlider;
+    [SerializeField] private Button _resetProgressButton;
     
     [SerializeField] private Button _backButton;
     [SerializeField] private Button _saveButton;
@@ -20,7 +19,7 @@ namespace Code.Home.Windows.Settings
 
     public Slider MusicVolume => _musicSlider;
     public Slider EffectVolume => _effectSlider;
-    
+    public Button ResetProgress => _resetProgressButton;
     public Button Back => _backButton;
     public Button Save => _saveButton;
     
