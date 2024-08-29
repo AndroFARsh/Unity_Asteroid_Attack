@@ -12,22 +12,20 @@ public static class InputComponentsLookup {
     public const int ReadyToCleanUp = 1;
     public const int SelfDestroyTimer = 2;
     public const int View = 3;
-    public const int ViewDDD = 4;
-    public const int ViewPath = 5;
-    public const int ViewPrefab = 6;
-    public const int Fire = 7;
-    public const int Input = 8;
-    public const int Throttle = 9;
-    public const int Yaw = 10;
+    public const int ViewPath = 4;
+    public const int ViewPrefab = 5;
+    public const int Fire = 6;
+    public const int Input = 7;
+    public const int Throttle = 8;
+    public const int Yaw = 9;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Id",
         "ReadyToCleanUp",
         "SelfDestroyTimer",
         "View",
-        "ViewDDD",
         "ViewPath",
         "ViewPrefab",
         "Fire",
@@ -41,7 +39,6 @@ public static class InputComponentsLookup {
         typeof(Code.Common.ReadyToCleanUpComponent),
         typeof(Code.Common.SelfDestroyTimerComponent),
         typeof(Code.Common.ViewComponent),
-        typeof(Code.Common.ViewDDDComponent),
         typeof(Code.Common.ViewPathComponent),
         typeof(Code.Common.ViewPrefabComponent),
         typeof(Code.Game.Input.FireComponent),

@@ -1,4 +1,5 @@
 using Code.Game.Level.Factories;
+using Code.Infrastructure.Time;
 using Entitas;
 
 namespace Code.Game.Level.Systems
@@ -14,4 +15,5 @@ namespace Code.Game.Level.Systems
 
     public void Initialize() => _factory.CreateInfo();
   }
+  
 }

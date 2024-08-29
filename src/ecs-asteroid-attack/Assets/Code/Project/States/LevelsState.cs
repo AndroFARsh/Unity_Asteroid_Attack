@@ -1,5 +1,4 @@
 using Code.Common.Curtains;
-using Code.Home;
 using Code.Infrastructure.States.Infrastructure;
 using Code.Infrastructure.Systems;
 using Code.Levels;
@@ -44,8 +43,7 @@ namespace Code.Project.States
       _feature.ClearReactiveSystems();
 
       MarkAllEntitiesReadyToDestroy();
-
-      _feature.Cleanup();
+      
       _feature.TearDown();
       _feature = null;
     }

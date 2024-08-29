@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherWinWindowShown;
+    static Entitas.IMatcher<GameEntity> _matcherMenuButtonPressed;
 
-    public static Entitas.IMatcher<GameEntity> WinWindowShown {
+    public static Entitas.IMatcher<GameEntity> MenuButtonPressed {
         get {
-            if (_matcherWinWindowShown == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.WinWindowShown);
+            if (_matcherMenuButtonPressed == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.MenuButtonPressed);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherWinWindowShown = matcher;
+                _matcherMenuButtonPressed = matcher;
             }
 
-            return _matcherWinWindowShown;
+            return _matcherMenuButtonPressed;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Game.Level.WinWindowShownComponent winWindowShownComponent = new Code.Game.Level.WinWindowShownComponent();
+    static readonly Code.Game.Level.MenuButtonPressedComponent menuButtonPressedComponent = new Code.Game.Level.MenuButtonPressedComponent();
 
-    public bool isWinWindowShown {
-        get { return HasComponent(GameComponentsLookup.WinWindowShown); }
+    public bool isMenuButtonPressed {
+        get { return HasComponent(GameComponentsLookup.MenuButtonPressed); }
         set {
-            if (value != isWinWindowShown) {
-                var index = GameComponentsLookup.WinWindowShown;
+            if (value != isMenuButtonPressed) {
+                var index = GameComponentsLookup.MenuButtonPressed;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : winWindowShownComponent;
+                            : menuButtonPressedComponent;
 
                     AddComponent(index, component);
                 } else {

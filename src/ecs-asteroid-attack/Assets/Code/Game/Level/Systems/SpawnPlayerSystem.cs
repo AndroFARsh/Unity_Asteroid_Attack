@@ -44,8 +44,14 @@ namespace Code.Game.Level.Systems
         if (entity.PlayerCurrentLive >= 0)
           SpawnPlayer();
         else
-          entity.isGameOver = true;
+          GameOver(entity);
       }
+    }
+
+    private void GameOver(GameEntity entity)
+    {
+      entity.isGameOver = true;
+      entity.isPause = true;
     }
 
     private void SpawnPlayer()

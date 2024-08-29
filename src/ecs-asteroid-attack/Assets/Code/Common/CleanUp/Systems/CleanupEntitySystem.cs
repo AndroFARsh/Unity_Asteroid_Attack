@@ -4,7 +4,7 @@ using Entitas;
 
 namespace Code.Common.CleanUp.Systems
 {
-  public class CleanupEntitySystem<TEntity> : ICleanupSystem 
+  public class CleanupEntitySystem<TEntity> : ICleanupSystem, ITearDownSystem
     where TEntity : class, IEntity
   {
     private readonly IGroup<TEntity> _entities;
@@ -15,7 +15,11 @@ namespace Code.Common.CleanUp.Systems
       _entities = factory.BuildGroup<TEntity>().With<ReadyToCleanUpComponent>().Build();
     }
 
-    public void Cleanup()
+    public void Cleanup() => ProcessCleanup();
+
+    public void TearDown() => ProcessCleanup();
+
+    private void ProcessCleanup()
     {
       foreach (TEntity entity in _entities.GetEntities(_buffer))
         entity.Destroy();

@@ -8,9 +8,11 @@ namespace Code.Levels.Services
     Vector3 PlayerSpawnPoint { get; }
 
     string SceneName { get; }
+    
+    int LevelIndex { get; }
 
     LevelConfig LevelConfig { get; }
     
-    void SetCurrentLevel(LevelConfig config);
+    void SetCurrentLevel(int level);
   }
 }

@@ -2,11 +2,10 @@ using System.Collections.Generic;
 using Code.Common.View.Factories;
 using Code.Infrastructure.EntityFactories;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Common.CleanUp.Systems
 {
-  public class CleanupEntityViewSystem<TEntity> : ICleanupSystem
+  public class CleanupEntityViewSystem<TEntity> : ICleanupSystem, ITearDownSystem
     where TEntity : class, IEntity
   {
     private readonly IEntityViewFactory _viewFactory;
@@ -23,7 +22,11 @@ namespace Code.Common.CleanUp.Systems
           .Build();
     }
 
-    public void Cleanup()
+    public void Cleanup() => ProcessCleanup();
+
+    public void TearDown() => ProcessCleanup();
+
+    private void ProcessCleanup()
     {
       foreach (TEntity entity in _entities.GetEntities(_buffer))
       {

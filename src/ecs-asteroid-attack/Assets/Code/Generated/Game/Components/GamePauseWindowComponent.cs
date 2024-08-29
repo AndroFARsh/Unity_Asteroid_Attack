@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameOverWindowShown;
+    static Entitas.IMatcher<GameEntity> _matcherPauseWindow;
 
-    public static Entitas.IMatcher<GameEntity> GameOverWindowShown {
+    public static Entitas.IMatcher<GameEntity> PauseWindow {
         get {
-            if (_matcherGameOverWindowShown == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameOverWindowShown);
+            if (_matcherPauseWindow == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.PauseWindow);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherGameOverWindowShown = matcher;
+                _matcherPauseWindow = matcher;
             }
 
-            return _matcherGameOverWindowShown;
+            return _matcherPauseWindow;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Game.Level.GameOverWindowShownComponent gameOverWindowShownComponent = new Code.Game.Level.GameOverWindowShownComponent();
+    static readonly Code.Game.Level.PauseWindowComponent pauseWindowComponent = new Code.Game.Level.PauseWindowComponent();
 
-    public bool isGameOverWindowShown {
-        get { return HasComponent(GameComponentsLookup.GameOverWindowShown); }
+    public bool isPauseWindow {
+        get { return HasComponent(GameComponentsLookup.PauseWindow); }
         set {
-            if (value != isGameOverWindowShown) {
-                var index = GameComponentsLookup.GameOverWindowShown;
+            if (value != isPauseWindow) {
+                var index = GameComponentsLookup.PauseWindow;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : gameOverWindowShownComponent;
+                            : pauseWindowComponent;
 
                     AddComponent(index, component);
                 } else {

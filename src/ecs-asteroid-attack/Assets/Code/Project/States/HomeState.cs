@@ -43,8 +43,7 @@ namespace Code.Project.States
       _feature.ClearReactiveSystems();
 
       MarkAllEntitiesReadyToDestroy();
-
-      _feature.Cleanup();
+      
       _feature.TearDown();
       _feature = null;
     }
